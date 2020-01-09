@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <!--
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        -->
+        <link rel="stylesheet" href="{% static 'blog/main.css' %}">
+        
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+
+        {% if title %}
+            <title>Kevin's Blog - {{ title }}</title>
+        {% else %}
+            <title>Kevin's Blog</title>
+        {% endif %}
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <img class="sidebar-img rounded-circle" src="{{ user.profile.image.url }}">
+                    <h3>Kevin Andrews</h3>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <li>
+                        <a class="" href="/"><i class="fas fa-home fa-fw"></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'blog-home' %}"><i class="fas fa-book fa-fw"></i> Blog</a>
+                    </li>
+                    <li>
+                        <a href="#projectsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <i class="fas fa-project-diagram fa-fw"></i> Projects
+                        </a>
+                        <ul class="collapse list-unstyled" id="projectsSubmenu">
+                            <li>
+                                <a href="#">Project 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Project 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Project 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a class="list-unstyled" href="{% url 'post-create' %}"><i class="fas fa-pencil-alt fa-fw"></i> New Post</a>
+                    </li>
+                    <li>
+                        <a class="list-unstyled" href="{% url 'profile' %}"><i class="fas fa-user fa-fw"></i> Profile</a>
+                    </li>
+                    <li>                        
+                        <a class="list-unstyled" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt fa-fw"></i> Logout</a>
+                    </li>
+                    {% else %}
+                    <li>                        
+                        <a class="list-unstyled" href="{% url 'login' %}"><i class="fas fa-sign-in-alt fa-fw"></i> Login</a>
+                    </li>
+                    <li> 
+                        <a class="list-unstyled" href="{% url 'login' %}"><i class="fas fa-user-plus fa-fw"></i> Register</a>
+                    </li>       
+                    {% endif %}
+                </ul>
+                <nav class="sidebar-button">
+                    <div class="container-fluid">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info">
+                            <i class="fas fa-align-left"></i>
+                            <span>Sidebar</span>
+                        </button>
+                    </div>
+                </nav>
+                
+            </nav>
+
+            <main id="content" role="main">
+                
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class='alert alert-{{ message.tags }}'>
+                                    {{ message}}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        {% block content %}{% endblock %}
+                    </div>
+                    <div class="col-md-4">
+                    <div class="content-section">
+                        <h3>Our Sidebar</h3>
+                        <p class='text-muted'>You can put any information here you'd like.
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-light">Latest Posts</li>
+                            <li class="list-group-item list-group-item-light">Announcements</li>
+                            <li class="list-group-item list-group-item-light">Calendars</li>
+                            <li class="list-group-item list-group-item-light">etc</li>
+                        </ul>
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+
+        
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>
+    </body>
+</html>

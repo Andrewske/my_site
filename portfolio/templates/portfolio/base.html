@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        
+        <!--JQuery CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" rel="stylesheet">  
+
+        <!-- portfolio/main CSS-->
+        <link rel="stylesheet" href="{% static 'portfolio/main.css' %}">
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/solid.css" integrity="sha384-9AfJF7pZ+RYk3wXpf8ge6fc3XhPaW3Xl57Qj/mSzPckn9Tu8zJ9qUipWq+/utX20" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/brands.css" integrity="sha384-ouytoyjvzHVJu1m+KEtJ+2Ys+WFsXUlknprEuQAUs62XNn0shj9U2QeTwdJQmPR1" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/fontawesome.css" integrity="sha384-VoScp22LWX8GkkUAmdkkkj+rz+/r84lmCD6FALIryJxjwBSz6kE6oebSlamQx19e" crossorigin="anonymous">    
+
+         
+        {% if title %}
+            <title>Kevin's Blog - {{ title }}</title>
+        {% else %}
+            <title>Kevin's Blog</title>
+        {% endif %}
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <div class="overlay"></div>
+             
+                 <!-- Sidebar -->
+             <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
+              <ul class="nav sidebar-nav">
+                <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <img class="sidebar-img rounded-circle" src="/media/profile_pics/me.jpg" alt="Kevin Andrews">
+                    <a href="#">Kevin Andrews</a></div></div>
+                <li><a href="{% url 'portfolio-home' %}">Home</a></li>
+                <li><a href="{% url 'portfolio-home' %}#about">About</a></li>
+                <li><a href="{% url 'portfolio-home' %}#technologies">Technologies</a></li>
+                <li><a href="{% url 'blog-home' %}">Blog</a></li>
+                <li class="dropdown">
+                <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Projects<span class="caret"></span></a>
+              <ul class="dropdown-menu animated fadeInLeft" role="menu">
+               <div class="dropdown-header">Coming Soon!</div>
+               <li><a href="#pictures">HPLtoPIN</a></li>
+               <li><a href="#videos">Music Organizer</a></li>
+               </ul>
+               </li>
+               <li><a href="#contact">Contact</a></li>
+               </ul>
+           </nav>
+                 <!-- /#sidebar-wrapper -->
+         
+                 <!-- Page Content -->
+                 <div id="page-content-wrapper">
+                     <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
+                         <span class="hamb-top"></span>
+                         <span class="hamb-middle"></span>
+                         <span class="hamb-bottom"></span>
+                     </button>
+                     {% block content %}{% endblock %}
+                 </div>
+                 <!-- /#page-content-wrapper -->
+         
+        </div>
+        <!-- /#wrapper -->
+
+        
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script> 
+        
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var trigger = $('.hamburger'),
+                    overlay = $('.overlay'),
+                    isClosed = false;
+
+                    trigger.click(function () {
+                    hamburger_cross();      
+                    });
+
+                    function hamburger_cross() {
+
+                    if (isClosed == true) {          
+                        overlay.hide();
+                        trigger.removeClass('is-open');
+                        trigger.addClass('is-closed');
+                        isClosed = false;
+                    } else {   
+                        overlay.show();
+                        trigger.removeClass('is-closed');
+                        trigger.addClass('is-open');
+                        isClosed = true;
+                    }
+                }
+                
+                $('[data-toggle="offcanvas"]').click(function () {
+                        $('#wrapper').toggleClass('toggled');
+                });  
+                });
+
+            $(document).ready(function(){
+                $("img").each(function(){
+                    $(this).attr("title", $(this).attr("alt"));
+                });
+            });
+
+            $('tbody').sortable();
+        </script>
+
+    </body>
+</html>

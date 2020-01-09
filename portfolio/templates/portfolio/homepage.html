@@ -1,0 +1,127 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<div class="container homepage"> 
+    <div class="row">
+        <div class="p-4 d-table welcome-message col-12 jumbotron jumbotron-fluid">
+            <span class="d-table-cell align-middle">
+                <div class="display-1 text-white">Hello,</div>
+                <div class="display-1 text-white">I am Kevin</div>
+                <ul class="text-white">
+                    <li>Data Analysis</li>
+                    <li>Full Stack Developement</li>
+                    <li>Project Management</li>
+                    <li>Marketing</li>
+                </ul>
+                <div class="icons">
+                    <a href="https://github.com/Andrewske"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/andrewskevin92/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://medium.com/@kevin_90260"><i class="fab fa-medium"></i></a>
+                    <a href="https://www.facebook.com/kevinbigfoot"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/Andrewskevin92"><i class="fab fa-twitter"></i></a>
+                    <a href="weixin://dl/chat?andrewske"><i class="fab fa-weixin"></i></a>
+                    <a href="https://open.spotify.com/user/kevinbigfoot?si=vEi-Fcr5Tp2e0gzXtJtvPQ"><i class="fab fa-spotify"></i></a>
+                    <a href="https://soundcloud.com/kevinbigfoot"><i class="fab fa-soundcloud"></i></a>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    <div class="row homepage-header" id="about">
+        <div class="col-12">
+            <p class="display-3">About</p>
+        </div>
+    </div>
+    <div class="row homepage-section">
+        <div class="col-xs-12 col-md-6 m-auto">
+            <img class="img-fluid" src="/media/me_great_wall.jpg" alt="">
+        </div>
+        <div class="col-xs-12 col-md-6 m-auto pt-4">
+            <p>Since graduating college in June of 2016, I have been working for a company called Bonanza; 
+                highest recommended ecommerce website since 2013 by sellers. I started as a Happiness Producer
+                (support agent) and after one year was promoted to Marketing Project Manager. While at Bonanza,
+                our CEO, Bill Harding, started working on two additional projects; Gitclear(a developer productivity platform),
+                and Amplenote(a notetaking software). I have also helped on these projects with both Project Management
+                and Marketing projects.
+            </p>
+            <p>
+                While at Bonanza, I started to learn Python for Data Analysis to assist in planning and analyzing marketing projects.
+                I also learned to query the database and became the goto contact to handle these requests from the entire team. Through
+                this learning I developed a passion for solving problems through programming. I have since developed these skills with
+                the goal of transitioning to a software developement role.
+            </p>
+            <a href="/about">Read More >>></a>
+        </div>
+    </div>
+
+    <div class="row homepage-header" id="technologies">
+        <div class="col-12">
+            <p class="display-3">Technologies</p>
+            <p>Software and programming languages I have experience with. Rated by my comfort level</p>
+        </div>
+    </div>
+    <div class="row homepage-section">
+        <div class="col">
+            <div class="row homepage-tech-row d-flex text-center justify-content-between">
+                <h1 class="col tech-logo text-left mt-4 display-3">5</h1>
+                {% for tech in technologies %}
+                    {% if tech.comfort == 5 %}
+                        <div class="col m-auto">
+                            <img class="img-fluid tech-logo" src="{{ tech.image.url }}" alt="{{ tech.title }}">
+                            
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="row homepage-tech-row d-flex text-center justify-content-between">
+                <h1 class="col tech-logo text-left mt-4 display-3">4</h1>
+                {% for tech in technologies %}
+                    {% if tech.comfort == 4 %}
+                        <div class="col m-auto">
+                            <img class="img-fluid tech-logo" src="{{ tech.image.url }}" alt="{{ tech.title }}">
+                            
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="row homepage-tech-row d-flex text-center justify-content-between">
+                <h1 class="col tech-logo text-left mt-4 display-3">3</h1>
+                {% for tech in technologies %}
+                    {% if tech.comfort == 3 %}
+                        <div class="col m-auto">
+                            <img class="img-fluid tech-logo" src="{{ tech.image.url }}" alt="{{ tech.title }}">
+                            
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="row homepage-tech-row d-flex text-center justify-content-between">
+                <h1 class="col tech-logo text-left mt-4 display-3">2</h1>
+                {% for tech in technologies %}
+                    {% if tech.comfort == 2 %}
+                        <div class="col m-auto">
+                            <img class="img-fluid tech-logo" src="{{ tech.image.url }}" alt="{{ tech.title }}">
+                            
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="row homepage-tech-row d-flex text-center justify-content-between">
+                <h1 class="col tech-logo text-left mt-4 display-3">1</h1>
+                {% for tech in technologies %}
+                    {% if tech.comfort == 1 %}
+                        <div class="col m-auto">
+                            <img class="img-fluid tech-logo" src="{{ tech.image.url }}" alt="{{ tech.title }}">
+                            
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

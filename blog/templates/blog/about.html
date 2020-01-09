@@ -1,0 +1,56 @@
+<html lang="en">
+    <head>
+        <title>Jquery Table Row Draggable and Sortable</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" rel="stylesheet">   
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script> 
+        
+    </head>
+    <body>
+    <div class="container">
+         <h2>Jquery Table Row Draggable and Sortable</h2>
+         <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Course</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>1</td>
+                  <td><a href="http://www.expertphp.in/tutorials/1/php">PHP</a></td>
+                  <td>Learn online PHP course </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td><a href="http://www.expertphp.in/tutorials/5/css">CSS</a></td>
+                  <td>Learn online CSS course</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td><a href="http://www.expertphp.in/tutorials/6/javascript">JS</a></td>
+                  <td>Learn online JS course</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td><a href="http://www.expertphp.in/tutorials/12/seo">SEO</a></td>
+                  <td>Learn online SEO course</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td><a href="http://www.expertphp.in/tutorials/2/mysql">MySQL</a></td>
+                  <td>Learn online MySQL course</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>    
+    <script type="text/javascript">
+      $('tbody').sortable();
+    </script>
+    </body>
+    </html>
+
+

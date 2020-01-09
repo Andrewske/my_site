@@ -1,0 +1,18 @@
+{% extends "portfolio/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group contact-form">
+                <legend class="border-bottom mb-4">Contact Me</legend>
+                {{ form|crispy }}
+            
+            <div class="form-group">
+                <button class="btn contact-button" type="submit">Send</button>
+            </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}
