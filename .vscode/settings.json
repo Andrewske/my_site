@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "c:\\Users\\kevin\\Documents\\my_site\\portfolio_site\\Scripts\\python.exe"
+    "python.pythonPath": "c:\\Users\\kevin\\Documents\\my_site\\portfolio_site\\Scripts\\python.exe",
+    "git.ignoreLimitWarning": true
 }
