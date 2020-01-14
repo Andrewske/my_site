@@ -29,7 +29,7 @@ SECRET_KEY = secrets.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['andrewske-portfolio-site.appspot.com']
+ALLOWED_HOSTS = ['andrewske-portfolio-site.appspot.com', 'kevinandrews.info', 'www.kevinandrews.info']
 
 
 # Application definition
