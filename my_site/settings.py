@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = secrets.SECRET_KEY
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in produpythonction!
 DEBUG = True
 
 ALLOWED_HOSTS = ['andrewske-portfolio-site.appspot.com', 'kevinandrews.info', 'www.kevinandrews.info']
@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['andrewske-portfolio-site.appspot.com', 'kevinandrews.info', 'w
 # Application definition
 
 INSTALLED_APPS = [
+    'hpltopin.apps.HpltopinConfig',
     'portfolio.apps.PortfolioConfig',
     'users.apps.UsersConfig',
     'blog.apps.BlogConfig',
