@@ -17,3 +17,8 @@
 __pycache__/
 # Ignored by the build system
 /setup.cfg
+
+
+portfolio_site/
+andrewske-portfolio-site.json
+.vscode/
