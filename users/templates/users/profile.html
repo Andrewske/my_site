@@ -1,9 +1,9 @@
-{% extends "blog/base.html" %}
+{% extends "portfolio/base.html" %}
 {% load crispy_forms_tags %}
 
 {% block content %}
       
-    <div class="content-section">
+    <div class="container">
         <div class="media">
           <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
           <div class="media-body">
@@ -19,7 +19,7 @@
                 {{ p_form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Submit</button>
+                <button class="btn contact-button" type="submit">Submit</button>
             </div>
         </form>
     </div>

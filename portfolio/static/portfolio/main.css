@@ -3,7 +3,7 @@
 body {
   font-family: "Poppins", sans-serif;
   background: #1a1a1a;
-  color: #333333;
+  color: white;
 }
 
 a,
@@ -131,7 +131,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #444444;
+  color: white;
 }
 
 ul {
@@ -139,6 +139,7 @@ ul {
 }
 
 .content-section {
+  max-width:750px;
   background: #1a1a1a;
   padding: 10px 20px;
   border: 1px solid #dddddd;

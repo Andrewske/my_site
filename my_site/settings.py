@@ -29,7 +29,7 @@ SECRET_KEY = secrets.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['andrewske-portfolio-site.appspot.com', 'kevinandrews.info', 'www.kevinandrews.info']
+ALLOWED_HOSTS = ['127.0.0.1','andrewske-portfolio-site.appspot.com', 'kevinandrews.info', 'www.kevinandrews.info']
 
 
 # Application definition
@@ -158,7 +158,7 @@ MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'blog-home'
+LOGIN_REDIRECT_URL = 'profile'
 LOGIN_URL = 'login'
 
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
