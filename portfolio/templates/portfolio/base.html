@@ -47,11 +47,11 @@
                         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Projects<span class="caret"></span></a>
                         <ul class="dropdown-menu animated fadeInLeft" role="menu">
                             <div class="dropdown-header">Coming Soon!</div>
-                            <li><a href="#pictures">HPLtoPIN</a></li>
-                            <li><a href="#videos">Music Organizer</a></li>
+                            <li><a href="#">HPLtoPIN</a></li>
+                            <li><a href="#">Music Organizer</a></li>
                         </ul>
                     </li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}

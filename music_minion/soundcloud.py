@@ -1,4 +1,5 @@
 from sclib import SoundcloudAPI, Track, Playlist
+from selenium import webdriver
 
 api = SoundcloudAPI()
 
@@ -13,3 +14,6 @@ class AddPlaylist(url):
         playlist_tracks['Artist'] = track.artist 
     
     return playlist_tracks
+
+
+

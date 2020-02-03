@@ -3,14 +3,21 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, redirect
 from .forms import ContactForm
 from .models import Technologies
-from django.views.generic import ListView 
-
+from django.views.generic import ListView
+from my_site import giphy
 
 class HomeListView(ListView):
     model = Technologies
     template_name = 'portfolio/homepage.html'
     context_object_name = 'technologies'
     ordering = ['-date_added']
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get the context
+        context = super(HomeListView, self).get_context_data(**kwargs)
+        # Create any data and add it to the context
+        context['welcome_gif'] = giphy.get_gif("welcome")
+        return context
+    
 
 def contactView(request):
     if request.method == 'GET':
