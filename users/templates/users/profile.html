@@ -22,5 +22,18 @@
                 <button class="btn contact-button" type="submit">Submit</button>
             </div>
         </form>
+        {% if access_token %}
+            <p class="text">
+                You are connected to Pinterest.
+            </p>
+            <div id="access_token" >
+                <p class="text">{{ access_token }}</p>
+            </div>
+            <button class="text" onclick="showAccessToken()">Show Access Token</button>
+            <button class="text" type="submit", onclick="window.location.href = '{{ auth_url }}';">Get a new access token</button>
+        {% else %}
+            <p class="text">Let's connect to pinterest</p>
+            <button class="red-button" type="submit", onclick="window.location.href = '{{ auth_url }}';">Log in with Pinterest</button>
+        {% endif %} 
     </div>
 {% endblock content %}

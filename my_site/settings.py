@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['127.0.0.1','andrewske-portfolio-site.appspot.com', 'kevinandre
 # Application definition
 
 INSTALLED_APPS = [
+    'hpltopin.apps.HpltopinConfig',
     'portfolio.apps.PortfolioConfig',
     'users.apps.UsersConfig',
     'blog.apps.BlogConfig',
