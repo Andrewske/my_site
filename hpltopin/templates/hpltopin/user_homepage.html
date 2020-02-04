@@ -1,22 +1,20 @@
-{% extends "portfolio/base.html" %} {% block content %}
+{% extends "portfolio/base.html" %} 
+{% block content %}
 
-<div class="main-image">
-  <div class= "gif-container">
-      <img class = 'gif' src='{{ welcome_gif }}'></img>
-      <div class='text-box'>
-        <p class="text">HPLtoPIN allows you to take a</p>
-        <p><a style="color:#56693D" href="bonanza.com">Bonanza Hand Picked List</a></p>
-        <p class="text">and turn it into a </p>
-        <p><a style="color:#E60023" href="pinterest.com">Pinterest Board</a></p>
-        <p class="text">filled with pins of your favorite Bonanza items!</p>
-      </div> 
-  </div>
+<div class="container">
+  {% if message %}
+    <p>{{ message }}</p>
+  {% endif %}
+  <img class = 'gif' src='{{ welcome_gif }}'></img>
+  <div class='text-box'>
+    <p class="text">HPLtoPIN allows you to take a</p>
+    <p><a style="color:#56693D" href="bonanza.com">Bonanza Hand Picked List</a></p>
+    <p class="text">and turn it into a </p>
+    <a style="color:#E60023" href="pinterest.com"><p>Pinterest Board</p></a>
+    <p class="text">filled with pins of your favorite Bonanza items!</p>
+  </div> 
   <div class= "right-container">
-    <h1 class="main-text">Hello Again</h1>
-    <form method="GET" action="#" class="form">
-      <button class="green-button" type="submit">Log Out</button>
-    </form>
-    <form method="GET" action="{% url 'pin_list' %}" class="form">
+    <form method="GET" action="{{ auth_url }}}" class="form">
       <button class="red-button" type="submit">Let's Get Pinning!</button>
     </form>
   </div>

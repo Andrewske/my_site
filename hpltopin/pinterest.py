@@ -17,7 +17,7 @@ class Pinterest:
     def get_auth_url(self):
         auth_code_dict = {
             "response_type": "code",
-            "redirect_uri": "https://127.0.0.1:8000/profile",
+            "redirect_uri": "https://andrewskevin.info/hpltopin/get_listings",
             "client_id": secrets.PINTEREST_APP_ID,
             "scope": "read_public, write_public, read_relationships, write_relationships",
         }
@@ -35,27 +35,17 @@ class Pinterest:
             self.api_url + "v1/oauth/token", data=access_token_dict
         )
         if "access_token" in json.loads(response.text):
-            return json.loads(response.text)["access_token"]
+            result = 1
+            access_token = json.loads(response.text)["access_token"]
+            return result, access_token
         else:
-            return response.text
+            result = 0
+            return result, response.text
 
-    def set_username(self, access_token=None):
-        user = current_user
-        username_dict = {"access_token": user.access_token, "fields": "username"}
-        response = requests.get(self.api_url + "v1/me", params=username_dict)
-        user_data = json.loads(response.text)
-        try:
-            user.username = user_data["data"]["username"]
-            db.session.commit()
-            return user_data["data"]["username"]
-        except:
-            return (response, user_data)
-
-    def post_item_to_pinterest(self, listing, title):
-        user = current_user
+    def post_item_to_pinterest(self, access_token, username,  listing, title):
         item_dictionary = {
-            "access_token": secrets.BONZ_PINTEREST_ACCESS_TOKEN,
-            "board": "BonanzaMarket"
+            "access_token": access_token,
+            "board": username
             + "/"
             + "-".join(title.replace("'", "").split()).lower(),
             "note": listing["price"] + " " + listing["title"],
@@ -69,9 +59,9 @@ class Pinterest:
         except:
             return response_data
 
-    def create_pinterest_board(self, title):
+    def create_pinterest_board(self, access_token, title):
         item_dictionary = {
-            "access_token": secrets.BONZ_PINTEREST_ACCESS_TOKEN,
+            "access_token": access_token,
             "name": title.replace("'", ""),
         }
 
@@ -81,14 +71,9 @@ class Pinterest:
         response_data = json.loads(response.text)
         if "data" in response_data:
             if "url" in response_data:
-                board_url = Board(
-                    url=response_data["data"]["url"],
-                    board_name=title,
-                    user=current_user,
-                )
-                session.add(board_url)
-                session.commit()
-                return response_data["data"]["url"]
+                result = 1
+                board_url = response_data["data"]["url"]
+                return board_url
         elif "message" in response_data:
             if "DuplicateBoardSlugException" in response_data["message"]:
                 print("Is Duplicate")
@@ -97,16 +82,19 @@ class Pinterest:
             print("Response data" + str(response_data))
             return response_data
 
-    def get_user_info(self):
+    def get_username(self, access_token):
         username_dict = {
-            "access_token": "Ata0gPkksPFjJSLxFBGma0jV5fh2FY9ZD9Sp17ZFr4fbGYClgACaADAAAAA0RbURD3sgt4gAAAAA"
+            "access_token": access_token,
         }
         response = requests.get(self.api_url + "v1/me/", params=username_dict)
         user_data = json.loads(response.text)
         try:
-            self.username = user_data["data"]["username"]
+            username = user_data["data"]["username"]
+            result = 1
+            return result, username
         except:
-            return (response, user_data)
+            result = 0
+            return result, response
 
 
 if __name__ == "__main__":

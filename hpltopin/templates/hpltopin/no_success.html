@@ -1,0 +1,20 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<div class="main-image">
+<div class= "gif-container">
+    <img class = 'gif' src='{{ no_success_gif }}'></img>
+    <div class='text-box'>
+      <p class="text">Well, that didn't go well</p>
+      <p class="text">here's what happened:</p>
+      <p class="text">{{ message }}</p>
+    </div> 
+</div>
+
+
+{% endblock content %}
+
+
+
+    
