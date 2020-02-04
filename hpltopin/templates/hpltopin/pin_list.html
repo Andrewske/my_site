@@ -1,43 +1,58 @@
 {% extends "portfolio/base.html" %} {% block content %}
+<div class= "container">
 
-<div class="main-image">
-  <div class= "gif-container">
-      <img class = 'gif' src='{{ just_do_it_gif }}'></img>
-      <div class='text-box'>
-        <p class="text">Let start pinning</p>
-        <p><a style="color:#56693D" href="bonanza.com">{{ user.name }}</a></p>
-      </div> 
+  {% if hpl_url %}
+  <div class='row'>
+    <div class="col-xs-12 col-md-6 m-auto">
+      <h1 class="display-1 text-white">Great!</h1>
+      <p class="text">
+        We will be creating {{ listing_count }} listings on a board titled {{ board_name }} 
+      </p>
+    </div>
+    <div class="col-xs-12 col-md-6 m-auto">
+      <form method='POST' action='/create_and_post' class="form">
+        <button class="btn contact-button" type="submit", value="hpl_url">Pin these Listings</button>
+      </form>
+    </div>
   </div>
-  <div class= "right-container">
-    {% if hpl_url %}
-    <h1 class="main-text">Great!</h1>
-    <p class="text">
-      We will be creating  
-    </p>
-    <p class="text">
-      {{ listing_count }}
-    </p>
-    <p class="text">
-      listings on a board titled
-    </p>
-    <p class="text">
-      {{ board_name }} 
-    </p>
-    <form method='POST' action='/create_and_post' class="form">
-      <button class="red-button" type="submit", value="hpl_url">Pin these Listings</button>
-    </form>
-
-    {% else %}
-    <h1 class="main-text">Time to Pin a List</h1>
-    <p class="white-text">
-      Please enter a Bonanza HPL url
-    </p>
-    <form method='POST' action="{% url 'pin_list' %}" class="form">
-      {% csrf_token %}
-      <input id='hpl_url' type='url' name='hpl_url' placeholder='https://www.bonanza.com/hand_picked_lists/163380' autofocus=''>
-      <button class="red-button" type="submit", value="hpl_url">Pin It</button>
-    </form>
-    {% endif %}
+  <div class="row">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Image</th>
+          <th scope="col">Title</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for listing in listings %}
+          <a href="{{ listing.itemUrl }}">
+            <tr>
+              <th scope="row"><img class="sidebar-img" src="{{ listing.pictureURL }}" alt="no-img"></th>
+              <td>{{ listing.title }}</td>
+              <td>{{ listing.price }}</td>
+              </a>          
+            </tr>
+          </a>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
+  {% else %}
+  <div class="row">
+    <div class="col-xs-12 col-md-6 m-auto">
+      <h1 class="display-3">Time to Pin a List</h1>
+      <p class="white-text">Please enter a Bonanza HPL url</p>
+    </div>
+    <div class="col-xs-12 col-md-6 m-auto">
+      <form method='POST' action="{% url 'pin_list' %}" class="form">
+        {% csrf_token %}
+        <input style="min-width:350px; min-height:25px; padding:5px; font-size:12px; margin-bottom: 15px;"id='hpl_url' type='url' name='hpl_url' placeholder='https://www.bonanza.com/hand_picked_lists/163380' autofocus=''>
+        <button class="btn contact-button" type="submit", value="hpl_url">Pin It</button>
+      </form>
+    </div>
+  </div>
+  {% endif %}
 </div>
+
 {% endblock content %}

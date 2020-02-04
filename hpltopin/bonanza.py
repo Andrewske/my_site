@@ -29,7 +29,9 @@ def find_listings(url):
         listings.append(re.match(".*?([0-9]+)$", href).group(1))
     title = soup.title.string
     title = title.replace(" - Hand Picked List", "")
-    return listings[:2], title
+    return listings, title
+
+
 
 
 def get_items_information(listings):
@@ -72,5 +74,5 @@ def get_items_information(listings):
 if __name__ == "__main__":
     # hpl_url = 'https://www.bonanza.com/hpl/Garden-Tools/163708'
     # print(find_listings('https://www.bonanza.com/hpl/Shades-and-Sunnies/163720'))
-    print(get_items_information(["648542818", "671856167"]))
+    print(get_items_information(['126125989', '562254958']))
 

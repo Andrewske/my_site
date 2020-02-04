@@ -22,6 +22,7 @@ def pin_list(request):
         return render(request, 'hpltopin/pin_list.html',
             {
                 'listing_count':len(listings),
+                'listings':listings_info,
                 'board_name':title,
                 'hpl_url':hpl_url,
             }
