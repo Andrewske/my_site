@@ -30,10 +30,10 @@
                 <p class="text">{{ access_token }}</p>
             </div>
             <button class="text" onclick="showAccessToken()">Show Access Token</button>
-            <button class="text" type="submit", onclick="window.location.href = '{{ auth_url }}';">Get a new access token</button>
+            <button class="text" type="submit", onclick="window.location.href = '{{ pinterest_auth_url }}';">Get a new access token</button>
         {% else %}
             <p class="text">Let's connect to pinterest</p>
-            <button class="red-button" type="submit", onclick="window.location.href = '{{ auth_url }}';">Log in with Pinterest</button>
+            <button class="red-button" type="submit", onclick="window.location.href = '{{ pinterest_auth_url }}';">Log in with Pinterest</button>
         {% endif %} 
     </div>
 {% endblock content %}

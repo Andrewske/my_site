@@ -14,12 +14,14 @@ def index(request):
 
 
 @login_required
-def pin_list(request):
+def get_listings(request):
     if request.method == "POST":
         hpl_url = request.POST.get("hpl_url")
         listings, title = bonanza.find_listings(hpl_url)
         listings_info = bonanza.get_items_information(listings)
-        return render(request, 'hpltopin/pin_list.html',
+        request.session['title'] = title
+        request.session['listings'] = listings_info
+        return render(request, 'hpltopin/get_listings.html',
             {
                 'listing_count':len(listings),
                 'listings':listings_info,
@@ -29,4 +31,15 @@ def pin_list(request):
             
         )
     else:
-        return render(request, 'hpltopin/pin_list.html')
+        return render(request, 'hpltopin/get_listings.html')
+
+@login_required
+def create_and_post(request):
+    title = request.session['title']
+    listings = request.session['listings']
+    return render(request, 'hpltopin/success.html', 
+        {
+            'listings': listings,
+            'title':title,
+        }
+    )

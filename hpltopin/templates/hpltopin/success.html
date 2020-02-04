@@ -1,0 +1,35 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<div class="main-image">
+  <div class= "gif-container">
+      <img class = 'gif' src='{{ success_gif }}'></img>
+      <div class='text-box'>
+        <p class="text">Wow, It worked! Not that i'm surpised or anything...</p>
+        <p><a style="color:#56693D" href="#">{{ title }}</a></p>
+      </div> 
+  </div>
+
+  <!--
+  <div class='right-container'>
+      <p class = 'black-text'>Pins:</p>
+      <ul>
+          {% for value in data %}
+              <a style='color:rgb(0, 0, 0)' href='{{ value }}'><li class='black-text'>{{ value }}</l1></a>
+          {% endfor %}
+      </ul>
+      {% if message %}
+        <p class="text">{{ message }}</p>
+      {% endif %}
+  </div>
+  -->
+</div>
+
+
+
+{% endblock content %}
+
+
+
+    

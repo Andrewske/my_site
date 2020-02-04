@@ -10,7 +10,8 @@
       </p>
     </div>
     <div class="col-xs-12 col-md-6 m-auto">
-      <form method='POST' action='/create_and_post' class="form">
+      <form method='POST' action="{% url 'pin_list' %}" class="form">
+        {% csrf_token %}
         <button class="btn contact-button" type="submit", value="hpl_url">Pin these Listings</button>
       </form>
     </div>
@@ -45,7 +46,7 @@
       <p class="white-text">Please enter a Bonanza HPL url</p>
     </div>
     <div class="col-xs-12 col-md-6 m-auto">
-      <form method='POST' action="{% url 'pin_list' %}" class="form">
+      <form method='POST' action="{% url 'get_listings' %}" class="form">
         {% csrf_token %}
         <input style="min-width:350px; min-height:25px; padding:5px; font-size:12px; margin-bottom: 15px;"id='hpl_url' type='url' name='hpl_url' placeholder='https://www.bonanza.com/hand_picked_lists/163380' autofocus=''>
         <button class="btn contact-button" type="submit", value="hpl_url">Pin It</button>
