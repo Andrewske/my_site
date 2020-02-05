@@ -1,7 +1,6 @@
 import requests, json
 from my_site import secrets
 
-
 try:
     from urllib.parse import urlencode
 except ImportError:
@@ -17,9 +16,10 @@ class Pinterest:
     def get_auth_url(self):
         auth_code_dict = {
             "response_type": "code",
-            "redirect_uri": "https://andrewskevin.info/hpltopin/get_listings",
+            "redirect_uri": "https://kevinandrews.info/hpltopin/get_listings",
             "client_id": secrets.PINTEREST_APP_ID,
             "scope": "read_public, write_public, read_relationships, write_relationships",
+            "state": "98926"
         }
         params = urlencode(auth_code_dict, True)
         return self.api_url + "oauth/?" + params
@@ -27,8 +27,8 @@ class Pinterest:
     def get_access_token(self, code):
         access_token_dict = {
             "grant_type": "authorization_code",
-            "client_id": secrets.bonz_pinterest_app_id,
-            "client_secret": secrets.bonz_pinterest_app_secret_key,
+            "client_id": secrets.PINTEREST_APP_ID,
+            "client_secret": secrets.PINTEREST_SECRET_KEY,
             "code": code,
         }
         response = requests.post(
@@ -85,6 +85,7 @@ class Pinterest:
     def get_username(self, access_token):
         username_dict = {
             "access_token": access_token,
+            "fields": "username"
         }
         response = requests.get(self.api_url + "v1/me/", params=username_dict)
         user_data = json.loads(response.text)
@@ -94,9 +95,9 @@ class Pinterest:
             return result, username
         except:
             result = 0
-            return result, response
+            return result, user_data
 
 
 if __name__ == "__main__":
     p = Pinterest()
-    print(p.get_user_info())
+    print(p.get_auth_url())

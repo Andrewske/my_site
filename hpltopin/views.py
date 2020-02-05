@@ -8,10 +8,18 @@ p = pinterest.Pinterest()
 def index(request):
     if request.user.is_authenticated:
         welcome_gif=giphy.get_gif("hi friend")
-        return render(request, "hpltopin/user_homepage.html", context={'welcome_gif':welcome_gif})
+        pinterest_auth_url = p.get_auth_url()
+        return render(request, "hpltopin/user_homepage.html", context={
+            'welcome_gif':welcome_gif,
+            'pinterest_auth_url':pinterest_auth_url,
+            })
     else:
         welcome_gif=giphy.get_gif("hi")
-        return render(request, "hpltopin/anon_homepage.html", context={'welcome_gif':welcome_gif})
+        pinterest_auth_url = p.get_auth_url()
+        return render(request, "hpltopin/user_homepage.html", context={
+            'welcome_gif':welcome_gif,
+            'pinterest_auth_url':pinterest_auth_url,
+            })
 
 
 
@@ -25,7 +33,7 @@ def get_listings(request):
             request.session['access_token'] = access_token
             response, username = p.get_username(access_token)
             if response == 1:
-                request.session['pinterest_username'] == username
+                request.session['username'] == username
                 if request.method == "POST":
                     hpl_url = request.POST.get("hpl_url")
                     listings, title = bonanza.find_listings(hpl_url)
@@ -34,6 +42,7 @@ def get_listings(request):
                     request.session['listings'] = listings_info
                     return render(request, 'hpltopin/get_listings.html',
                         {
+                            'username': request.session['username'],
                             'listing_count':len(listings),
                             'listings':listings_info,
                             'board_name':title,
@@ -41,12 +50,12 @@ def get_listings(request):
                         }        
                     )
                 else:
-                    return render(request, 'hpltopin/get_listings.html', {'username': username})
+                    return render(request, 'hpltopin/get_listings.html', {'username': request.session['username']})
             else:
-                message = "We were unable to get your username: " + username 
+                message = username 
             return render(request, 'hpltopin/user_homepage.html', {'message':message})
         else:
-            message = "We were unable to authorize your account: " + access_token 
+            message = access_token 
             return render(request, 'hpltopin/user_homepage.html', {'message':message})
 
         
