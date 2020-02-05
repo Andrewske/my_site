@@ -122,11 +122,28 @@
             
         </div>
     </div>
-    <div class='row homepage-section'>
-        <div class='col-xs-12 col-md-6 m-auto'>
-            <img class='img-fluid' src='{{ welcome_gif }}'>
+    <div class="row homepage-header" id="projects">
+        <div class="col-12">
+            <p class="display-3">Projects</p>
         </div>
-        
+    </div>
+    <div class="row homepage-section">
+        <div class="project col-xs-12 col-md-6 m-auto pt-4">
+            <img class="project-gif img-fluid" src="https://media.giphy.com/media/ZFbvG2eF923te/giphy.gif" alt="coding-project">
+            <h3><span class='green-text'>HPL</span><span class='yellow-text'>to</span><span class='red-text'>PIN</span></h3>
+            <p >HPLtoPIN was my first major coding project. In my work at <a href="https://www.bonanza.com">Bonanza.com</a>, I was tasked with posting lists of products to Pinterest.
+                I was learning to code with Python and figured I could simplify this task. This app uses BeautifulSoup to grab all the listings
+                from a Hand Picked List on Bonanza given a URL. It then creates a board on Pinterest using the name of the list, and pins each
+                product to that newly created board. The board creation and pinning is done through the Pinterest API.
+            </p>
+            <p><a href="{% url 'hpltopin-home' %}">Try it out for yourself!</a></p>
+        </div>
+        <div class="project col-xs-12 col-md-6 m-auto pt-4 align-top">
+            <img class="project-gif img-fluid" src="https://media.giphy.com/media/oDDs67mo76beM/giphy.gif" alt="music-minion">
+            <h3 class="yellow-text">Music Minion</h3>
+            <p>Still in developement, Music Minion is an app to help me organize my music and create DJ set lists.</p>
+            <p><a href="{% url 'hpltopin-home' %}">Coming Soon</a></p>
+        </div>
     </div>
 </div>
 

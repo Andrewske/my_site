@@ -6,6 +6,27 @@ body {
   color: #ffffff;
 }
 
+.red-text {
+  color:#E60023 !important;
+}
+
+.green-text {
+  color:#1db954 !important;
+}
+
+.yellow-text {
+  color: #ebcf34 !important;
+}
+
+.project-gif {
+  max-height:250px;
+  width:auto;
+}
+
+.project {
+  height:500px;
+}
+
 a,
 a:hover,
 a:focus {
