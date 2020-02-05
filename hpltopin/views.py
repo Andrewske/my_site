@@ -6,19 +6,18 @@ import re
 
 p = pinterest.Pinterest()
 
+welcome_gif=giphy.get_gif("wave hello")
 no_success_gif = giphy.get_gif("Uh Oh")
 success_gif = giphy.get_gif("success")
 
 def index(request):
     if request.user.is_authenticated:
-        welcome_gif=giphy.get_gif("hi friend")
         pinterest_auth_url = p.get_auth_url()
         return render(request, "hpltopin/user_homepage.html", context={
             'welcome_gif':welcome_gif,
             'pinterest_auth_url':pinterest_auth_url,
             })
     else:
-        welcome_gif=giphy.get_gif("hi")
         pinterest_auth_url = p.get_auth_url()
         return render(request, "hpltopin/user_homepage.html", context={
             'welcome_gif':welcome_gif,
@@ -45,7 +44,7 @@ def get_listings(request):
         )
     else:
         request.session['code'] = request.GET.get("code", None)
-        if request.session['code'] != None :
+        if request.session['code'] == None :
             return render(request, 'hpltopin/user_homepage.html', {'auth_url':p.get_auth_url()})
         else:
             result, access_token = p.get_access_token(request.session['code'])
@@ -54,7 +53,7 @@ def get_listings(request):
                 response, username = p.get_username(access_token)
                 if response == 1:
                     request.session['username'] = username
-                    return render(request, 'hpltopin/get_listings.html', {'username': request.session['username'], 'message':request.session['access_token']})
+                    return render(request, 'hpltopin/get_listings.html', {'username': request.session['username']})
                 else:
                     message = username 
                     return render(request, 'hpltopin/no_success.html', {'message':message, 'no_success_gif':no_success_gif})
@@ -90,7 +89,7 @@ def create_and_post(request):
             errors += 1
     
     if errors > 0:
-        message = str(errors) + " pins received an error:" + "\n" + "\n".join([pin_urls])
+        message = str(errors) + " pins received an error:" + "\n" + "\n".join(pin_urls)
         return render(request, 'hpltopin/no_success.html', {'message':message, 'no_success_gif':no_success_gif})
     else:
         return render(request, 'hpltopin/success.html', {'pin_urls':pin_urls, 'board_url':board_url, 'success_gif':success_gif})

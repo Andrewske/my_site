@@ -10,12 +10,12 @@
   {% endif %}
 
   <div class="row">
-    <div class="p-4 d-table welcome-message col-12 jumbotron jumbotron-fluid">
+    <div class="d-table welcome-message col-xs-12 col-md-6">
         <span class="d-table-cell align-middle">
             <div class="display-1 text-white">Welcome,</div>
-            <div class="display-1 text-white">to HPLtoPIN</div>
+            <div class="display-3 text-white mb-4">to HPLtoPIN</div>
             <div style="max-width: 500px;">
-              <p class="text">HPLtoPIN allows you to take a 
+              <p class="text-white">HPLtoPIN allows you to take a 
                 <a style="color:#56693D" href="bonanza.com">Bonanza Hand Picked List</a> 
                 and turn it into a 
                 <a style="color:#E60023" href="pinterest.com">Pinterest Board</a> 
@@ -32,16 +32,11 @@
               </ol>
               <p>Simple as that your Bonanza items will be Pinned to your Pinterest account</p>
               <button class="btn" type="submit" style="background-color:#E60023; color:white", onclick="window.location.href='{{ pinterest_auth_url }}';">Log in with Pinterest</button>
-              
-              <p class="mt-4">Current Limitations:</p>
-              <ul>
-                <li>Until verified, this will only work with Bonanza's Pinterest account</li>
-                <li>Until verified, there is an API rate limit that may cause errors</li>
-              </ul>
-
             </div>
-           
         </span>
+    </div>
+    <div class="m-auto col-xs-12 col-md-6">
+      <img class="img-fluid mx-auto d-block" src="{{ welcome_gif }}" alt="">
     </div>
 </div>
 
