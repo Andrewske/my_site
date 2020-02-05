@@ -1,5 +1,10 @@
 {% extends "portfolio/base.html" %} {% block content %}
 <div class= "container">
+  {% if message %}
+  <div class='alert alert-danger message'>
+    <p style="margin-bottom: 0px;">{{ message }}</p>
+  </div>
+  {% endif %}
 
   {% if hpl_url %}
   <div class='row'>

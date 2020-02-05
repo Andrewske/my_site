@@ -47,11 +47,12 @@ class Pinterest:
             "access_token": access_token,
             "board": username
             + "/"
-            + "-".join(title.replace("'", "").split()).lower(),
+            + title,
             "note": listing["price"] + " " + listing["title"],
             "link": listing["itemUrl"],
             "image_url": listing["pictureURL"],
         }
+        
         response = requests.post(self.api_url + "v1/pins/", params=item_dictionary)
         response_data = json.loads(response.text)
         try:
@@ -62,25 +63,19 @@ class Pinterest:
     def create_pinterest_board(self, access_token, title):
         item_dictionary = {
             "access_token": access_token,
-            "name": title.replace("'", ""),
+            "name": title,
         }
 
         response = requests.post(
             self.api_url + "v1/boards/", params=item_dictionary
         )
         response_data = json.loads(response.text)
-        if "data" in response_data:
-            if "url" in response_data:
-                result = 1
-                board_url = response_data["data"]["url"]
-                return board_url
-        elif "message" in response_data:
-            if "DuplicateBoardSlugException" in response_data["message"]:
-                print("Is Duplicate")
-                return response_data["message"]
-        else:
-            print("Response data" + str(response_data))
-            return response_data
+        try:
+            board_url = response_data["data"]["url"]
+            return [1, board_url]
+        except:
+            return [2, json.dumps(response_data)]
+
 
     def get_username(self, access_token):
         username_dict = {

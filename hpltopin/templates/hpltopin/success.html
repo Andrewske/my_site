@@ -2,28 +2,34 @@
 
 {% block content %}
 
-<div class="main-image">
-  <div class= "gif-container">
-      <img class = 'gif' src='{{ success_gif }}'></img>
-      <div class='text-box'>
-        <p class="text">Wow, It worked! Not that i'm surpised or anything...</p>
-        <p><a style="color:#56693D" href="#">{{ title }}</a></p>
-      </div> 
-  </div>
 
-  <!--
-  <div class='right-container'>
-      <p class = 'black-text'>Pins:</p>
-      <ul>
-          {% for value in data %}
-              <a style='color:rgb(0, 0, 0)' href='{{ value }}'><li class='black-text'>{{ value }}</l1></a>
-          {% endfor %}
-      </ul>
-      {% if message %}
-        <p class="text">{{ message }}</p>
-      {% endif %}
+<div class= "container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 m-auto">
+        <img class="img-fluid" src="{{ success_gif }}" alt="">
+    </div>
+    <div class="col-xs-12 col-md-6 m-auto pt-4">
+      <span class="d-table-cell align-middle">
+        <p class="display-1 text-white">Success!</p>
+        {% if message %}
+          <div class='alert alert-danger message'>
+            <p style="margin-bottom: 0px;">{{ message }}</p>
+          </div>
+        {% endif %}
+        <p class='text'>We have posted the pins to: <a href="{{ board_url }}">{{ board_url }}</a></p>
+      </span>
+    </div> 
   </div>
-  -->
+  <div class="row">
+    <div class="col-12, m-auto">
+      <ul>
+        {% for pin in pin_urls %}
+        <li>{{ pin }}</li>
+        {% endfor %}
+      </ul> 
+    </div>
+
+  </div>
 </div>
 
 

@@ -2,20 +2,25 @@
 
 {% block content %}
 
-
 <div class= "container">
-  {% if message %}
-    <div class='alert alert-danger message'>
-      <p style="margin-bottom: 0px;">{{ message }}</p>
+  <div class="row homepage-section">
+    <div class="col-xs-12 col-md-6 m-auto">
+        <img class="img-fluid" src="{{ no_success_gif }}" alt="">
     </div>
-  {% endif %}
-  <img class='homepage-img-lrg' src='{{ no_success_gif }}'></img>
-  <div style="max-width: 500px;">
-    <p class="text">Well, that didn't go well</p>
-    <p class="text">here's what happened:</p>
-  </div> 
+    <div class="col-xs-12 col-md-6 m-auto pt-4">
+      <span class="d-table-cell align-middle">
+        <p class="display-1 text-white">Uh Oh</p>
+        <p class='text'>Things did not go as planned and we received an error</p> 
+        <p class='text'>Let's try again</p>
+        {% if message %}
+          <div class='alert alert-danger message'>
+            <p style="margin-bottom: 0px;">{{ message }}</p>
+          </div>
+        {% endif %}
+      </span>
+    </div> 
+  </div>
 </div>
-
 
 {% endblock content %}
 

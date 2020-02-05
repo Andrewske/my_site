@@ -3,7 +3,7 @@
 body {
   font-family: "Poppins", sans-serif;
   background: #1a1a1a;
-  color: white;
+  color: #ffffff;
 }
 
 a,
@@ -42,11 +42,9 @@ span {
 }
 
 .message {
-  position: fixed;
-  top:0;
-  width:100%;
   display: flex; 
   vertical-align: center;
+  
 }
 
 /* ---------------------------------------------------
