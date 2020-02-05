@@ -2,14 +2,18 @@
 
 {% block content %}
 
-<div class="main-image">
-<div class= "gif-container">
-    <img class = 'gif' src='{{ no_success_gif }}'></img>
-    <div class='text-box'>
-      <p class="text">Well, that didn't go well</p>
-      <p class="text">here's what happened:</p>
-      <p class="text">{{ message }}</p>
-    </div> 
+
+<div class= "container">
+  {% if message %}
+    <div class='alert alert-danger message'>
+      <p style="margin-bottom: 0px;">{{ message }}</p>
+    </div>
+  {% endif %}
+  <img class='homepage-img-lrg' src='{{ no_success_gif }}'></img>
+  <div style="max-width: 500px;">
+    <p class="text">Well, that didn't go well</p>
+    <p class="text">here's what happened:</p>
+  </div> 
 </div>
 
 

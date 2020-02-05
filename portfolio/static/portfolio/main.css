@@ -41,6 +41,14 @@ span {
   display: inline-block;
 }
 
+.message {
+  position: fixed;
+  top:0;
+  width:100%;
+  display: flex; 
+  vertical-align: center;
+}
+
 /* ---------------------------------------------------
     LANDING PAGE
 ----------------------------------------------------- */
@@ -119,7 +127,8 @@ span {
 ----------------------------------------------------- */
 
 #content {
-  width: 100%;
+  width: 90%;
+  margin-left:25px;
   padding: 20px;
   min-height: 100vh;
   transition: all 0.3s;

@@ -12,6 +12,7 @@ def index(request):
         return render(request, "hpltopin/user_homepage.html", context={
             'welcome_gif':welcome_gif,
             'pinterest_auth_url':pinterest_auth_url,
+            'message': 'WARNING: this is a test message'
             })
     else:
         welcome_gif=giphy.get_gif("hi")
@@ -24,39 +25,41 @@ def index(request):
 
 
 def get_listings(request):
-    request.session['code'] = request.GET.get("code", None)
-    if request.session['code'] == None:
-        return render(request, 'hpltopin/user_homepage.html', {'auth_url':p.get_auth_url()})
+    if request.method == "POST":
+        hpl_url = request.POST.get("hpl_url")
+        listings, title = bonanza.find_listings(hpl_url)
+        listings_info = bonanza.get_items_information(listings)
+        request.session['title'] = title
+        request.session['listings'] = listings_info
+        return render(request, 'hpltopin/get_listings.html',
+            {
+                'username': request.session['username'],
+                'listing_count':len(listings),
+                'listings':listings_info,
+                'board_name':title,
+                'hpl_url':hpl_url,
+            }        
+        )
     else:
-        result, access_token = p.get_access_token(request.session['code'])
-        if result == 1:
-            request.session['access_token'] = access_token
-            response, username = p.get_username(access_token)
-            if response == 1:
-                request.session['username'] == username
-                if request.method == "POST":
-                    hpl_url = request.POST.get("hpl_url")
-                    listings, title = bonanza.find_listings(hpl_url)
-                    listings_info = bonanza.get_items_information(listings)
-                    request.session['title'] = title
-                    request.session['listings'] = listings_info
-                    return render(request, 'hpltopin/get_listings.html',
-                        {
-                            'username': request.session['username'],
-                            'listing_count':len(listings),
-                            'listings':listings_info,
-                            'board_name':title,
-                            'hpl_url':hpl_url,
-                        }        
-                    )
-                else:
-                    return render(request, 'hpltopin/get_listings.html', {'username': request.session['username']})
-            else:
-                message = username 
-            return render(request, 'hpltopin/user_homepage.html', {'message':message})
+        request.session['code'] = request.GET.get("code", None)
+        if request.session['code'] == None :
+            return render(request, 'hpltopin/user_homepage.html', {'auth_url':p.get_auth_url()})
         else:
-            message = access_token 
-            return render(request, 'hpltopin/user_homepage.html', {'message':message})
+            result, access_token = p.get_access_token(request.session['code'])
+            if result == 1:
+                request.session['access_token'] = access_token
+                response, username = p.get_username(access_token)
+                if response == 1:
+                    request.session['username'] = username
+                    return render(request, 'hpltopin/get_listings.html', {'username': request.session['username']})
+                else:
+                    no_success_gif = giphy.get_gif("uh oh")
+                    message = username 
+                    return render(request, 'hpltopin/no_success.html', {'message':message, 'no_success_gif':no_success_gif})
+            else:
+                no_success_gif = giphy.get_gif("uh oh")
+                message = access_token 
+                return render(request, 'hpltopin/no_success.html', {'message':message,  'no_success_gif':no_success_gif})
 
         
 
