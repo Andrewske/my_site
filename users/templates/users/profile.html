@@ -2,38 +2,68 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+    {% if message %}
+        <div class='alert alert-danger message'>
+        <p style="margin-bottom: 0px;">{{ message }}</p>
+        </div>
+    {% endif %}
       
     <div class="container">
-        <div class="media">
-          <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-          <div class="media-body">
-            <h2 class="account-heading">{{ user.username }}</h2>
-            <p class="text-secondary">{{ user.email }}</p>
-          </div>
+        <div class="row justify-content-start">
+            <div class='col-3'>
+                <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+            </div>
+            <div class='col-9 m-auto'>
+                <h2 class="account-heading">{{ user.username }}</h2>
+                <p class="text-secondary">{{ user.email }}</p>
+            </div>
+            <div class='col'>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Profile Info</legend>
+                        {{ u_form|crispy }}
+                        {{ p_form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn contact-button" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Profile Info</legend>
-                {{ u_form|crispy }}
-                {{ p_form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn contact-button" type="submit">Submit</button>
-            </div>
-        </form>
-        {% if access_token %}
-            <p class="text">
-                You are connected to Pinterest.
-            </p>
-            <div id="access_token" >
-                <p class="text">{{ access_token }}</p>
-            </div>
-            <button class="text" onclick="showAccessToken()">Show Access Token</button>
-            <button class="text" type="submit", onclick="window.location.href = '{{ pinterest_auth_url }}';">Get a new access token</button>
-        {% else %}
-            <p class="text">Let's connect to pinterest</p>
-            <button class="red-button" type="submit", onclick="window.location.href = '{{ pinterest_auth_url }}';">Log in with Pinterest</button>
-        {% endif %} 
+
+        <div class='row justify-content-start'>
+            <div class='col-4 '>
+                <h1>Integrations</h1>
+                {% if access_token %}
+                    <p class="text">
+                        You are connected to Pinterest.
+                    </p>
+                    <div id="pinterst_access_token" >
+                        <p class="text">{{ pinterest_access_token }}</p>
+                    </div>
+                    <button class="text" onclick="showAccessToken('pinterest')">Show Access Token</button>
+                    <button class="text" type="submit", onclick="window.location.href = '{{ pinterest_auth_url }}';">Get a new access token</button>
+                {% else %}
+                    <a class="btn btn-block btn-social btn-pinterest"  onclick="window.location.href = '{{ pinterest_auth_url }}';">
+                        <span class="fab fa-pinterest"></span> Sign in with Pinterest
+                    </a>
+                {% endif %} 
+                {% if access_token %}
+                    <p class="text">
+                        You are connected to Spotify.
+                    </p>
+                    <div id="spotify_access_token" >
+                        <p class="text">{{ spotify_access_token }}</p>
+                    </div>
+                    <button class="text" onclick="showAccessToken('spotfiy')">Show Spotify Access Token</button>
+                    <button class="text" type="submit", onclick="window.location.href = '{{ spotify_auth_url }}';">Get a new access token</button>
+                {% else %}
+                    <a class="btn btn-block btn-social btn-spotify"  onclick="window.location.href = '{{ spotify_auth_url }}';">
+                        <i class="fab fa-spotify" style="color: white;"></i> Sign in with Spotify
+                    </a>
+                {% endif %}
+            </div>  
+        </div>
     </div>
 {% endblock content %}
