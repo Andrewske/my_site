@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from hpltopin import pinterest
 from music_minion import spotify
+from music_minion.models import SpotifyUser
+import json
 
 p = pinterest.Pinterest()
 spotify = spotify.Spotify()
@@ -40,23 +42,36 @@ def profile(request):
     if code != None:
         state = request.GET.get("state", None)
         error = request.GET.get("error", None)
-        integration = requests.session['state'].spit('_')[0] 
+        if state:
+            integration = state.split('_')[0] 
         if error:
             message = integration + ': ' + state
             messages.ERROR(request, message)
             return redirect('profile' )
         if integration == 'spotify':
             response = spotify.get_access_token(code)
-            message = response
-            return render(request, 'users/register.html', {'message':message})
+            if response[0] == 1:
+                try:
+                    user_id = request.user.id
+                    access_token = response[1]['access_token']
+                    refresh_token = response[1]['refresh_token']
+                    spotify_user = SpotifyUser(access_token=access_token, refresh_token=refresh_token, user_id=user_id)
+                    spotify_user.save()
+                    message = "Spotify connection successful!"
+                except:
+                    message = "Error: Database save failed!" + json.dumps(response[1])
+            if response[0] == 2:
+                message = "Error: Spotify Connection Failed: " + response[1]
+            return render(request, 'users/profile.html', {'message':message})
 
     spotify_data = spotify.get_auth_url()
+    
     context = {
         'u_form': u_form,
         'p_form': p_form,
         'pinterest_auth_url':p.get_auth_url(),
         'spotify_auth_url':spotify_data[0],
-        'spotify_state': spotify_data[1]
+        'spotify_state': spotify_data[1],
     }
     
     return render(request, 'users/profile.html', context)
