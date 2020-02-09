@@ -25,6 +25,8 @@ def register(request):
 @login_required
 def profile(request):
     code = request.GET.get("code", None)
+    user = request.user
+    message = None
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST, 
@@ -52,15 +54,20 @@ def profile(request):
             response = spotify.get_access_token(code)
             if response[0] == 1:
                 try:
-                    user_id = request.user.id
                     access_token = response[1]['access_token']
                     refresh_token = response[1]['refresh_token']
-                    spotify_user = SpotifyUser(access_token=access_token, refresh_token=refresh_token, user_id=user_id)
+                    spotify_user = SpotifyUser(user_id=user, access_token=access_token, refresh_token=refresh_token)
                     spotify_user.save()
                     message = "Spotify connection successful!"
-                except:
-                    message = "Error: Database save failed!" + json.dumps(response[1])
-            if response[0] == 2:
+                except Exception as x:
+                    message_dict = {
+                        'exception': str(x),
+                        'user_id': user.id,
+                        'access_token': response[1]['access_token'],
+                        'refresh_token': response[1]['refresh_token'],
+                    }
+                    message = "Error: Database save failed!" + json.dumps(message_dict)
+            elif response[0] == 2:
                 message = "Error: Spotify Connection Failed: " + response[1]
             return render(request, 'users/profile.html', {'message':message})
 
@@ -72,6 +79,8 @@ def profile(request):
         'pinterest_auth_url':p.get_auth_url(),
         'spotify_auth_url':spotify_data[0],
         'spotify_state': spotify_data[1],
+        'user_id' : user.id,
+        'message': message,
     }
     
     return render(request, 'users/profile.html', context)
