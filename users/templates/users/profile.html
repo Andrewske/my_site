@@ -16,7 +16,6 @@
             <div class='col-9 m-auto'>
                 <h2 class="account-heading">{{ user.username }}</h2>
                 <p class="text-secondary">{{ user.email }}</p>
-                <p class="text-secondary">{{ user_id }}</p>
             </div>
             <div class='col'>
                 <form method="POST" enctype="multipart/form-data">
@@ -36,7 +35,7 @@
         <div class='row justify-content-start'>
             <div class='col-4 '>
                 <h1>Integrations</h1>
-                {% if access_token %}
+                {% if pinterest_access_token %}
                     <p class="text">
                         You are connected to Pinterest.
                     </p>
@@ -47,21 +46,16 @@
                     <button class="text" type="submit", onclick="window.location.href = '{{ pinterest_auth_url }}';">Get a new access token</button>
                 {% else %}
                     <a class="btn btn-block btn-social btn-pinterest"  onclick="window.location.href = '{{ pinterest_auth_url }}';">
-                        <span class="fab fa-pinterest"></span> Sign in with Pinterest
+                        <span class="fab fa-pinterest"></span>Pinterest: Sign In
                     </a>
                 {% endif %} 
-                {% if access_token %}
-                    <p class="text">
-                        You are connected to Spotify.
-                    </p>
-                    <div id="spotify_access_token" >
-                        <p class="text">{{ spotify_access_token }}</p>
-                    </div>
-                    <button class="text" onclick="showAccessToken('spotfiy')">Show Spotify Access Token</button>
-                    <button class="text" type="submit", onclick="window.location.href = '{{ spotify_auth_url }}';">Get a new access token</button>
+                {% if spotify_access_token %}
+                    <a class="btn btn-block btn-social btn-spotify"  onclick="window.location.href = '{{ spotify_auth_url }}';">
+                        <i class="fas fa-check" style="color: white;"></i>Spotify: Connected
+                    </a>
                 {% else %}
                     <a class="btn btn-block btn-social btn-spotify"  onclick="window.location.href = '{{ spotify_auth_url }}';">
-                        <i class="fab fa-spotify" style="color: white;"></i> Sign in with Spotify
+                        <i class="fab fa-spotify" style="color: white;"></i>Spotify: Sign In
                     </a>
                 {% endif %}
             </div>  

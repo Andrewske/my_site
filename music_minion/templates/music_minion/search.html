@@ -1,0 +1,45 @@
+{% extends "portfolio/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+    {% if message %}
+      <div class='alert alert-danger message'>
+        <p style="margin-bottom: 0px;">{{ message }}</p>
+      </div>
+    {% endif %}
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="contact-form form-group">
+                <legend class="border-bottom mb-4">Search for Spotify Tracks</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="contact-form form-group">
+                <button class="btn contact-button" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+    <p class='text'>{{ songs }}</p>
+    <h2>Jquery Table Row Draggable and Sortable</h2>
+    <table class="table">
+       <thead>
+           <tr>
+               <th>ID</th>
+               <th>Artist</th>
+               <th>Name</th>
+           </tr>
+       </thead>
+       <tbody>
+        {% for track in tracks %}
+           <tr>
+             <td><a href="{{ track.href }}">{{ track.id }}</a></td>
+             <td>{{ track.artists }}</td>
+             <td>{{ track.name }}</td>
+           </tr>
+        {% endfor %}
+       </tbody>
+   </table>
+</div> 
+
+{% endblock content %}
