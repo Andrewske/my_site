@@ -19,11 +19,10 @@ class MinionListView(ListView):
 
 def searchView(request):
     user = request.user.spotifyuser
-    spotify_auth.check_auth(request)
+    message = spotify_auth.check_auth(request)
 
     genres = spotify_search.available_genres(user.access_token)
 
-    message = "NOT WORKING!"
     if request.method == 'POST':
         form = SpotifySearchForm(request.POST, genres=genres)
         if form.is_valid():
@@ -32,11 +31,11 @@ def searchView(request):
             query = form.cleaned_data.get('query')
             if search_type == 'track':
                 tracks = spotify_search.find_songs(access_token= user.access_token, q=query)
-
                 context = {
                     'form':form,
-                    'tracks': tracks,
-                    'message':type(tracks),
+                    'tracks': tracks[1],
+                    'message':tracks[0],
+                    'tracks_json':json.dumps(tracks[1])
                 }
                 return render(request, 'music_minion/search.html', context=context)
         else:

@@ -128,7 +128,13 @@ class SpotifySearch():
         
     
     def find_songs(self, access_token, limit=25, offset=None, q=None):
-        
+        #Response returns a dictionary with these values:
+        # album, artists, available_markets, disc_number, duration_ms, explicit
+        # external_ids, external_urls, href, id, is_playable, linked_from,
+        # name, popularity, preview_url, track_number, type, uri
+
+        message = None
+
         data = {
             'q': q,
             'type':'track',
@@ -141,15 +147,98 @@ class SpotifySearch():
         header_value = "Bearer " + access_token
         response = requests.get(self.api_url, params=data, headers={"Authorization": header_value})
         response_data = json.loads(response.text)
-        return response_data['tracks']['items']
 
-        #Response returns a dictionary with these values:
-        # album, artists, available_markets, disc_number, duration_ms, explicit
-        # external_ids, external_urls, href, id, is_playable, linked_from,
-        # name, popularity, preview_url, track_number, type, uri
+        if response.status_code == 200:
+            #Clean the response to keep only data we want, and add data from track_features
+            cleaned_tracks = []
+            for track in response_data['tracks']['items']:
+                new_dict = {
+                    'id': track['id'],
+                    'name': track['name'],
+                    'artists': ', '.join(artist['name'] for artist in track['artists']),
+                    'href': track['href'],
+                    'popularity': track['popularity'],
+                }
+                cleaned_tracks.append(new_dict)
+
+            #Get the track ids and find audio features
+            tracks = [track['id'] for track in response_data['tracks']['items']]
+            try:
+                track_features = self.get_track_features(tracks, access_token)
+            except Exception as x:
+                track_features = None
+                message = "Couldn't Get Track Features"
+
+            #If there are track features add them to the dictionaries
+            if track_features:
+                for i in range(len(track_features)):
+                    if track_features[i]:
+                        cleaned_tracks[i].update(track_features[i])
+
+            return [message, cleaned_tracks]
+        else:
+            message = response_data
+            return [message, None]
 
 
 
+    def get_track_features(self, tracks, access_token):
+        url = 'https://api.spotify.com/v1/audio-features/'
+        data = {
+            'ids': ','.join(tracks),
+        }
+        params = urlencode(data, True)
+        header_value = "Bearer " + access_token
+        response = requests.get(url, params=params, headers={"Authorization": header_value})
+        response_data = json.loads(response.text)
+
+        if response.status_code == 200:
+            tracks = []
+            for track in response_data['audio_features']:
+                try:
+                    track_features = {
+                        'danceability': track['danceability'],
+                        'energy': track['energy'],
+                        'key': track['key'],
+                        'loudness': track['loudness'],
+                        'mode': track['mode'],
+                        'speechiness': track['speechiness'],
+                        'acousticness': track['acousticness'],
+                        'instrumentalness': track['instrumentalness'],
+                        'liveness': track['liveness'],
+                        'valence': track['valence'],
+                        'tempo': int(track['tempo']),
+                        'time_signature':track['time_signature'],
+                        'duration_ms':track['duration_ms'],
+                    }
+                except:
+                    track_features = {
+                        'danceability': 'Not Available',
+                        'energy': 'Not Available',
+                        'key': 'Not Available',
+                        'loudness': 'Not Available',
+                        'mode': 'Not Available',
+                        'speechiness': 'Not Available',
+                        'acousticness': 'Not Available',
+                        'instrumentalness': 'Not Available',
+                        'liveness': 'Not Available',
+                        'valence': 'Not Available',
+                        'tempo': 'Not Available',
+                        'time_signature': 'Not Available',
+                        'duration_ms': 'Not Available',
+                    }
+                tracks.append(track_features)
+            return tracks
+        else:
+            return None
+
+    def get_recommendations(self, access_token, limit=25, min=None, max=None, artists=None, genres=None, tracks=None, target=None):
+
+        url = 'https://api.spotify.com/v1/recommendations'
+
+        #User can select any number of minimum values
+        #This form is super dynamic and would probably be easier done in javascript
+        #Saving this function for another day. Shows that I need to complete that CodeAcademy Course        
 
 
     

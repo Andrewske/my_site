@@ -1,0 +1,216 @@
+{
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/search?query=skrillex&type=track&offset=0&limit=2",
+      "items" : [ {
+        "album" : {
+          "album_type" : "album",
+          "artists" : [ {
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/artist/1HxJeLhIuegM3KgvPn8sTa"
+            },
+            "href" : "https://api.spotify.com/v1/artists/1HxJeLhIuegM3KgvPn8sTa",
+            "id" : "1HxJeLhIuegM3KgvPn8sTa",
+            "name" : "Jack Ü",
+            "type" : "artist",
+            "uri" : "spotify:artist:1HxJeLhIuegM3KgvPn8sTa"
+          }, {
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/artist/5he5w2lnU9x7JFhnwcekXX"
+            },
+            "href" : "https://api.spotify.com/v1/artists/5he5w2lnU9x7JFhnwcekXX",
+            "id" : "5he5w2lnU9x7JFhnwcekXX",
+            "name" : "Skrillex",
+            "type" : "artist",
+            "uri" : "spotify:artist:5he5w2lnU9x7JFhnwcekXX"
+          }, {
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/artist/5fMUXHkw8R8eOP2RNVYEZX"
+            },
+            "href" : "https://api.spotify.com/v1/artists/5fMUXHkw8R8eOP2RNVYEZX",
+            "id" : "5fMUXHkw8R8eOP2RNVYEZX",
+            "name" : "Diplo",
+            "type" : "artist",
+            "uri" : "spotify:artist:5fMUXHkw8R8eOP2RNVYEZX"
+          } ],
+          "available_markets" : [ "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/album/6bfkwBrGYKJFk6Z4QVyjxd"
+          },
+          "href" : "https://api.spotify.com/v1/albums/6bfkwBrGYKJFk6Z4QVyjxd",
+          "id" : "6bfkwBrGYKJFk6Z4QVyjxd",
+          "images" : [ {
+            "height" : 640,
+            "url" : "https://i.scdn.co/image/ab67616d0000b27357fc4730e06c9ab20c1e073b",
+            "width" : 640
+          }, {
+            "height" : 300,
+            "url" : "https://i.scdn.co/image/ab67616d00001e0257fc4730e06c9ab20c1e073b",
+            "width" : 300
+          }, {
+            "height" : 64,
+            "url" : "https://i.scdn.co/image/ab67616d0000485157fc4730e06c9ab20c1e073b",
+            "width" : 64
+          } ],
+          "name" : "Skrillex and Diplo present Jack Ü",
+          "release_date" : "2015-02-24",
+          "release_date_precision" : "day",
+          "total_tracks" : 10,
+          "type" : "album",
+          "uri" : "spotify:album:6bfkwBrGYKJFk6Z4QVyjxd"
+        },
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1HxJeLhIuegM3KgvPn8sTa"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1HxJeLhIuegM3KgvPn8sTa",
+          "id" : "1HxJeLhIuegM3KgvPn8sTa",
+          "name" : "Jack Ü",
+          "type" : "artist",
+          "uri" : "spotify:artist:1HxJeLhIuegM3KgvPn8sTa"
+        }, {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/5he5w2lnU9x7JFhnwcekXX"
+          },
+          "href" : "https://api.spotify.com/v1/artists/5he5w2lnU9x7JFhnwcekXX",
+          "id" : "5he5w2lnU9x7JFhnwcekXX",
+          "name" : "Skrillex",
+          "type" : "artist",
+          "uri" : "spotify:artist:5he5w2lnU9x7JFhnwcekXX"
+        }, {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/5fMUXHkw8R8eOP2RNVYEZX"
+          },
+          "href" : "https://api.spotify.com/v1/artists/5fMUXHkw8R8eOP2RNVYEZX",
+          "id" : "5fMUXHkw8R8eOP2RNVYEZX",
+          "name" : "Diplo",
+          "type" : "artist",
+          "uri" : "spotify:artist:5fMUXHkw8R8eOP2RNVYEZX"
+        }, {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1uNFoZAHBGtllmzznpCI3s"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1uNFoZAHBGtllmzznpCI3s",
+          "id" : "1uNFoZAHBGtllmzznpCI3s",
+          "name" : "Justin Bieber",
+          "type" : "artist",
+          "uri" : "spotify:artist:1uNFoZAHBGtllmzznpCI3s"
+        } ],
+        "available_markets" : [ "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", 
+  "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", 
+  "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", 
+  "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "disc_number" : 1,
+        "duration_ms" : 250285,
+        "explicit" : false,
+        "external_ids" : {
+          "isrc" : "USAT21500555"
+        },
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/track/66hayvUbTotekKU3H4ta1f"
+        },
+        "href" : "https://api.spotify.com/v1/tracks/66hayvUbTotekKU3H4ta1f",
+        "id" : "66hayvUbTotekKU3H4ta1f",
+        "is_local" : false,
+        "name" : "Where Are Ü Now (with Justin Bieber)",
+        "popularity" : 74,
+        "preview_url" : "https://p.scdn.co/mp3-preview/edd7282e93a954b2b48cfc136aa63b0396c16406?cid=f06e18ff64a248c6aa9837f8998ee479",
+        "track_number" : 9,
+        "type" : "track",
+        "uri" : "spotify:track:66hayvUbTotekKU3H4ta1f"
+      }, {
+        "album" : {
+          "album_type" : "single",
+          "artists" : [ {
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/artist/5he5w2lnU9x7JFhnwcekXX"
+            },
+            "href" : "https://api.spotify.com/v1/artists/5he5w2lnU9x7JFhnwcekXX",
+            "id" : "5he5w2lnU9x7JFhnwcekXX",
+            "name" : "Skrillex",
+            "type" : "artist",
+            "uri" : "spotify:artist:5he5w2lnU9x7JFhnwcekXX"
+          }, {
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/artist/1sBkRIssrMs1AbVkOJbc7a"
+            },
+            "href" : "https://api.spotify.com/v1/artists/1sBkRIssrMs1AbVkOJbc7a",
+            "id" : "1sBkRIssrMs1AbVkOJbc7a",
+            "name" : "Rick Ross",
+            "type" : "artist",
+            "uri" : "spotify:artist:1sBkRIssrMs1AbVkOJbc7a"
+          } ],
+          "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/album/3W6iNTF9ajh2btsyxslpCY"
+          },
+          "href" : "https://api.spotify.com/v1/albums/3W6iNTF9ajh2btsyxslpCY",
+          "id" : "3W6iNTF9ajh2btsyxslpCY",
+          "images" : [ {
+            "height" : 640,
+            "url" : "https://i.scdn.co/image/ab67616d0000b273602b6507f5289db71603c2f4",
+            "width" : 640
+          }, {
+            "height" : 300,
+            "url" : "https://i.scdn.co/image/ab67616d00001e02602b6507f5289db71603c2f4",
+            "width" : 300
+          }, {
+            "height" : 64,
+            "url" : "https://i.scdn.co/image/ab67616d00004851602b6507f5289db71603c2f4",
+            "width" : 64
+          } ],
+          "name" : "Purple Lamborghini (with Rick Ross)",
+          "release_date" : "2016-07-22",
+          "release_date_precision" : "day",
+          "total_tracks" : 1,
+          "type" : "album",
+          "uri" : "spotify:album:3W6iNTF9ajh2btsyxslpCY"
+        },
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/5he5w2lnU9x7JFhnwcekXX"
+          },
+          "href" : "https://api.spotify.com/v1/artists/5he5w2lnU9x7JFhnwcekXX",
+          "id" : "5he5w2lnU9x7JFhnwcekXX",
+          "name" : "Skrillex",
+          "type" : "artist",
+          "uri" : "spotify:artist:5he5w2lnU9x7JFhnwcekXX"
+        }, {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1sBkRIssrMs1AbVkOJbc7a"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1sBkRIssrMs1AbVkOJbc7a",
+          "id" : "1sBkRIssrMs1AbVkOJbc7a",
+          "name" : "Rick Ross",
+          "type" : "artist",
+          "uri" : "spotify:artist:1sBkRIssrMs1AbVkOJbc7a"
+        } ],
+        "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", 
+  "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", 
+  "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", 
+  "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "disc_number" : 1,
+        "duration_ms" : 215510,
+        "explicit" : true,
+        "external_ids" : {
+          "isrc" : "USAT21602007"
+        },
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/track/6JyuJFedEvPmdWQW0PkbGJ"
+        },
+        "href" : "https://api.spotify.com/v1/tracks/6JyuJFedEvPmdWQW0PkbGJ",
+        "id" : "6JyuJFedEvPmdWQW0PkbGJ",
+        "is_local" : false,
+        "name" : "Purple Lamborghini (with Rick Ross)",
+        "popularity" : 71,
+        "preview_url" : "https://p.scdn.co/mp3-preview/2e18e92cdcff02cdd4bdbc7bcd23fcb56a31e414?cid=f06e18ff64a248c6aa9837f8998ee479",
+        "track_number" : 1,
+        "type" : "track",
+        "uri" : "spotify:track:6JyuJFedEvPmdWQW0PkbGJ"
+      } ],
+      "limit" : 2,
+      "next" : "https://api.spotify.com/v1/search?query=skrillex&type=track&offset=2&limit=2",
+      "offset" : 0,
+      "previous" : null,
+      "total" : 731
+    }
+  }

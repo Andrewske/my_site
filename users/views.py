@@ -26,6 +26,7 @@ def register(request):
 
 @login_required
 def profile(request):
+    spotify_auth.check_auth(request)
     code = request.GET.get("code", None)
     user = request.user
     message = None
