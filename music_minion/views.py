@@ -50,4 +50,7 @@ def searchView(request):
     return render(request, 'music_minion/search.html', {'form':form, 'message':message})
 
 
+    def playlistView(request):
+        user = request.user.spotifyuser()
+
 

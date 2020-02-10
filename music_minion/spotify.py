@@ -241,6 +241,27 @@ class SpotifySearch():
         #Saving this function for another day. Shows that I need to complete that CodeAcademy Course        
 
 
+class SpotifyUserData():
+
+    def __init__(self):
+        self.api_url = 'https://api.spotify.com/v1/users/'
+
+    def get_user_data(self, access_token):
+        url = 'https://api.spotify.com/v1/me'
+        header_value = "Bearer " + access_token
+        response = requests.get(
+            url, headers={"Authorization": header_value}
+        )
+        response_data = json.loads(response.text)
+        
+        if response.status_code == 200:
+            return response_data
+        else:
+            return None
+
+    
+    def get_user_playlists(self, user_id, access_token):
+        pass
     
 
 if __name__ == "__main__":
