@@ -16,7 +16,6 @@ except ImportError:
     from urllib import urlencode
 
 
-
 class SpotifyAuth:
 
     def __init__(self):
@@ -149,37 +148,115 @@ class SpotifySearch():
         response_data = json.loads(response.text)
 
         if response.status_code == 200:
-            #Clean the response to keep only data we want, and add data from track_features
-            cleaned_tracks = []
-            for track in response_data['tracks']['items']:
-                new_dict = {
-                    'id': track['id'],
-                    'name': track['name'],
-                    'artists': ', '.join(artist['name'] for artist in track['artists']),
-                    'href': track['href'],
-                    'popularity': track['popularity'],
-                }
-                cleaned_tracks.append(new_dict)
-
-            #Get the track ids and find audio features
-            tracks = [track['id'] for track in response_data['tracks']['items']]
-            try:
-                track_features = self.get_track_features(tracks, access_token)
-            except Exception as x:
-                track_features = None
-                message = "Couldn't Get Track Features"
-
-            #If there are track features add them to the dictionaries
-            if track_features:
-                for i in range(len(track_features)):
-                    if track_features[i]:
-                        cleaned_tracks[i].update(track_features[i])
-
-            return [message, cleaned_tracks]
+            tracks = [track for track in response_data['tracks']['items']]
+            return SpotifyTrackData().clean_track_response(tracks, access_token)
         else:
             message = response_data
             return [message, None]
 
+
+    def get_recommendations(self, access_token, limit=25, min=None, max=None, artists=None, genres=None, tracks=None, target=None):
+
+        url = 'https://api.spotify.com/v1/recommendations'
+
+        #User can select any number of minimum values
+        #This form is super dynamic and would probably be easier done in javascript
+        #Saving this function for another day. Shows that I need to complete that CodeAcademy Course        
+
+
+class SpotifyUserData():
+
+    def __init__(self):
+        self.api_url = 'https://api.spotify.com/v1/users/'
+
+    def get_user_data(self, access_token):
+        url = 'https://api.spotify.com/v1/me'
+        header_value = "Bearer " + access_token
+        response = requests.get(
+            url, headers={"Authorization": header_value}
+        )
+        response_data = json.loads(response.text)
+        
+        if response.status_code == 200:
+            return response_data
+        else:
+            return None
+
+    
+    def get_user_playlists(self, user_id, access_token, limit=50, offset=0):
+        
+        url = self.api_url + user_id + '/playlists'
+
+        data = {
+            'limit': limit,
+            'offset': offset,
+        }
+        header_value = "Bearer " + access_token
+
+        response = requests.get(url, params=data, headers={"Authorization": header_value})
+        response_data = json.loads(response.text)
+
+        if response.status_code == 200:
+            return response_data
+        else:
+            return None
+
+    def get_playlist_songs(self, playlist_id, access_token, fields=None, limit=100, offset=0):
+        url = 'https://api.spotify.com/v1/playlists/' + playlist_id + '/tracks'
+
+        data = {
+            'limit':limit,
+            'offset':offset,
+            'fields':fields,
+            'market':'from_token'
+        }
+
+        header_value = "Bearer " + access_token
+
+        response = requests.get(url, params=data, headers={"Authorization": header_value})
+        response_data = json.loads(response.text)
+
+        if response.status_code == 200:
+            tracks = [track['track'] for track in response_data['items']]
+            return SpotifyTrackData().clean_track_response(tracks, access_token)
+        else:
+            return None
+
+
+class SpotifyTrackData():
+
+    def __init__(self):
+        self.api_url = "https:"
+
+    def clean_track_response(self, tracks, access_token):
+        message = None
+        #Clean the response to keep only data we want, and add data from track_features
+        cleaned_tracks = []
+        for track in tracks:
+            new_dict = {
+                'id': track['id'],
+                'name': track['name'],
+                'artists': ', '.join(artist['name'] for artist in track['artists']),
+                'href': track['href'],
+                'popularity': track['popularity'],
+            }
+            cleaned_tracks.append(new_dict)
+
+        #Get the track ids and find audio features
+        track_ids = [track['id'] for track in tracks]
+        try:
+            track_features = self.get_track_features(track_ids, access_token)
+        except Exception as x:
+            track_features = None
+            message = "Couldn't Get Track Features" + str(x)
+
+        #If there are track features add them to the dictionaries
+        if track_features:
+            for i in range(len(track_features)):
+                if track_features[i]:
+                    cleaned_tracks[i].update(track_features[i])
+
+        return [message, cleaned_tracks]
 
 
     def get_track_features(self, tracks, access_token):
@@ -230,38 +307,8 @@ class SpotifySearch():
                 tracks.append(track_features)
             return tracks
         else:
-            return None
+            return json.dumps(response_data)
 
-    def get_recommendations(self, access_token, limit=25, min=None, max=None, artists=None, genres=None, tracks=None, target=None):
-
-        url = 'https://api.spotify.com/v1/recommendations'
-
-        #User can select any number of minimum values
-        #This form is super dynamic and would probably be easier done in javascript
-        #Saving this function for another day. Shows that I need to complete that CodeAcademy Course        
-
-
-class SpotifyUserData():
-
-    def __init__(self):
-        self.api_url = 'https://api.spotify.com/v1/users/'
-
-    def get_user_data(self, access_token):
-        url = 'https://api.spotify.com/v1/me'
-        header_value = "Bearer " + access_token
-        response = requests.get(
-            url, headers={"Authorization": header_value}
-        )
-        response_data = json.loads(response.text)
-        
-        if response.status_code == 200:
-            return response_data
-        else:
-            return None
-
-    
-    def get_user_playlists(self, user_id, access_token):
-        pass
     
 
 if __name__ == "__main__":

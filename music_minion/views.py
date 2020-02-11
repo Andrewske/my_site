@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.views.generic import ListView 
 from portfolio.models import Technologies
-from .forms import SpotifySearchForm
+from .forms import SpotifySearchForm, SpotifyPlaylistForm
 from . import spotify
 import json
 
 spotify_search = spotify.SpotifySearch()
 spotify_auth = spotify.SpotifyAuth()
+spotify_user_data = spotify.SpotifyUserData()
 
 
 
@@ -45,12 +46,28 @@ def searchView(request):
             }
             return render(request, 'music_minion/search.html', context=context)
     else: 
-        form = SpotifySearchForm( genres=genres)
+        form = SpotifySearchForm(genres=genres)
 
     return render(request, 'music_minion/search.html', {'form':form, 'message':message})
 
 
-    def playlistView(request):
-        user = request.user.spotifyuser()
+def playlistView(request):
+    user = request.user.spotifyuser
+    playlists = spotify_user_data.get_user_playlists(user.username, user.access_token)
+    playlist_names = [playlist['name'] for playlist in playlists['items']]
+    playlist_ids = [playlist['id'] for playlist in playlists['items']]
+    tracks, message = None, None
 
-
+    if request.method == 'POST':
+        form = SpotifyPlaylistForm(request.POST, playlists=playlist_names)
+        if form.is_valid():
+            playlist = form.cleaned_data.get('playlist')
+            i = playlist_names.index(playlist)
+            playlist_id = playlist_ids[i]
+            tracks = spotify_user_data.get_playlist_songs(playlist_id, user.access_token)
+        else:
+            message = "Form Not Valid?"
+    else:
+        form = SpotifyPlaylistForm(playlists=playlist_names)
+    
+    return render(request, 'music_minion/playlist.html', {'form':form, 'tracks':tracks[1], 'message':message})

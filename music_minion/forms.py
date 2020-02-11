@@ -1,8 +1,13 @@
 from django import forms
 
 
-class SoundCloudPlaylistForm(forms.Form):
-    playlist = forms.CharField()
+class SpotifyPlaylistForm(forms.Form):
+
+    def __init__(self, *args, **kwargs):
+        self.playlists = kwargs.pop('playlists')
+        super(SpotifyPlaylistForm, self).__init__(*args, **kwargs)
+        playlists = [(playlist, playlist) for playlist in self.playlists]
+        self.fields['playlist'] = forms.ChoiceField(choices=playlists, required=True)
 
 
 class SpotifySearchForm(forms.Form):

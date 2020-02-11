@@ -1,0 +1,70 @@
+{% extends "portfolio/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+    {% if message %}
+      <div class='alert alert-danger message'>
+        <p style="margin-bottom: 0px;">{{ message }}</p>
+      </div>
+    {% endif %}
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="contact-form form-group">
+                <legend class="border-bottom mb-4">Examine your playlist</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="contact-form form-group">
+                <button class="btn contact-button" type="submit">Get Tracks</button>
+            </div>
+        </form>
+    </div>
+
+    <table id="songList" data-toggle="table" data-search="true" data-show-columns="true">
+       <thead>
+           <tr>
+               <th data-sortable="true" data-visible="true">Name</th>
+               <th data-sortable="true" data-visible="true">Artist</th>
+               <th data-sortable="true" data-visible="true">BPM</th>
+               <th data-sortable="true" data-visible="true">Key</th>
+               <th data-sortable="true" data-visible="true">Popularity</th>
+               <th data-sortable="true" data-visible="false">Danceability</th>
+               <th data-sortable="true" data-visible="false">Engery</th>
+               <th data-sortable="true" data-visible="false">Loudness</th>
+               <th data-sortable="true" data-visible="false">Mode</th>
+               <th data-sortable="true" data-visible="false">Speechiness</th>
+               <th data-sortable="true" data-visible="false">Acousticness</th>
+               <th data-sortable="true" data-visible="false">Intrumentalness</th>
+               <th data-sortable="true" data-visible="false">Liveness</th>
+               <th data-sortable="true" data-visible="false">Valence</th>
+               <th data-sortable="true" data-visible="false">Time Signature</th>
+               <th data-sortable="true" data-visible="false">Duration</th>
+           </tr>
+       </thead>
+       <tbody>
+        {% for track in tracks %}
+           <tr>
+             <td><a href="{{ track.href }}">{{ track.name }}</td>
+             <td>{{ track.artists }}</td>
+             <td>{{ track.tempo }}</td>
+             <td>{{ track.key }}</td>
+             <td>{{ track.popularity }}</td>
+             <td>{{ track.danceability }}</td>
+             <td>{{ track.energy }}</td>
+             <td>{{ track.loudness }}</td>
+             <td>{{ track.mode }}</td>
+             <td>{{ track.speechiness }}</td>
+             <td>{{ track.acousticness }}</td>
+             <td>{{ track.instrumentalness }}</td>
+             <td>{{ track.liveness }}</td>
+             <td>{{ track.valence }}</td>
+             <td>{{ track.time_signature }}</td>
+             <td>{{ track.duration_ms }}</td>
+
+           </tr>
+        {% endfor %}
+       </tbody>
+   </table>
+
+{% endblock content %}
