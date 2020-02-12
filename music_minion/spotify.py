@@ -66,7 +66,7 @@ class SpotifyAuth:
 
     # A token is automatically set to expire every hour. This code will refresh that token.
     # With this we need to keep track of the last time a token was requested
-    # If that time is > 1 hour we first need to request a new token
+    # If that time is > 1 hour we need to request a new token
     def check_auth(self, request):
         try:
             s = request.user.spotifyuser
@@ -155,14 +155,86 @@ class SpotifySearch():
             return [message, None]
 
 
-    def get_recommendations(self, access_token, limit=25, min=None, max=None, artists=None, genres=None, tracks=None, target=None):
+    def get_recommendations(self, access_token, limit=25, min_values=None, max_values=None, artists=None, genres=None, tracks=None, target_values=None):
 
         url = 'https://api.spotify.com/v1/recommendations'
 
-        #User can select any number of minimum values
-        #This form is super dynamic and would probably be easier done in javascript
-        #Saving this function for another day. Shows that I need to complete that CodeAcademy Course        
+        #Full dictionary of values that a user can provide for recommendations
+        recommend_dict = {
+            'limit': limit,
+            'market':'from_token',
+            'seed_artists': artists,
+            'seed_genres': genres,
+            'seed_tracks': tracks,
+            'min_acousticness':None,
+            'max_acousticness':None,
+            'target_acousticness':None,
+            'min_danceability':None,
+            'max_danceability':None,
+            'target_danceability':None,
+            'min_duration_ms':None,
+            'max_duration_ms':None,
+            'target_duration_ms':None,
+            'min_energy':None,
+            'max_energy':None,
+            'target_energy':None,
+            'min_instrumentalness':None,
+            'max_instrumentalness':None,
+            'target_instrumentalness':None,
+            'min_key':None,
+            'max_key':None,
+            'target_key':None,
+            'min_liveness':None,
+            'max_liveness':None,
+            'target_liveness':None,
+            'min_loudness':None,
+            'max_loudness':None,
+            'target_loudness':None,
+            'min_mode':None,
+            'max_mode':None,
+            'target_mode':None,
+            'min_popularity':None,
+            'max_popularity':None,
+            'target_popularity':None,
+            'min_speechiness':None,
+            'max_speechiness':None,
+            'target_speechiness':None,
+            'min_tempo':None,
+            'max_tempo':None,
+            'target_tempo':None,
+            'min_time_signature':None,
+            'max_time_signature':None,
+            'target_time_signature':None,
+            'min_valence':None,
+            'max_valence':None,
+            'target_valence':None,
+        }
 
+        #If minimum, maximum, or target values are provided add them to the dictionary
+        if min_values:
+            for k,v in min_values.items():
+                recommend_dict[k] = v
+
+        if max_values:
+            for k,v in max_values.items():
+                recommend_dict[k] = v
+        
+        if target_values:
+            for k,v in target_values.items():
+                recommend_dict[k] = v
+
+        #Remove any dictionary keys with None values
+        data = {k: v for k, v in recommend_dict.items() if v is not None}
+
+        header_value = "Bearer " + access_token
+        response = requests.get(url, params=data, headers={"Authorization": header_value})
+        response_data = json.loads(response.text)
+
+        if response.status_code == 200:
+            tracks = [track for track in response_data['tracks']]
+            return SpotifyTrackData().clean_track_response(tracks, access_token)
+        else:
+            return response_data
 
 class SpotifyUserData():
 
