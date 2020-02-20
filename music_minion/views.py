@@ -84,7 +84,7 @@ def playlistView(request):
             target_values = {
                 'target_danceability': int(np.mean([track['danceability'] for track in tracks])),
                 'target_energy': int(np.mean([track['energy'] for track in tracks])),
-                'target_key': int(np.mean([track['key'] for track in tracks])),
+                #'target_key': int(np.mean([track['key'] for track in tracks])),
                 'target_loudness': int(np.mean([track['loudness'] for track in tracks])),
                 'target_mode': int(np.mean([track['mode'] for track in tracks])),
                 'target_speechiness': int(np.mean([track['speechiness'] for track in tracks])),

@@ -348,7 +348,7 @@ class SpotifyTrackData():
                     track_features = {
                         'danceability': track['danceability'],
                         'energy': track['energy'],
-                        'key': track['key'],
+                        'key': self.convert_key(track['key'], track['mode']),
                         'loudness': track['loudness'],
                         'mode': track['mode'],
                         'speechiness': track['speechiness'],
@@ -381,7 +381,62 @@ class SpotifyTrackData():
         else:
             return json.dumps(response_data)
 
-    
+    def convert_key(self, key, mode):
+
+        pitch_class = {
+            0 : 'C',
+            1 : 'Db',
+            2 : 'D',
+            3 : 'Eb',
+            4 : 'E',
+            5 : 'F',
+            6 : 'Gb',
+            7 : 'G',
+            8 : 'Ab',
+            9 : 'A',
+            10 : 'Bb',
+            11 : 'B'
+        }
+
+        pitch = pitch_class[key]
+
+        camelot_major = {
+            'B' : '1B',
+            'Gb' : '2B',
+            'Db' : '3B',
+            'Ab' : '4B',
+            'Eb' : '5B',
+            'Bb' : '6B',
+            'F' : '7B',
+            'C' : '8B',
+            'G' : '9B',
+            'D' : '10B',
+            'A' : '11B',
+            'E' : '12B'
+        }
+
+        camelot_minor = {
+            'Ab' : '1A',
+            'Eb' : '2A',
+            'Bb' : '3A',
+            'F' : '4A',
+            'C' : '5A',
+            'G' : '6A',
+            'D' : '7A',
+            'A' : '8A',
+            'E' : '9A',
+            'B' : '10A',
+            'Gb' : '11A',
+            'Db' : '12A'
+        }
+
+        if mode == 1:
+            return camelot_major[pitch]
+        elif mode == 0:
+            return camelot_minor[pitch]
+        else:
+            return 'No Mode'
+
 
 if __name__ == "__main__":
     print(timezone.now())

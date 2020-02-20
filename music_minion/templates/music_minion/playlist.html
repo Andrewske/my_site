@@ -97,7 +97,7 @@
             <td><a href="{{ track.href }}">{{ track.name }}</td>
             <td>{{ track.artists }}</td>
             <td>{{ track.tempo }}</td>
-            <td>{{ track.key }}</td>
+            <td id='key'>{{ track.key }}</td>
             <td>{{ track.popularity }}</td>
             <td>{{ track.danceability }}</td>
             <td>{{ track.energy }}</td>
@@ -130,5 +130,10 @@
                 return;
             };
         };
+        
+
+
+
+
    </script>
 {% endblock content %}

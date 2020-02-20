@@ -187,3 +187,33 @@ min_values = {'min_tempo':145}
 max_values = {'max_tempo':155}
 
 print(get_recommendations(access_token, limit=5, tracks=tracks, target_values=target_values, min_values=min_values, max_values=max_values))
+
+
+
+
+let camalot_colors = {
+    '1A' : '#56F1DA',
+    '1B' : '#01EDCA',
+    '2A' : '#7DF2AA',
+    '2B' : '#3CEE81',
+    '3A' : '#AEF589',
+    '3B' : '#86F24F',
+    '4A' : '#E8DAA1',
+    '4B' : '#DFCA73',
+    '5A' : '#FDBFA7',
+    '5B' : '#FFA07C',
+    '6A' : '#FDAFB7',
+    '6B' : '#FF8894',
+    '7A' : '#FDAACC',
+    '7B' : '#FF81B4',
+    '8A' : '#F2ABE4',
+    '8B' : '#EE82D9',
+    '9A' : '#DDB4FD',
+    '9B' : '#CE8FFF',
+    '10A' : '#BECDFD',
+    '10B' : '#9FB6FF',
+    '11A' : '#8EE4F9',
+    '11B' : '#56D9F9',
+    '12A' : '#55F0F0',
+    '12B' : '#00EBEB',
+}
