@@ -1,6 +1,8 @@
 {% extends "portfolio/base.html" %}
+
 {% load crispy_forms_tags %}
 {% block content %}
+
 
 <div class="container">
     {% if message %}
@@ -50,7 +52,7 @@
              <td><a href="{{ track.href }}">{{ track.name }}</td>
              <td>{{ track.artists }}</td>
              <td>{{ track.tempo }}</td>
-             <td>{{ track.key }}</td>
+             <td class='key-{{ track.key }}'>{{ track.key }}</td>
              <td>{{ track.popularity }}</td>
              <td>{{ track.danceability }}</td>
              <td>{{ track.energy }}</td>
@@ -91,13 +93,15 @@
             <th data-sortable="true" data-visible="false">Duration</th>
         </tr>
     </thead>
+
+    <h1>Suggestions</h1>
     <tbody>
         {% for track in rec_tracks %}
         <tr>
             <td><a href="{{ track.href }}">{{ track.name }}</td>
             <td>{{ track.artists }}</td>
             <td>{{ track.tempo }}</td>
-            <td id='key'>{{ track.key }}</td>
+            <td class='key-{{ track.key }}'>{{ track.key }}</td>
             <td>{{ track.popularity }}</td>
             <td>{{ track.danceability }}</td>
             <td>{{ track.energy }}</td>
