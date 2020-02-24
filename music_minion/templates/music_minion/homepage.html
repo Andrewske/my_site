@@ -4,43 +4,16 @@
 
 <div class="container">
     <img class='img-fluid' src='{{ minion_gif }}'>
-    <h2>Jquery Table Row Draggable and Sortable</h2>
-    <table class="table">
-       <thead>
-           <tr>
-               <th>No</th>
-               <th>Course</th>
-               <th>Details</th>
-           </tr>
-       </thead>
-       <tbody>
-           <tr>
-             <td>1</td>
-             <td><a href="http://www.expertphp.in/tutorials/1/php">PHP</a></td>
-             <td>Learn online PHP course </td>
-           </tr>
-           <tr>
-             <td>2</td>
-             <td><a href="http://www.expertphp.in/tutorials/5/css">CSS</a></td>
-             <td>Learn online CSS course</td>
-           </tr>
-           <tr>
-             <td>3</td>
-             <td><a href="http://www.expertphp.in/tutorials/6/javascript">JS</a></td>
-             <td>Learn online JS course</td>
-           </tr>
-           <tr>
-             <td>4</td>
-             <td><a href="http://www.expertphp.in/tutorials/12/seo">SEO</a></td>
-             <td>Learn online SEO course</td>
-           </tr>
-           <tr>
-             <td>5</td>
-             <td><a href="http://www.expertphp.in/tutorials/2/mysql">MySQL</a></td>
-             <td>Learn online MySQL course</td>
-           </tr>
-       </tbody>
-   </table>
+    <h2>Welcome to Music minon</h2>
+    <p>Music minion is a program to organize and find music on Spotify using their extended audio features</p>
+    {% if user.is_authenticated %}
+      <a class="btn contact-button" href="{% url 'music-minion-search' %}">Search</a>
+      <a class="btn contact-button" href="{% url 'music-minion-playlist' %}">Playlist</a>
+    {% else %}
+      <p>You must be logged in to use this app</p>
+      <p>After logging in you may visit your profile to connect your spotify account.</p>
+      <a class="btn contact-button" href="{% url 'login' %}">Log In</a>
+    {% endif %}
 </div> 
 
 {% endblock content %}

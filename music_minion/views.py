@@ -3,6 +3,7 @@ from django.views.generic import ListView
 from portfolio.models import Technologies
 from .forms import SpotifySearchForm, SpotifyPlaylistForm
 from . import spotify
+from my_site import giphy
 import json, random
 import numpy as np
 
@@ -18,6 +19,10 @@ class MinionListView(ListView):
     context_object_name = 'technologies'
     ordering = ['-date_added']
 
+def homeView(request):
+    minion_gif = giphy.get_gif('dj minion')
+    message = None
+    return render(request, 'music_minion/homepage.html', {'minion_gif':minion_gif, 'message':message})
 
 def searchView(request):
     user = request.user.spotifyuser
