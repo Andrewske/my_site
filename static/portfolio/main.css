@@ -3,7 +3,28 @@
 body {
   font-family: "Poppins", sans-serif;
   background: #1a1a1a;
-  color: #333333;
+  color: #ffffff;
+}
+
+.red-text {
+  color:#E60023 !important;
+}
+
+.green-text {
+  color:#1db954 !important;
+}
+
+.yellow-text {
+  color: #ebcf34 !important;
+}
+
+.project-gif {
+  max-height:250px;
+  width:auto;
+}
+
+.project {
+  height:500px;
 }
 
 a,
@@ -39,6 +60,12 @@ a:focus {
 i,
 span {
   display: inline-block;
+}
+
+.message {
+  display: flex; 
+  vertical-align: center;
+  
 }
 
 /* ---------------------------------------------------
@@ -79,16 +106,7 @@ span {
   margin: auto;
 }
 
-.fab {
-  box-sizing: content-box;
-  padding: 10px;
-  font-size: 30px;
-  width: 30px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 50%;
-  color: white;
-}
+
 
 .fa-linkedin {
   color: #0077b5;
@@ -119,19 +137,21 @@ span {
 ----------------------------------------------------- */
 
 #content {
-  width: 100%;
+  width: 90%;
+  margin-left:25px;
   padding: 20px;
   min-height: 100vh;
   transition: all 0.3s;
 }
 
+p,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: #444444;
+  color: white;
 }
 
 ul {
@@ -139,6 +159,7 @@ ul {
 }
 
 .content-section {
+  max-width:750px;
   background: #1a1a1a;
   padding: 10px 20px;
   border: 1px solid #dddddd;
@@ -376,6 +397,11 @@ html {
   top: 0;
 }
 
+/*-------------------------------*/
+/*       Listings Tabel          */
+/*-------------------------------*/
+
+
 
 /*-------------------------------*/
 /*       Hamburger-Cross         */
@@ -509,3 +535,69 @@ html {
 .contact-button {
   background-color: #1db954;
 }
+
+.green-button {
+  background-color: #1db954;
+}
+
+.red-button {
+  background-color: #cb2027;
+}
+
+/*-------------------------------*/
+/*         Social Buttons        */
+/*-------------------------------*/
+
+.btn-social {
+  position:relative;
+  padding-left:44px;
+  text-align:left;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  min-width:250px;
+} .btn-social>:first-child {
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:32px;
+  line-height:36px;
+  font-size:1.6em;
+  text-align:center;
+  border-right:1px solid rgba(0,0,0,0.2)
+}
+
+
+.btn-pinterest {
+  color:#fff;
+  background-color:#cb2027;
+  border-color:rgba(0,0,0,0.2)
+}.btn-pinterest:focus,.btn-pinterest.focus {
+  color:#fff;
+  background-color:#9f191f;
+  border-color:rgba(0,0,0,0.2)
+}
+.btn-pinterest:hover {
+  color:#fff;
+  background-color:#9f191f;
+  border-color:rgba(0,0,0,0.2)
+}
+
+
+.btn-spotify {
+  color:#fff;
+  background-color:#1db954;
+  border-color:rgba(0,0,0,0.2)
+}.btn-spotify:focus,.btn-pinterest.focus {
+  color:#fff;
+  background-color:#1AA64B;
+  border-color:rgba(0,0,0,0.2)
+}
+.btn-spotify:hover {
+  color:#fff;
+  background-color:#1AA64B;
+  border-color:rgba(0,0,0,0.2)
+}
+
+

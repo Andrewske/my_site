@@ -27,10 +27,16 @@ def register(request):
 
 @login_required
 def profile(request):
-    spotify_auth.check_auth(request)
-    code = request.GET.get("code", None)
     user = request.user
     message = None
+    try:
+        spotify_auth.check_auth(request)
+    except:
+        message = "No Spotify User"
+
+    code = request.GET.get("code", None)
+    
+    
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST, 
@@ -79,7 +85,7 @@ def profile(request):
         spotify_access_token = None
 
         
-    message = user.spotifyuser.access_token
+    #message = spotify_access_token
 
     context = {
         'u_form': u_form,
