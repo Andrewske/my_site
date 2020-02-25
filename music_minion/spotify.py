@@ -313,6 +313,7 @@ class SpotifyTrackData():
                 'artists': ', '.join(artist['name'] for artist in track['artists']),
                 'href': track['href'],
                 'popularity': track['popularity'],
+                'uri': track['uri'],
             }
             cleaned_tracks.append(new_dict)
 
@@ -438,6 +439,24 @@ class SpotifyTrackData():
             return camelot_minor[pitch]
         else:
             return 'No Mode'
+
+    def add_to_playlist(self, access_token, playlist_id, uri_list):
+        url = 'https://api.spotify.com/v1/playlists/' + playlist_id + '/tracks'
+
+        data = {
+            'uris' : ','.join(uri_list),
+        }
+
+        header_value = "Bearer " + access_token
+
+        response = requests.get(url, params=data, headers={"Authorization": header_value})
+        #response_data = json.loads(response.text)
+
+        if response.status_code == 200:
+            return 'Track Added'
+        else:
+            return 'Track Not Added'
+
 
 
 if __name__ == "__main__":
