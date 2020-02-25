@@ -20,6 +20,8 @@ class SpotifyAuth:
 
     def __init__(self):
         self.api_url = "https://accounts.spotify.com/"
+        self.prod_redirect_uri = "http://kevinandrews.info/profile"
+        self.test_redirect_uri = "http://127.0.0.1:8000/profile"
 
     def get_auth_url(self):
         scopes = [
@@ -39,7 +41,7 @@ class SpotifyAuth:
         auth_code_dict = {
             "client_id": secrets.SPOTIFY_CLIENT_ID,
             "response_type": "code",
-            "redirect_uri": "http://127.0.0.1:8000/profile",
+            "redirect_uri": self.prod_redirect_uri,
             "scope": scope,
             "state": state
         }
@@ -51,7 +53,7 @@ class SpotifyAuth:
         data = {
             "grant_type": "authorization_code",
             "code": code,
-            "redirect_uri": "http://127.0.0.1:8000/profile"
+            "redirect_uri": self.prod_redirect_uri
         }
         response = requests.post(
             self.api_url + 'api/token?', data=data, auth =(secrets.SPOTIFY_CLIENT_ID,secrets.SPOTIFY_CLIENT_SECRET)
