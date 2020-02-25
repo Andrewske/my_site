@@ -65,7 +65,7 @@ def profile(request):
                     access_token = response[1]['access_token']
                     refresh_token = response[1]['refresh_token']
                     user_data = spotify_user_data.get_user_data(access_token)
-                    spotify_user = SpotifyUser(user_id=user, username=user_data['id'], access_token=access_token, refresh_token=refresh_token)
+                    spotify_user = SpotifyUser(user_id=user.id, username=user_data['id'], access_token=access_token, refresh_token=refresh_token)
                     spotify_user.save()
                     message = "Spotify connection successful!"
                 except Exception as x:
