@@ -53,6 +53,45 @@
                     <a class="btn btn-block btn-social btn-spotify"  onclick="window.location.href = '{{ spotify_auth_url }}';">
                         <i class="fas fa-check" style="color: white;"></i>Spotify: Connected
                     </a>
+
+                    <h3>Discover Weekly Automation</h3>
+                    <p>Automatically add your discover weekly songs to a cumulative playlist on a weekly or monthly basis</p>
+
+                    {% if dw_monthly %}
+                        <p>Monthly DW Playlist Created</p>
+                        <p>Last Updated: {{ dw_updated_at }}</p>
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <button name="monthly_disconnect" type="submit">Disconnect Monthly Playlist</button>
+                            </div>
+                        </form>
+                    {% else %}
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <button name="monthly" class="btn contact-button" type="submit">Create Monthly Playlist</button>
+                            </div>
+                        </form>
+                    {% endif %}
+
+                    {% if dw_yearly %}
+                        <p>Yearly DW Playlist Created</p>
+                        <p>Last Updated: {{ dw_updated_at }}</p>
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <button name="yearly_disconnect" type="submit">Disconnect Yearly Playlist</button>
+                            </div>
+                        </form>
+                    {% else %}
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <button name="yearly" class="btn contact-button" type="submit">Create Yearly Playlist</button>
+                            </div>
+                        </form>
+                    {% endif %}  
                 {% else %}
                     <a class="btn btn-block btn-social btn-spotify"  onclick="window.location.href = '{{ spotify_auth_url }}';">
                         <i class="fab fa-spotify" style="color: white;"></i>Spotify: Sign In

@@ -23,3 +23,8 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['image']
 
+class SpotifyDWPlaylistForm(forms.Form):
+    monthly = forms.CheckboxInput()
+    yearly = forms.CheckboxInput()
+
+

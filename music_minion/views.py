@@ -109,3 +109,5 @@ def playlistView(request):
         form = SpotifyPlaylistForm(playlists=playlist_names)
     
     return render(request, 'music_minion/playlist.html', {'form':form, 'tracks':tracks, 'message':message, 'rec_tracks':rec_tracks})
+
+    

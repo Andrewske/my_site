@@ -1,3 +1,5 @@
+from background_task import background
+from django.contrib import messages
 import requests, json
 from requests.auth import HTTPBasicAuth
 from my_site import secrets
@@ -8,7 +10,7 @@ import urllib
 from django.contrib.auth.models import User
 from django.utils import timezone
 from datetime import datetime, timedelta
-from .models import SpotifyUser
+from .models import SpotifyUser, SpotifyTasks
 
 try:
     from urllib.parse import urlencode
@@ -273,7 +275,7 @@ class SpotifyUserData():
         if response.status_code == 200:
             return response_data
         else:
-            return None
+            return response_data
 
     def get_playlist_songs(self, playlist_id, access_token, fields=None, limit=100, offset=0):
         url = 'https://api.spotify.com/v1/playlists/' + playlist_id + '/tracks'
@@ -296,6 +298,25 @@ class SpotifyUserData():
         else:
             return None
 
+    def create_playlist(self, access_token,  user_id, playlist_name):
+        url = 'https://api.spotify.com/v1/users/' + user_id + '/playlists'
+        
+        data = {
+            'name': playlist_name,
+        }
+
+        header_value = "Bearer " + access_token
+
+        response = requests.post(url, json=data, headers= {"Authorization": header_value, "Content-Type":'application/json'})
+        response_data = json.loads(response.text)
+
+        try:
+            return response_data['id']
+        except:
+            return response_data
+
+
+
 
 class SpotifyTrackData():
 
@@ -314,6 +335,7 @@ class SpotifyTrackData():
                 'href': track['href'],
                 'popularity': track['popularity'],
                 'uri': track['uri'],
+                'release_date': track['album']['release_date'],
             }
             cleaned_tracks.append(new_dict)
 
@@ -444,18 +466,100 @@ class SpotifyTrackData():
         url = 'https://api.spotify.com/v1/playlists/' + playlist_id + '/tracks'
 
         data = {
-            'uris' : ','.join(uri_list),
+            'uris' : ['spotify:track:'+ str(uri) for uri in uri_list],
         }
 
         header_value = "Bearer " + access_token
 
-        response = requests.get(url, params=data, headers={"Authorization": header_value})
-        #response_data = json.loads(response.text)
+        response = requests.post(url, json=data, headers={"Authorization": header_value, 'Content-Type':'application/json'})
+        response_data = json.loads(response.text)
 
         if response.status_code == 200:
-            return 'Track Added'
+            return 'Tracks Added'
         else:
-            return 'Track Not Added'
+            return response_data
+
+    def save_tracks(self, request, tracks):
+        pass
+
+    def discover_weekly_playlist(self, user_id, access_token, interval):
+
+        #Response Data
+        data = {
+            'message':None, 
+            'updated_at': None, 
+            'exception': None
+            }
+
+        #Find or create spotify playlist based on interval
+        user_playlists = SpotifyUserData().get_user_playlists(user_id, access_token)
+
+        try:
+            playlists = [[playlist['name'], playlist['id']]  for playlist in user_playlists['items']]
+        except:
+            return user_playlists
+        
+        if interval == "monthly":
+            playlist_name = datetime.now().strftime("%b") + ' ' + datetime.now().strftime("%y") + ' - Discover Weekly'
+        else:
+            playlist_name = datetime.now().strftime("%Y") + ' Discover Weekly'
+        
+        playlist_id = None
+
+        for playlist in playlists:
+            if playlist[0] == playlist_name:
+                playlist_id = playlist[1]
+                break
+
+        if not playlist_id:
+            playlist_id = SpotifyUserData().create_playlist(access_token, user_id, playlist_name)
+
+        #Get discover weekly tracks
+        tracks = None
+        track_ids = None
+
+        for playlist in playlists:
+            if playlist[0] == 'Discover Weekly':
+                dw_id = playlist[1]
+                tracks = SpotifyUserData().get_playlist_songs(dw_id, access_token)
+                try:
+                    track_ids = [track['id'] for track in tracks[1]]
+                except:
+                    track_ids = None
+                break
+
+        #Add tracks to the new playlist
+        
+        message = SpotifyTrackData().add_to_playlist(access_token, playlist_id, track_ids)
+
+        return playlist_id
+        
+        
+        
+class SpotifyRepeatTasks():
+
+    def __init__(self):
+        users = None
+
+    @background(schedule=5)
+    def dw_task_for_user(self):
+        dw_task_users = SpotifyUser.objects.filter(dw_monthly = True).filter(dw_yearly = True)
+        for user in dw_task_users:
+            time_since_updated = datetime.now() - user.dw_updated_at
+            if time_since_updated.total_seconds() >= 60:
+                if user.dw_monthly:
+                    SpotifyTrackData().discover_weekly_playlist(user.user_id, user.access_token, 'monthly')
+                    user.dw_updated_at = datetime.Now()
+                    user.save()
+                if user.dw_yearly:
+                    SpotifyTrackData().discover_weekly_playlist(user.user_id, user.access_token, 'yearly')
+                    user.dw_updated_at = datetime.Now()
+                    user.save()
+                messages.success(request, f'Background Test Complete.')
+            else:
+                messages.warning(request, f'No need to update')
+        
+
 
 
 
