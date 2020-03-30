@@ -8,11 +8,14 @@ from music_minion.models import SpotifyUser, SpotifyTasks
 from datetime import datetime
 from django.utils import timezone
 import json
+from background_task import background
+from background_task.models import Task
 
 p = pinterest.Pinterest()
 spotify_auth = spotify.SpotifyAuth()
 spotify_user_data = spotify.SpotifyUserData()
 spotify_track_data = spotify.SpotifyTrackData()
+spotify_tasks = spotify.SpotifyRepeatTasks()
 
 
 def register(request):
@@ -50,28 +53,32 @@ def profile(request):
         if 'monthly' in request.POST:
             spotify_track_data.discover_weekly_playlist(spotify_user.username, spotify_user.access_token, 'monthly')
             spotify_user.dw_monthly = True
-            spotify_user.dw_updated_at = datetime.now()
+            spotify_user.dw_monthly_updated_at = datetime.now()
             spotify_user.save()
+            
+            spotify_tasks.dw_monthly_task(user_id=spotify_user.user_id, repeat=360, creator=spotify_user)
             messages.success(request, f'Your monthly playlist automation has begun.')
         
         elif 'monthly_disconnect' in request.POST:
             spotify_user.dw_monthly = False
-            spotify_user.dw_updated_at = datetime.now()
+            spotify_user.dw_monthly_updated_at = datetime.now()
             spotify_user.save()
+            Task.objects.created_by(spotify_user).filter(task_name="music_minion.spotify.dw_monthly_task").delete()
             messages.success(request, f'Your monthly playlist automation has ended.')
             
         elif 'yearly' in request.POST:
             spotify_track_data.discover_weekly_playlist(spotify_user.username, spotify_user.access_token, 'yearly')
             spotify_user.dw_yearly = True
-            spotify_user.updated_at = datetime.now()
+            spotify_user.dw_yearly_updated_at = datetime.now()
             spotify_user.save()
+            spotify_tasks.dw_yearly_task(user_id=spotify_user.user_id, repeat=360, creator=spotify_user)
             messages.success(request, f'Your yearly playlist automation has begun.')
         
         elif 'yearly_disconnect' in request.POST:
             spotify_user.dw_yearly = False
-            spotify_user.dw_updated_at = datetime.now()
+            spotify_user.dw_yearly_updated_at = datetime.now()
             spotify_user.save()
-            messages.success(request, f'Your yearly playlist automation has ended.')
+            Task.objects.created_by(spotify_user).filter(task_name="music_minion.spotify.dw_yearly_task").delete()
 
         elif u_form.is_valid() and p_form.is_valid():
             u_form.save()
@@ -119,8 +126,10 @@ def profile(request):
         spotify_access_token = None
         spotify_user_id = None
 
-        
-    #message = spotify_user.access_token
+    try:
+        message = Task.objects.created_by(spotify_user).filter(task_name="music_minion.spotify.dw_monthly_task")
+    except Exception as e:
+        message = str(e) 
 
     context = {
         'u_form': u_form,
@@ -131,7 +140,7 @@ def profile(request):
         'pinterest_auth_url':p.get_auth_url(),
         'spotify_auth_url':spotify_auth.get_auth_url()[0],
         'spotify_access_token': spotify_access_token,
-        'message': spotify_user.user_id,
+        'message': message,
     }
 
     

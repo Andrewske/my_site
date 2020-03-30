@@ -1,8 +1,8 @@
 from datetime import datetime, timedelta
 import requests, json
 import time
-import secrets
-from .music_minion import spotify
+
+import spotify
 
 
 spotify_track_data = spotify.SpotifyTrackData()

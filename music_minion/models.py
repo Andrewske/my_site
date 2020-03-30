@@ -11,7 +11,8 @@ class SpotifyUser(models.Model):
     refresh_token = models.CharField(max_length=500)
     dw_monthly = models.BooleanField(default=False)
     dw_yearly = models.BooleanField(default=False)
-    dw_updated_at = models.DateTimeField(null=True)
+    dw_monthly_updated_at = models.DateTimeField(null=True)
+    dw_yearly_updated_at = models.DateTimeField(null=True)
 
     #tracks = ManyToManyField(SpotifyTrack)
 

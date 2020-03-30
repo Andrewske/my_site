@@ -539,28 +539,37 @@ class SpotifyTrackData():
 class SpotifyRepeatTasks():
 
     def __init__(self):
-        users = None
+        self.users = None
 
-    @background(schedule=5)
-    def dw_task_for_user(self):
-        dw_task_users = SpotifyUser.objects.filter(dw_monthly = True).filter(dw_yearly = True)
-        for user in dw_task_users:
-            time_since_updated = datetime.now() - user.dw_updated_at
-            if time_since_updated.total_seconds() >= 60:
-                if user.dw_monthly:
-                    SpotifyTrackData().discover_weekly_playlist(user.user_id, user.access_token, 'monthly')
-                    user.dw_updated_at = datetime.Now()
-                    user.save()
-                if user.dw_yearly:
-                    SpotifyTrackData().discover_weekly_playlist(user.user_id, user.access_token, 'yearly')
-                    user.dw_updated_at = datetime.Now()
-                    user.save()
-                messages.success(request, f'Background Test Complete.')
-            else:
-                messages.warning(request, f'No need to update')
+    @background(schedule=60)
+    def dw_monthly_task(self, spotify_user_id):
+        user = SpotifyUser.filter(user_id=spotify_user_id)
+        time_since_updated = datetime.now(timezone.utc) - user.dw_updated_at
+        if time_since_updated.total_seconds() >= 60:
+            monthly = '' 
+            if user.dw_monthly:
+                SpotifyTrackData().discover_weekly_playlist(user.username, user.access_token, 'monthly')
+                user.dw_updated_at = datetime.now(timezone.utc)
+                user.save()
+                monthly = 'Monthly'
+        else:
+            pass
         
-
-
+        return time_since_updated.total_seconds()
+        
+    #@background(schedule=60)
+    def dw_yearly_task(self, spotify_user_id):
+        user = SpotifyUser.filter(user_id=spotify_user_id)
+        time_since_updated = datetime.now(timezone.utc) - user.dw_updated_at
+        if time_since_updated.total_seconds() >= 60:
+            if user.dw_yearly:
+                SpotifyTrackData().discover_weekly_playlist(user.username, user.access_token, 'yearly')
+                user.dw_updated_at = datetime.now(timezone.utc)
+                user.save()
+        else:
+            pass
+        
+        return time_since_updated.total_seconds()
 
 
 if __name__ == "__main__":

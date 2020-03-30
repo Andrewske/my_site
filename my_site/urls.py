@@ -21,10 +21,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from music_minion import spotify
 
-spotify_tasks = spotify.SpotifyRepeatTasks()
-
-spotify_tasks.dw_task_for_user(repeat=86400)
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
