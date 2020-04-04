@@ -56,7 +56,7 @@ def profile(request):
             spotify_user.dw_monthly_updated_at = datetime.now()
             spotify_user.save()
             
-            spotify_tasks.dw_monthly_task(user_id=spotify_user.user_id, repeat=360, creator=spotify_user)
+            spotify_tasks.dw_monthly_task(spotify_user_id=spotify_user.user_id, repeat=360, creator=spotify_user)
             messages.success(request, f'Your monthly playlist automation has begun.')
         
         elif 'monthly_disconnect' in request.POST:
@@ -71,7 +71,7 @@ def profile(request):
             spotify_user.dw_yearly = True
             spotify_user.dw_yearly_updated_at = datetime.now()
             spotify_user.save()
-            spotify_tasks.dw_yearly_task(user_id=spotify_user.user_id, repeat=360, creator=spotify_user)
+            spotify_tasks.dw_yearly_task(spotify_user_id=spotify_user.user_id, repeat=360, creator=spotify_user)
             messages.success(request, f'Your yearly playlist automation has begun.')
         
         elif 'yearly_disconnect' in request.POST:
@@ -122,22 +122,28 @@ def profile(request):
     try:
         spotify_access_token = user.spotifyuser.access_token
         spotify_user_id = user.spotifyuser.username
+        dw_monthly = spotify_user.dw_monthly
+        dw_yearly = spotify_user.dw_yearly
+        dw_monthly_updated_at = spotify_user.dw_monthly_updated_at
+        dw_yearly_updated_at = spotify_user.dw_yearly_updated_at
     except:
         spotify_access_token = None
         spotify_user_id = None
+        dw_monthly = False
+        dw_yearly = False
+        dw_monthly_updated_at = None
+        dw_yearly_updated_at = None
 
-    try:
-        message = Task.objects.created_by(spotify_user).filter(task_name="music_minion.spotify.dw_monthly_task")
-    except Exception as e:
-        message = str(e) 
+    message = timezone.now() - spotify_user.auth_date
 
     context = {
         'u_form': u_form,
         'p_form': p_form,
-        'dw_monthly': spotify_user.dw_monthly,
-        'dw_yearly': spotify_user.dw_yearly,
-        'dw_updated_at': spotify_user.dw_updated_at,
-        'pinterest_auth_url':p.get_auth_url(),
+        'dw_monthly': dw_monthly,
+        'dw_yearly': dw_yearly,
+        'dw_monthly_updated_at': dw_monthly_updated_at,
+        'dw_yearly_updated_at':dw_yearly_updated_at,
+        'pinterest_auth_url': p.get_auth_url(),
         'spotify_auth_url':spotify_auth.get_auth_url()[0],
         'spotify_access_token': spotify_access_token,
         'message': message,

@@ -71,15 +71,16 @@ class SpotifyAuth:
     # A token is automatically set to expire every hour. This code will refresh that token.
     # With this we need to keep track of the last time a token was requested
     # If that time is > 1 hour we need to request a new token
-    def check_auth(self, request):
+    def check_auth(self, user_id):
         try:
-            s = request.user.spotifyuser
-            time_since_auth = timezone.now() - s.auth_date
-            if time_since_auth > timedelta(hours=1):
+            s = SpotifyUser.objects.filter(user_id=user_id)[:1].get()
+            time_since_auth = datetime.now(timezone.utc) - s.auth_date
+            if time_since_auth > timedelta(minutes=60):
                 response = self.refresh_access_token(s.refresh_token)
                 if response[0] == 1:
                     try: 
                         s.access_token = response[1]['access_token']
+                        s.auth_date = datetime.now(timezone.utc)
                         s.save()
                         return "Access Token Updated"
                     except Exception as x:
@@ -492,12 +493,15 @@ class SpotifyTrackData():
             }
 
         #Find or create spotify playlist based on interval
-        user_playlists = SpotifyUserData().get_user_playlists(user_id, access_token)
+        try:
+            user_playlists = SpotifyUserData().get_user_playlists(user_id, access_token)
+        except:
+            return [0, "Couldn't get user playlists"]
 
         try:
             playlists = [[playlist['name'], playlist['id']]  for playlist in user_playlists['items']]
         except:
-            return user_playlists
+            return [0, 'Trouble making lists from playlists: ' + ' '.join(user_playlists)]
         
         if interval == "monthly":
             playlist_name = datetime.now().strftime("%b") + ' ' + datetime.now().strftime("%y") + ' - Discover Weekly'
@@ -512,7 +516,10 @@ class SpotifyTrackData():
                 break
 
         if not playlist_id:
-            playlist_id = SpotifyUserData().create_playlist(access_token, user_id, playlist_name)
+            try:
+                playlist_id = SpotifyUserData().create_playlist(access_token, user_id, playlist_name)
+            except:
+                return [0, "Couldn't create new playlist"]
 
         #Get discover weekly tracks
         tracks = None
@@ -525,14 +532,16 @@ class SpotifyTrackData():
                 try:
                     track_ids = [track['id'] for track in tracks[1]]
                 except:
-                    track_ids = None
+                    return [0,"Couldn't get DW tracks"]
                 break
 
         #Add tracks to the new playlist
         
-        message = SpotifyTrackData().add_to_playlist(access_token, playlist_id, track_ids)
-
-        return playlist_id
+        try:
+            SpotifyTrackData().add_to_playlist(access_token, playlist_id, track_ids)
+            return [1, playlist_id]
+        except:
+            return [0, "Couldn't add songs to playlist"]
         
         
         
@@ -541,26 +550,31 @@ class SpotifyRepeatTasks():
     def __init__(self):
         self.users = None
 
-    @background(schedule=60)
-    def dw_monthly_task(self, spotify_user_id):
-        user = SpotifyUser.filter(user_id=spotify_user_id)
-        time_since_updated = datetime.now(timezone.utc) - user.dw_updated_at
-        if time_since_updated.total_seconds() >= 60:
-            monthly = '' 
-            if user.dw_monthly:
-                SpotifyTrackData().discover_weekly_playlist(user.username, user.access_token, 'monthly')
-                user.dw_updated_at = datetime.now(timezone.utc)
-                user.save()
-                monthly = 'Monthly'
+
+    def dw_monthly_task(self, user_id):
+        spotify_user = SpotifyUser.objects.filter(user_id=user_id)[:1].get()
+        try:
+            time_since_updated = datetime.now(timezone.utc) - spotify_user.dw_monthly_updated_at
+        except:
+            return "Can't find the date"
+        if time_since_updated.total_seconds() >= 0: 
+            if spotify_user.dw_monthly:
+                try:
+                    message = SpotifyTrackData().discover_weekly_playlist(spotify_user.username, spotify_user.access_token, 'monthly')
+                    spotify_user.dw_monthly_updated_at = datetime.now(timezone.utc)
+                    spotify_user.save()
+                    return message[1]
+                except:
+                    return "Could not update DW Monthly"
+            else:
+                return "User does not have monthly DW enabled"
         else:
-            pass
+            return "Hasn't been 60 seconds, you need to wait " + str(time_since_updated.total_seconds()) + " more seconds"
         
-        return time_since_updated.total_seconds()
-        
-    #@background(schedule=60)
-    def dw_yearly_task(self, spotify_user_id):
-        user = SpotifyUser.filter(user_id=spotify_user_id)
-        time_since_updated = datetime.now(timezone.utc) - user.dw_updated_at
+
+    def dw_yearly_task(self, user_id):
+        user = SpotifyUser.filter(user_id=user_id)
+        time_since_updated = datetime.now(timezone.utc) - user.dw_yearly_updated_at
         if time_since_updated.total_seconds() >= 60:
             if user.dw_yearly:
                 SpotifyTrackData().discover_weekly_playlist(user.username, user.access_token, 'yearly')
@@ -568,9 +582,6 @@ class SpotifyRepeatTasks():
                 user.save()
         else:
             pass
-        
-        return time_since_updated.total_seconds()
-
 
 if __name__ == "__main__":
     print(timezone.now())

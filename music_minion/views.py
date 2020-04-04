@@ -6,10 +6,15 @@ from . import spotify
 from my_site import giphy
 import json, random
 import numpy as np
+from .models import SpotifyUser
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.decorators import api_view
 
 spotify_search = spotify.SpotifySearch()
 spotify_auth = spotify.SpotifyAuth()
 spotify_user_data = spotify.SpotifyUserData()
+spotify_tasks = spotify.SpotifyRepeatTasks()
 
 
 
@@ -59,9 +64,9 @@ def searchView(request):
 
 def playlistView(request):
     user = request.user.spotifyuser
-
+    
     #Check user access_token before making requests
-    message = spotify_auth.check_auth(request)
+    message = spotify_auth.check_auth(user.user_id)
 
     #Get a users playlists and save the names and ids
     playlists = spotify_user_data.get_user_playlists(user.username, user.access_token)
@@ -110,4 +115,45 @@ def playlistView(request):
     
     return render(request, 'music_minion/playlist.html', {'form':form, 'tracks':tracks, 'message':message, 'rec_tracks':rec_tracks})
 
+
+@api_view(['GET', 'POST'])
+def RepeatTaskView(request):
+   
     
+
+    # That's the hard way, i.e. Google Cloud Scheduler sending its JSON payload as octet-stream
+
+
+    if request.method == 'POST':
+
+        
+        monthly_users = SpotifyUser.objects.filter(dw_monthly=True)
+        yearly_users = SpotifyUser.objects.filter(dw_yearly=True)
+
+        try:
+            if monthly_users:
+                for user in monthly_users:
+                    spotify_auth.check_auth(user.user_id)
+                    spotify_tasks.dw_monthly_task(user.user_id)
+            
+            if yearly_users:
+                for user in yearly_users:
+                    spotify_tasks.dw_yearly_task(user.user_id)
+            
+            return Response("Success", status=status.HTTP_201_CREATED)
+        except:
+            return Response("Uh Oh", status=status.HTTP_400_BAD_REQUEST)
+        
+
+    else:
+        minion_gif = giphy.get_gif('dj minion')
+        message=None
+        #monthly_users = SpotifyUser.objects.filter(dw_monthly=True)
+        #if monthly_users:
+        #    for user in monthly_users:
+        #        spotify_auth.check_auth(user.user_id)
+        #        message = spotify_tasks.dw_monthly_task(user.user_id)
+
+
+        return render(request, 'music_minion/homepage.html', {'minion_gif':minion_gif, 'message':message})
+

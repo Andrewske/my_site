@@ -20,7 +20,6 @@ class SpotifyUser(models.Model):
         ''' Update timestamps on Save'''
         if not self.id:
             self.created_at = timezone.now()
-        self.auth_date = timezone.now()
         return super(SpotifyUser, self).save(*args, **kwargs)
 
     

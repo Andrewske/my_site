@@ -59,7 +59,7 @@
 
                     {% if dw_monthly %}
                         <p>Monthly DW Playlist Created</p>
-                        <p>Last Updated: {{ dw_updated_at }}</p>
+                        <p>Last Updated: {{ dw_monthly_updated_at }}</p>
                         <form method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="form-group">
@@ -77,7 +77,7 @@
 
                     {% if dw_yearly %}
                         <p>Yearly DW Playlist Created</p>
-                        <p>Last Updated: {{ dw_updated_at }}</p>
+                        <p>Last Updated: {{ dw_yearly_updated_at }}</p>
                         <form method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="form-group">
