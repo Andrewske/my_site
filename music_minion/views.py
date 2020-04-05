@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 from django.views.generic import ListView 
 from portfolio.models import Technologies
 from .forms import SpotifySearchForm, SpotifyPlaylistForm
@@ -72,13 +74,14 @@ def playlistView(request):
 
     #Get a users playlists and save the names and ids
     playlists = spotify_user_data.get_user_playlists(user.username, user.access_token)
+    playlist_values = [(playlist['id'], playlist['name']) for playlist in playlists['items']]
     playlist_names = [playlist['name'] for playlist in playlists['items']]
     playlist_ids = [playlist['id'] for playlist in playlists['items']]
     
     tracks, rec_tracks = None, None
 
     if request.method == 'POST':
-        form = SpotifyPlaylistForm(request.POST, playlists=playlist_names)
+        form = SpotifyPlaylistForm(request.POST, playlists=playlist_values)
         if form.is_valid():
             playlist = form.cleaned_data.get('playlist')
             i = playlist_names.index(playlist)
@@ -116,18 +119,25 @@ def playlistView(request):
         else:
             message = "Form Not Valid?"
     else:
-        form = SpotifyPlaylistForm(playlists=playlist_names)
+        form = SpotifyPlaylistForm(playlists=playlist_values)
     
     
 
-    return render(request, 'music_minion/playlist.html', {'form':form, 'tracks':tracks, 'message':message, 'rec_tracks':rec_tracks})
+    return render(request, 'music_minion/playlist.html', {'form':form, 'tracks':tracks, 'message':message, 'rec_tracks':rec_tracks, 'user_id':user.user_id })
 
 
-def RepeatTaskView(request):
-    from django_apscheduler.jobstores import DjangoJobStore
-    from . import repeat
-    minion_gif = giphy.get_gif('dj minion')
-    job = DjangoJobStore().lookup_job('dw_task')
-    message=job.next_run_time
-    return render(request, 'music_minion/homepage.html', {'minion_gif':minion_gif, 'message':message})
 
+def get_playlist_tracks(request):
+    
+    playlist_id = request.POST.get('playlist_id')
+    user = get_object_or_404(SpotifyUser, user_id=request.POST.get('user_id'))
+    
+    tracks = spotify_user_data.get_playlist_songs(playlist_id, user.access_token)
+
+    context = {
+        'tracks':tracks
+    }
+
+    if request.is_ajax():
+        html = render_to_string('music_minion/playlist_table.html', context, request=request)
+        return JsonResponse({'form':html})

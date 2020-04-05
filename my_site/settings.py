@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django_apscheduler',
     'background_task',
     'rest_framework',
+    'include_by_ajax',
 ]
 
 MIDDLEWARE = [

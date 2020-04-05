@@ -1,0 +1,46 @@
+<h1>Suggestions</h1>
+<table id="songList" data-toggle="table" data-search="true" data-show-columns="true">  
+    <thead>
+        <tr>
+            <th data-sortable="true" data-visible="true">Name</th>
+            <th data-sortable="true" data-visible="true">Artist</th>
+            <th data-sortable="true" data-visible="true">BPM</th>
+            <th data-sortable="true" data-visible="true">Key</th>
+            <th data-sortable="true" data-visible="true">Popularity</th>
+            <th data-sortable="true" data-visible="false">Danceability</th>
+            <th data-sortable="true" data-visible="false">Engery</th>
+            <th data-sortable="true" data-visible="false">Loudness</th>
+            <th data-sortable="true" data-visible="false">Mode</th>
+            <th data-sortable="true" data-visible="false">Speechiness</th>
+            <th data-sortable="true" data-visible="false">Acousticness</th>
+            <th data-sortable="true" data-visible="false">Intrumentalness</th>
+            <th data-sortable="true" data-visible="false">Liveness</th>
+            <th data-sortable="true" data-visible="false">Valence</th>
+            <th data-sortable="true" data-visible="false">Time Signature</th>
+            <th data-sortable="true" data-visible="false">Duration</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for track in rec_tracks %}
+        <tr>
+            <td><a href="{{ track.href }}">{{ track.name }}</td>
+            <td>{{ track.artists }}</td>
+            <td>{{ track.tempo }}</td>
+            <td class='key-{{ track.key }}'>{{ track.key }}</td>
+            <td>{{ track.popularity }}</td>
+            <td>{{ track.danceability }}</td>
+            <td>{{ track.energy }}</td>
+            <td>{{ track.loudness }}</td>
+            <td>{{ track.mode }}</td>
+            <td>{{ track.speechiness }}</td>
+            <td>{{ track.acousticness }}</td>
+            <td>{{ track.instrumentalness }}</td>
+            <td>{{ track.liveness }}</td>
+            <td>{{ track.valence }}</td>
+            <td>{{ track.time_signature }}</td>
+            <td>{{ track.duration_ms }}</td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

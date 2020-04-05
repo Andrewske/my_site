@@ -1,143 +1,78 @@
 {% extends "portfolio/base.html" %}
-
 {% load crispy_forms_tags %}
+
 {% block content %}
 
 
-<div class="container">
+<div id="main-content" class="container">
     {% if message %}
       <div class='alert alert-danger message'>
         <p style="margin-bottom: 0px;">{{ message }}</p>
       </div>
     {% endif %}
     <div>
-        <form method="POST">
+        <form name="playlist" method="POST">
             {% csrf_token %}
             <fieldset class="contact-form form-group">
                 <legend class="border-bottom mb-4">Examine your playlist</legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="contact-form form-group">
-                <button class="btn contact-button" type="submit">Get Tracks</button>
+                <button id="get_playlist_tracks" class="btn contact-button" type="submit">Get Tracks</button>
             </div>
         </form>
     </div>
 
-    <table id="songList" data-toggle="table" data-search="true" data-show-columns="true">
-        
-        <thead>
-            <input type="button" id="reorder" value="Reorder" class="btn btn-outline-success">
-           <tr>
-               <th data-sortable="true" data-visible="true">Name</th>
-               <th data-sortable="true" data-visible="true">Artist</th>
-               <th data-sortable="true" data-visible="true">BPM</th>
-               <th data-sortable="true" data-visible="true">Key</th>
-               <th data-sortable="true" data-visible="true">Popularity</th>
-               <th data-sortable="true" data-visible="false">Danceability</th>
-               <th data-sortable="true" data-visible="false">Engery</th>
-               <th data-sortable="true" data-visible="false">Loudness</th>
-               <th data-sortable="true" data-visible="false">Mode</th>
-               <th data-sortable="true" data-visible="false">Speechiness</th>
-               <th data-sortable="true" data-visible="false">Acousticness</th>
-               <th data-sortable="true" data-visible="false">Intrumentalness</th>
-               <th data-sortable="true" data-visible="false">Liveness</th>
-               <th data-sortable="true" data-visible="false">Valence</th>
-               <th data-sortable="true" data-visible="false">Time Signature</th>
-               <th data-sortable="true" data-visible="false">Duration</th>
-           </tr>
-       </thead>
-       <tbody>
-        {% for track in tracks %}
-           <tr>
-             <td><a href="{{ track.href }}">{{ track.name }}</td>
-             <td>{{ track.artists }}</td>
-             <td>{{ track.tempo }}</td>
-             <td class='key-{{ track.key }}'>{{ track.key }}</td>
-             <td>{{ track.popularity }}</td>
-             <td>{{ track.danceability }}</td>
-             <td>{{ track.energy }}</td>
-             <td>{{ track.loudness }}</td>
-             <td>{{ track.mode }}</td>
-             <td>{{ track.speechiness }}</td>
-             <td>{{ track.acousticness }}</td>
-             <td>{{ track.instrumentalness }}</td>
-             <td>{{ track.liveness }}</td>
-             <td>{{ track.valence }}</td>
-             <td>{{ track.time_signature }}</td>
-             <td>{{ track.duration_ms }}</td>
+<div id="playlist-table">
+    {% include 'music_minion/playlist_table.html' %}
+</div>
 
-           </tr>
-        {% endfor %}
-       </tbody>
-   </table>
+<div id="suggestions-table">
+    {% include 'music_minion/suggestions_table.html' %}
+</div>
 
-   <table id="songList" data-toggle="table" data-search="true" data-show-columns="true">
-        
-        <thead>
-        <tr>
-            <th data-sortable="true" data-visible="true">Name</th>
-            <th data-sortable="true" data-visible="true">Artist</th>
-            <th data-sortable="true" data-visible="true">BPM</th>
-            <th data-sortable="true" data-visible="true">Key</th>
-            <th data-sortable="true" data-visible="true">Popularity</th>
-            <th data-sortable="true" data-visible="false">Danceability</th>
-            <th data-sortable="true" data-visible="false">Engery</th>
-            <th data-sortable="true" data-visible="false">Loudness</th>
-            <th data-sortable="true" data-visible="false">Mode</th>
-            <th data-sortable="true" data-visible="false">Speechiness</th>
-            <th data-sortable="true" data-visible="false">Acousticness</th>
-            <th data-sortable="true" data-visible="false">Intrumentalness</th>
-            <th data-sortable="true" data-visible="false">Liveness</th>
-            <th data-sortable="true" data-visible="false">Valence</th>
-            <th data-sortable="true" data-visible="false">Time Signature</th>
-            <th data-sortable="true" data-visible="false">Duration</th>
-        </tr>
-    </thead>
-
-    <h1>Suggestions</h1>
-    <tbody>
-        {% for track in rec_tracks %}
-        <tr>
-            <td><a href="{{ track.href }}">{{ track.name }}</td>
-            <td>{{ track.artists }}</td>
-            <td>{{ track.tempo }}</td>
-            <td class='key-{{ track.key }}'>{{ track.key }}</td>
-            <td>{{ track.popularity }}</td>
-            <td>{{ track.danceability }}</td>
-            <td>{{ track.energy }}</td>
-            <td>{{ track.loudness }}</td>
-            <td>{{ track.mode }}</td>
-            <td>{{ track.speechiness }}</td>
-            <td>{{ track.acousticness }}</td>
-            <td>{{ track.instrumentalness }}</td>
-            <td>{{ track.liveness }}</td>
-            <td>{{ track.valence }}</td>
-            <td>{{ track.time_signature }}</td>
-            <td>{{ track.duration_ms }}</td>
-
-        </tr>
-        {% endfor %}
-    </tbody>
-    </table>
-
-   <script>
-        document.getElementById("reorder").onclick = function(){
-            let reorderOn = false;
-            if (reorderOn === false) {
-                $(this).toggleClass('btn-outline-success btn-success');
-                $('table tbody').sortable();
-                reOrderOn = true;
-                return;
-            } else {
-                $(this).toggleClass('btn-outline-success btn-success');
-                reOrderOn = false;
-                return;
-            };
-        };
-        
-
-
-
-
-   </script>
 {% endblock content %}
+
+{% block js %}
+<script type="text/javascript">
+    document.getElementById("reorder").onclick = function(){
+        let reorderOn = false;
+        if (reorderOn === false) {
+            $(this).toggleClass('btn-outline-success btn-success');
+            $('table tbody').sortable();
+            reOrderOn = true;
+            return;
+        } else {
+            $(this).toggleClass('btn-outline-success btn-success');
+            reOrderOn = false;
+            return;
+        };
+    };
+</script>
+
+<script type="text/javascript"> 
+    $(document).ready(function(event){
+        $(document).on('click', '#get_playlist_tracks', function(event){
+            event.preventDefault();
+            var form = document.playlist;
+            let playlist_id = form.playlist.value;
+            let user_id = '{{ user.id }}';
+            $.ajax({
+                type:'POST',
+                url: '{% url "get_playlist_tracks" %}',
+                data: {'user_id':user_id, 'playlist_id':playlist_id, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                dataType:'json',
+                success: function(response){
+                    $('#playlist-table').html(response['form']),
+                    console.log($('#playlist-table').html(response['form']));
+                },
+                error: function(rs, e){
+                    console.log(rs.responseText);
+                }
+            })
+        })
+    });
+</script>
+{% endblock js %}
+
+
