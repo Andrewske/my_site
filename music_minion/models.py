@@ -29,10 +29,11 @@ class SpotifyUser(models.Model):
 
 
 class SpotifyTasks(models.Model):
-    user = models.OneToOneField(SpotifyUser, on_delete=models.CASCADE)
-    dw_monthly = models.BooleanField(default=False)
-    dw_yearly = models.BooleanField(default=False)
-    dw_updated_at = models.DateTimeField(null=True)
+    task_id = models.CharField(max_length=250)
+    task_name = models.CharField(max_length=250)
+    created_at = models.DateTimeField(auto_now_add=True, editable=False)
+    next_run_time = models.DateTimeField(null=True)
+
 
 #class SpotifyTrack(models.Model):
 #    track_id = models.CharFiels(max_length=100, null=False)

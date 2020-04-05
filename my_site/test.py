@@ -1,60 +1,22 @@
 from datetime import datetime, timedelta
 import requests, json
 import time
-import secrets
-from .music_minion import spotify
-
-
-spotify_track_data = spotify.SpotifyTrackData()
-spotify_user_data = spotify.SpotifyUserData()
-
-try:
-    from urllib.parse import urlencode
-except ImportError:
-    from urllib import urlencode
-import urllib
-
-user_id = 'kevinbigfoot'
-access_token = 'BQAWuM_WbzXJ5WSxCXO-pka9T-8-hVsHSPJblRKy686Zs6wA2peAZVvnAlPT_ibN50RPNiFJ8m-dZV7pIIKBdk5nRSQCaybVsfURoi1qu-t3JqclE_XCwxVdgBhdSceQFmiYaKHToLWJxBRJgL_as-Vp62EJe5YMO05cO1IWsu-yrmEB6T8XRuuE1qjQO5dM6PCPK4yi0PICxkcvMM0QaWtvuF2X6vI-w-s1GgwD6LJ8mxFIbJ3-D2aTud44PRA'
-
-def dw_task_for_user():
-    dw_task_users = SpotifyUser.objects.filter(dw_monthly = True).filter(dw_yearly = True)
-    return dw_task_users
-
-
-print(dw_task_for_user())
-
-def none():
-    for user in dw_task_users:
-        time_since_updated = datetime.now() - user.dw_updated_at
-        if time_since_updated.total_seconds() >= 60:
-            if user.dw_monthly:
-                SpotifyTrackData().discover_weekly_playlist(user.user_id, user.access_token, 'monthly')
-                user.dw_updated_at = datetime.Now()
-                user.save()
-            if user.dw_yearly:
-                SpotifyTrackData().discover_weekly_playlist(user.user_id, user.access_token, 'yearly')
-                user.dw_updated_at = datetime.Now()
-                user.save()
-            messages.success(request, f'Background Test Complete.')
-        else:
-            messages.warning(request, f'No need to update')
-        
-
-
-playlist_url = 'https://open.spotify.com/playlist/66esoX3teBQdi0Z44Q12Qj?si=suhoNLyITW2Vu2Jb5iIgOg'
-playlist_id = '66esoX3teBQdi0Z44Q12Qj'
-tracks = ["4JpKVNYnVcJ8tuMKjAj50A","2NRANZE9UCmPAS5XVbXL00","24JygzOLM0EmRQeGtFcIcG"]
-target_values = {'target_tempo':150}
-min_values = {'min_tempo':145}
-max_values = {'max_tempo':155}
-
-#print(get_recommendations(access_token, limit=5, tracks=tracks, target_values=target_values, min_values=min_values, max_values=max_values))
 
 
 
 
 
+
+track_ids = ['not here','4nSixmLLG59wyNkWDdL2uz', '5DagPSBZBY8AQ1ltpjr657', '1YAXlDiZCzF0BytvSiMxAF', '4k5hllgaGDKTDLG75YQq5X', '1dwfgrQ8vkmd3XYj8I7vYg', '3w6tAfkEExoLtlRqRhJA62', '658mr6VhcCKsUHoYV0JHsm', '41M18KwdxRCM8XqUof5zrL', '3gCF6JWBIyUxkKSA5GjCPR', '3WBxDJUNmanW53LVjNNkog', '0Tf9YHGzqKjrobap4L7M7z', '1cjCC05mETvLRWx3nDSPOY', '3dpqUjzdQ5nYDZJcVsdMg4', '3HxJT0JTRM3iZtRTTMqZtN', '1oHjsosZQW7J5vYEmDy3gJ', '5z5sA9z9PqN0pciTUnmkki', '7FbdXyyZOknEfjHxGmdQVp', '766BK7fV99BunraS0eb4CB', '16ZjWGIWEsSzCkV7LiEMVk', '3IHLWOub1HjwgV0JNwltGI', '5abRxzBqR8si654aef0DlS', '5OVCHoprm27fpExyxIknmi', '4BTzynsNHMyJCRPQs7RYyF', '64YtawRweU7QdwoIjsdlTL', '4bje319NyF9c2FWBIXet4V', '1BpXUxcpOk9Dh0acKAxfpN', '6W1JiP4OegWT19BGQupD0X', '2gYozgMeOj20xdVY6HvzKx', '1cexVs6lRgNpqHgugh7AUY', '5sBfFvXATlo46CVmjegzBi']
+playlist_track_ids = ['4nSixmLLG59wyNkWDdL2uz', '5DagPSBZBY8AQ1ltpjr657', '1YAXlDiZCzF0BytvSiMxAF', '4k5hllgaGDKTDLG75YQq5X', '1dwfgrQ8vkmd3XYj8I7vYg', '3w6tAfkEExoLtlRqRhJA62', '658mr6VhcCKsUHoYV0JHsm', '41M18KwdxRCM8XqUof5zrL', '3gCF6JWBIyUxkKSA5GjCPR', '3WBxDJUNmanW53LVjNNkog', '0Tf9YHGzqKjrobap4L7M7z', '1cjCC05mETvLRWx3nDSPOY', '3dpqUjzdQ5nYDZJcVsdMg4', '3HxJT0JTRM3iZtRTTMqZtN', '1oHjsosZQW7J5vYEmDy3gJ', '5z5sA9z9PqN0pciTUnmkki', '7FbdXyyZOknEfjHxGmdQVp', '766BK7fV99BunraS0eb4CB', '16ZjWGIWEsSzCkV7LiEMVk', '3IHLWOub1HjwgV0JNwltGI', '5abRxzBqR8si654aef0DlS', '5OVCHoprm27fpExyxIknmi', '4BTzynsNHMyJCRPQs7RYyF', '64YtawRweU7QdwoIjsdlTL', '4bje319NyF9c2FWBIXet4V', '1BpXUxcpOk9Dh0acKAxfpN', '6W1JiP4OegWT19BGQupD0X', '2gYozgMeOj20xdVY6HvzKx', '1cexVs6lRgNpqHgugh7AUY', '5sBfFvXATlo46CVmjegzBi', '5DagPSBZBY8AQ1ltpjr657', '4k5hllgaGDKTDLG75YQq5X', '3w6tAfkEExoLtlRqRhJA62', '41M18KwdxRCM8XqUof5zrL', '3WBxDJUNmanW53LVjNNkog', '1cjCC05mETvLRWx3nDSPOY', '3HxJT0JTRM3iZtRTTMqZtN', '5z5sA9z9PqN0pciTUnmkki', '766BK7fV99BunraS0eb4CB', '3IHLWOub1HjwgV0JNwltGI', '5OVCHoprm27fpExyxIknmi', '64YtawRweU7QdwoIjsdlTL', '1BpXUxcpOk9Dh0acKAxfpN', '2gYozgMeOj20xdVY6HvzKx', '5sBfFvXATlo46CVmjegzBi', '5DagPSBZBY8AQ1ltpjr657', '4k5hllgaGDKTDLG75YQq5X', '3w6tAfkEExoLtlRqRhJA62', '41M18KwdxRCM8XqUof5zrL', '3WBxDJUNmanW53LVjNNkog', '1cjCC05mETvLRWx3nDSPOY', '3HxJT0JTRM3iZtRTTMqZtN', '5z5sA9z9PqN0pciTUnmkki', '766BK7fV99BunraS0eb4CB', '3IHLWOub1HjwgV0JNwltGI', '5OVCHoprm27fpExyxIknmi', '64YtawRweU7QdwoIjsdlTL', '1BpXUxcpOk9Dh0acKAxfpN', '2gYozgMeOj20xdVY6HvzKx', '5sBfFvXATlo46CVmjegzBi']
+
+remaining_tracks = []
+
+for track in track_ids:
+    if track not in playlist_track_ids:
+        remaining_tracks.append(track)
+
+print(remaining_tracks)
 
 
 

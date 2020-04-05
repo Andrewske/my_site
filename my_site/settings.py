@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_apscheduler',
     'background_task',
     'rest_framework',
 ]
@@ -178,3 +179,16 @@ AWS_SECRET_ACCESS_KEY = secrets.AWS_SECRET_ACCESS_KEY
 
 #EMAIL_HOST_USER = os.environ.get('GMAIL_USERNAME')
 #EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_PASSWORD')
+
+# This scheduler config will:
+# - Store jobs in the project database
+# - Execute jobs in threads inside the application process
+SCHEDULER_CONFIG = {
+    "apscheduler.jobstores.default": {
+        "class": "django_apscheduler.jobstores:DjangoJobStore"
+    },
+    'apscheduler.executors.processpool': {
+        "type": "threadpool"
+    },
+}
+SCHEDULER_AUTOSTART = True

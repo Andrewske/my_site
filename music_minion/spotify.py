@@ -10,7 +10,7 @@ import urllib
 from django.contrib.auth.models import User
 from django.utils import timezone
 from datetime import datetime, timedelta
-from .models import SpotifyUser, SpotifyTasks
+from .models import SpotifyUser
 
 try:
     from urllib.parse import urlencode
@@ -294,8 +294,11 @@ class SpotifyUserData():
         response_data = json.loads(response.text)
 
         if response.status_code == 200:
-            tracks = [track['track'] for track in response_data['items']]
-            return SpotifyTrackData().clean_track_response(tracks, access_token)
+            try:
+                tracks = [track['track'] for track in response_data['items']]
+                return SpotifyTrackData().clean_track_response(tracks, access_token)
+            except:
+                return None
         else:
             return None
 
@@ -509,11 +512,20 @@ class SpotifyTrackData():
             playlist_name = datetime.now().strftime("%Y") + ' Discover Weekly'
         
         playlist_id = None
+        playlist_track_ids = None
 
+        #if there is already a playlist with this name, get all the track_ids
         for playlist in playlists:
             if playlist[0] == playlist_name:
                 playlist_id = playlist[1]
-                break
+                print("Playlist exists: " +str(playlist_id))
+                playlist_tracks = SpotifyUserData().get_playlist_songs(playlist_id, access_token)
+                if playlist_tracks:
+                    print("Playlist Tracks")
+                    try:
+                        playlist_track_ids = [track['id'] for track in playlist_tracks[1]]
+                    except:
+                        return "Can't get tracks from existing playlist"
 
         if not playlist_id:
             try:
@@ -525,9 +537,11 @@ class SpotifyTrackData():
         tracks = None
         track_ids = None
 
+        print("checking out playlists")
         for playlist in playlists:
             if playlist[0] == 'Discover Weekly':
                 dw_id = playlist[1]
+                print("Find DW Songs")
                 tracks = SpotifyUserData().get_playlist_songs(dw_id, access_token)
                 try:
                     track_ids = [track['id'] for track in tracks[1]]
@@ -536,12 +550,23 @@ class SpotifyTrackData():
                 break
 
         #Add tracks to the new playlist
-        
-        try:
-            SpotifyTrackData().add_to_playlist(access_token, playlist_id, track_ids)
-            return [1, playlist_id]
-        except:
-            return [0, "Couldn't add songs to playlist"]
+        print("removing tracks playlist")
+        if track_ids and playlist_track_ids:
+            remaining_tracks = []
+            for track_id in track_ids:
+                if track_id not in playlist_track_ids:
+                    remaining_tracks.append(track_id)
+            track_ids = remaining_tracks
+
+        print("adding tracks")
+        if len(track_ids) > 0:
+            try:
+                SpotifyTrackData().add_to_playlist(access_token, playlist_id, track_ids)
+                return [1, playlist_id]
+            except:
+                return [0, "Couldn't add songs to playlist"]
+        else:
+            return "No new songs to add"
         
         
         
@@ -550,8 +575,27 @@ class SpotifyRepeatTasks():
     def __init__(self):
         self.users = None
 
+    def dw_repeat_task(self):
+        monthly_users = SpotifyUser.objects.filter(dw_monthly=True)
+        yearly_users = SpotifyUser.objects.filter(dw_yearly=True)
+        messages = []
 
-    def dw_monthly_task(self, user_id):
+        if monthly_users:
+            for spotify_user in monthly_users:
+                messages.append(self.dw_monthly_task(spotify_user.user_id))
+        if yearly_users:
+            for spotify_user in yearly_users:
+                messages.append(self.dw_yearly_task(spotify_user.user_id))
+
+        print(messages)
+            
+
+                
+                    
+
+
+    def dw_task(self, user_id):
+        SpotifyAuth().check_auth(user_id)
         spotify_user = SpotifyUser.objects.filter(user_id=user_id)[:1].get()
         try:
             time_since_updated = datetime.now(timezone.utc) - spotify_user.dw_monthly_updated_at
@@ -573,15 +617,25 @@ class SpotifyRepeatTasks():
         
 
     def dw_yearly_task(self, user_id):
-        user = SpotifyUser.filter(user_id=user_id)
-        time_since_updated = datetime.now(timezone.utc) - user.dw_yearly_updated_at
-        if time_since_updated.total_seconds() >= 60:
-            if user.dw_yearly:
-                SpotifyTrackData().discover_weekly_playlist(user.username, user.access_token, 'yearly')
-                user.dw_updated_at = datetime.now(timezone.utc)
-                user.save()
+        SpotifyAuth().check_auth(user_id)
+        spotify_user = SpotifyUser.objects.filter(user_id=user_id)[:1].get()
+        try:
+            time_since_updated = datetime.now(timezone.utc) - spotify_user.dw_yearly_updated_at
+        except:
+            return "Can't find the date"
+        if time_since_updated.total_seconds() >= 0: 
+            if spotify_user.dw_yearly:
+                try:
+                    message = SpotifyTrackData().discover_weekly_playlist(spotify_user.username, spotify_user.access_token, 'yearly')
+                    spotify_user.dw_yearly_updated_at = datetime.now(timezone.utc)
+                    spotify_user.save()
+                    return message[1]
+                except:
+                    return "Could not update DW Monthly"
+            else:
+                return "User does not have yearly DW enabled"
         else:
-            pass
+            return "Hasn't been 60 seconds, you need to wait " + str(time_since_updated.total_seconds()) + " more seconds"
 
 if __name__ == "__main__":
     print(timezone.now())

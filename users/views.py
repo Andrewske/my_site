@@ -3,13 +3,14 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, SpotifyDWPlaylistForm
 from hpltopin import pinterest
-from music_minion import spotify
-from music_minion.models import SpotifyUser, SpotifyTasks
+from music_minion import spotify, repeat
+from music_minion.models import SpotifyUser
 from datetime import datetime
 from django.utils import timezone
 import json
 from background_task import background
 from background_task.models import Task
+
 
 p = pinterest.Pinterest()
 spotify_auth = spotify.SpotifyAuth()
@@ -134,7 +135,8 @@ def profile(request):
         dw_monthly_updated_at = None
         dw_yearly_updated_at = None
 
-    message = timezone.now() - spotify_user.auth_date
+    from apscheduler.schedulers.background import BackgroundScheduler
+    message = SpotifyUser.objects.filter(dw_monthly=True, dw_yearly=True)
 
     context = {
         'u_form': u_form,
