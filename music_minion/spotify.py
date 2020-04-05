@@ -18,6 +18,7 @@ except ImportError:
     from urllib import urlencode
 
 
+
 class SpotifyAuth:
 
     def __init__(self):
@@ -278,8 +279,12 @@ class SpotifyUserData():
         else:
             return response_data
 
-    def get_playlist_songs(self, playlist_id, access_token, fields=None, limit=100, offset=0):
+    def get_playlist_songs(self, playlist_id, access_token, fields=None, limit=100):
         url = 'https://api.spotify.com/v1/playlists/' + playlist_id + '/tracks'
+
+        size = self.get_playlist_size(playlist_id, access_token)
+        print("There are " + str(size) + "tracks in this playlist")
+        offset = 0
 
         data = {
             'limit':limit,
@@ -290,17 +295,24 @@ class SpotifyUserData():
 
         header_value = "Bearer " + access_token
 
-        response = requests.get(url, params=data, headers={"Authorization": header_value})
-        response_data = json.loads(response.text)
+        if isinstance(size, int):
+            tracks = []
+            while size > 0:
+                data['offset'] = offset
+                response = requests.get(url, params=data, headers={"Authorization": header_value})
+                response_data = json.loads(response.text)
 
-        if response.status_code == 200:
-            try:
-                tracks = [track['track'] for track in response_data['items']]
-                return SpotifyTrackData().clean_track_response(tracks, access_token)
-            except:
-                return None
+                if response.status_code == 200:
+                    dirty_tracks = [track['track'] for track in response_data['items']]
+                    tracks += SpotifyTrackData().clean_track_response(dirty_tracks, access_token)[1]
+                    offset += len(dirty_tracks)
+                    size -= len(dirty_tracks)
+                else:
+                    return response
+            return tracks
         else:
-            return None
+            return "Can't get size of playlist"
+
 
     def create_playlist(self, access_token,  user_id, playlist_name):
         url = 'https://api.spotify.com/v1/users/' + user_id + '/playlists'
@@ -318,6 +330,26 @@ class SpotifyUserData():
             return response_data['id']
         except:
             return response_data
+
+    def get_playlist_size(self,playlist_id, access_token):
+
+        url = 'https://api.spotify.com/v1/playlists/' + playlist_id + '/tracks'
+
+        data = {
+            'fields':['total'],
+            'market':'from_token'
+        }
+
+        header_value = "Bearer " + access_token
+
+        response = requests.get(url, params=data, headers={"Authorization": header_value})
+        response_data = json.loads(response.text)
+
+        try:
+            return response_data['total']
+        except Exception as e:
+            return "Can't get total: " + str(e)
+
 
 
 
@@ -587,14 +619,9 @@ class SpotifyRepeatTasks():
             for spotify_user in yearly_users:
                 messages.append(self.dw_yearly_task(spotify_user.user_id))
 
-        print(messages)
-            
-
-                
-                    
-
-
-    def dw_task(self, user_id):
+        return messages        
+    
+    def dw_monthly_task(self, user_id):
         SpotifyAuth().check_auth(user_id)
         spotify_user = SpotifyUser.objects.filter(user_id=user_id)[:1].get()
         try:
@@ -636,6 +663,7 @@ class SpotifyRepeatTasks():
                 return "User does not have yearly DW enabled"
         else:
             return "Hasn't been 60 seconds, you need to wait " + str(time_since_updated.total_seconds()) + " more seconds"
+
 
 if __name__ == "__main__":
     print(timezone.now())

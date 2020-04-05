@@ -57,7 +57,7 @@ def profile(request):
             spotify_user.dw_monthly_updated_at = datetime.now()
             spotify_user.save()
             
-            spotify_tasks.dw_monthly_task(spotify_user_id=spotify_user.user_id, repeat=360, creator=spotify_user)
+            spotify_tasks.dw_monthly_task(user_id=spotify_user.user_id, repeat=360, creator=spotify_user)
             messages.success(request, f'Your monthly playlist automation has begun.')
         
         elif 'monthly_disconnect' in request.POST:
@@ -72,7 +72,7 @@ def profile(request):
             spotify_user.dw_yearly = True
             spotify_user.dw_yearly_updated_at = datetime.now()
             spotify_user.save()
-            spotify_tasks.dw_yearly_task(spotify_user_id=spotify_user.user_id, repeat=360, creator=spotify_user)
+            spotify_tasks.dw_yearly_task(user_id=spotify_user.user_id, repeat=360, creator=spotify_user)
             messages.success(request, f'Your yearly playlist automation has begun.')
         
         elif 'yearly_disconnect' in request.POST:

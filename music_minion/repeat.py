@@ -6,7 +6,7 @@ from django_apscheduler.models import DjangoJobExecution
   
 scheduler = BackgroundScheduler()
 scheduler.add_jobstore(DjangoJobStore(), 'default')
-
+register_events(scheduler)
 
 from . import spotify
 from .models import SpotifyUser, SpotifyTasks
@@ -16,11 +16,9 @@ DjangoJobExecution.objects.delete_old_job_executions(604_800)
 
 def start_task(task_id):
     try:
-        scheduler.add_job(repeat_tasks.dw_repeat_task, 'interval', minutes=60, id=task_id, replace_existing=True)
-        register_events(scheduler)
-        scheduler.start()
-    except:
-       return "Couldn't Create Job"
+        scheduler.add_job(repeat_tasks.dw_repeat_task, trigger='cron', hour='0', id=task_id, misfire_grace_time=60, replace_existing=True)
+    except Exception as e:
+       return "Couldn't Create Job: " + str(e)
     try:
         job = DjangoJobStore().lookup_job('dw_task')
         task = SpotifyTasks(task_id=job.id,task_name=job.name, next_run_time=job.next_run_time)
@@ -36,7 +34,6 @@ def stop_task(task_id):
     try:
         scheduler.remove_job(task_id)
         SpotifyTasks.objects.filter(task_id=task_id).delete()
-        register_events(scheduler)
         scheduler.print_jobs()
         return "Job Deleted"
     except Exception as e:

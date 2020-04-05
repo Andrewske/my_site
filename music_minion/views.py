@@ -83,38 +83,43 @@ def playlistView(request):
             playlist = form.cleaned_data.get('playlist')
             i = playlist_names.index(playlist)
             playlist_id = playlist_ids[i]
-            tracks = spotify_user_data.get_playlist_songs(playlist_id, user.access_token)[1]
+            
+            tracks = spotify_user_data.get_playlist_songs(playlist_id, user.access_token)
+
 
             #Get recommendations based on the songs in the playlist
             
             #Only 5 aritsts/tracks/genres can be used, by default we will give recommendations based on tracks
             #Choose 5 tracks at random
-            track_ids = [track['id'] for track in tracks]
-            seed_tracks = random.sample(track_ids, 5)
+            if isinstance(tracks, list):
+                track_ids = [track['id'] for track in tracks]
+                seed_tracks = random.sample(track_ids, 5)
 
-            #Use the average values to set targets
-            target_values = {
-                'target_danceability': int(np.mean([track['danceability'] for track in tracks])),
-                'target_energy': int(np.mean([track['energy'] for track in tracks])),
-                #'target_key': int(np.mean([track['key'] for track in tracks])),
-                'target_loudness': int(np.mean([track['loudness'] for track in tracks])),
-                'target_mode': int(np.mean([track['mode'] for track in tracks])),
-                'target_speechiness': int(np.mean([track['speechiness'] for track in tracks])),
-                'target_acousticness': int(np.mean([track['acousticness'] for track in tracks])),
-                'target_instrumentalness': int(np.mean([track['instrumentalness'] for track in tracks])),
-                'target_valence': int(np.mean([track['valence'] for track in tracks])),
-                'target_tempo': int(np.mean([track['tempo'] for track in tracks])),
-            }
+                #Use the average values to set targets
+                target_values = {
+                    'target_danceability': int(np.mean([track['danceability'] for track in tracks])),
+                    'target_energy': int(np.mean([track['energy'] for track in tracks])),
+                    #'target_key': int(np.mean([track['key'] for track in tracks])),
+                    'target_loudness': int(np.mean([track['loudness'] for track in tracks])),
+                    'target_mode': int(np.mean([track['mode'] for track in tracks])),
+                    'target_speechiness': int(np.mean([track['speechiness'] for track in tracks])),
+                    'target_acousticness': int(np.mean([track['acousticness'] for track in tracks])),
+                    'target_instrumentalness': int(np.mean([track['instrumentalness'] for track in tracks])),
+                    'target_valence': int(np.mean([track['valence'] for track in tracks])),
+                    'target_tempo': int(np.mean([track['tempo'] for track in tracks])),
+                }
 
-            #Find recommendations with these values
-            rec_tracks = spotify_search.get_recommendations(user.access_token, tracks=seed_tracks, target_values=target_values)[1]
-
-
+                #Find recommendations with these values
+                rec_tracks = spotify_search.get_recommendations(user.access_token, tracks=seed_tracks, target_values=target_values)[1]
+            else:
+                message = tracks
         else:
             message = "Form Not Valid?"
     else:
         form = SpotifyPlaylistForm(playlists=playlist_names)
     
+    
+
     return render(request, 'music_minion/playlist.html', {'form':form, 'tracks':tracks, 'message':message, 'rec_tracks':rec_tracks})
 
 
