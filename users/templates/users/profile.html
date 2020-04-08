@@ -1,5 +1,7 @@
 {% extends "portfolio/base.html" %}
 {% load crispy_forms_tags %}
+{% load socialaccount %}
+
 
 {% block content %}
     {% if message %}
@@ -35,6 +37,15 @@
         <div class='row justify-content-start'>
             <div class='col-4 '>
                 <h1>Integrations</h1>
+                {% get_social_accounts user as accounts %}
+                {% if accounts %}
+                    <p class="text">You are connected to Google</p>
+                    <p>{{ accounts.google }}</p>
+                    <p>{{ email }}</p>
+                    <a href="{% url 'socialaccount_connections' %}">Disconnect Google Account</a>
+                {% else %}
+                    <a href="{% provider_login_url 'google'  process='connect' %}">Login with Google</a>
+                {% endif %}
                 {% if pinterest_access_token %}
                     <p class="text">
                         You are connected to Pinterest.

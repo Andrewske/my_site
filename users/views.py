@@ -10,6 +10,7 @@ from django.utils import timezone
 import json
 from background_task import background
 from background_task.models import Task
+from allauth.socialaccount.models import SocialAccount
 
 
 p = pinterest.Pinterest()
@@ -120,6 +121,8 @@ def profile(request):
             elif response[0] == 2:
                 message = "Error: Spotify Connection Failed: " + json.dumps(response[1])
 
+    
+
     try:
         spotify_access_token = user.spotifyuser.access_token
         spotify_user_id = user.spotifyuser.username
@@ -127,7 +130,9 @@ def profile(request):
         dw_yearly = spotify_user.dw_yearly
         dw_monthly_updated_at = spotify_user.dw_monthly_updated_at
         dw_yearly_updated_at = spotify_user.dw_yearly_updated_at
+        social_account = SocialAccount.objects.get(user=request.user).extra_data
     except:
+        social_account = None
         spotify_access_token = None
         spotify_user_id = None
         dw_monthly = False
@@ -149,6 +154,7 @@ def profile(request):
         'spotify_auth_url':spotify_auth.get_auth_url()[0],
         'spotify_access_token': spotify_access_token,
         'message': message,
+        'email': social_account['email'],
     }
 
     
