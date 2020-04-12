@@ -6,4 +6,7 @@ urlpatterns = [
     path('search/', views.searchView, name='music-minion-search'),
     path('playlist/', views.playlistView, name='music-minion-playlist'),
     path('get_playlist_tracks/', views.get_playlist_tracks, name='get_playlist_tracks'),
+    path('get_youtube_tracks/', views.get_youtube_tracks, name='get_youtube_tracks'),
+    path('youtube/', views.youtubeView, name='youtube'),
+    path('spotify_to_youtube/', views.spotifyToYoutube, name='spotify-to-youtube'),
 ]

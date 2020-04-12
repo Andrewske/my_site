@@ -43,6 +43,7 @@
                     <p>{{ accounts.google }}</p>
                     <p>{{ email }}</p>
                     <a href="{% url 'socialaccount_connections' %}">Disconnect Google Account</a>
+                    <a href="{% provider_login_url 'google' process='connect' action='reauthenticate' %}">Refresh</a>
                 {% else %}
                     <a href="{% provider_login_url 'google'  process='connect' %}">Login with Google</a>
                 {% endif %}

@@ -1,3 +1,10 @@
+{% load static %}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
+
+<link rel="stylesheet" href="{% static 'portfolio/main.css' %}">
+
 <table id="playlistTable" data-toggle="table" data-search="true" data-show-columns="true">
     <thead>
         <input type="button" id="reorder" value="Reorder" class="btn btn-outline-success">
@@ -45,3 +52,5 @@
         {% endfor %}
     </tbody>
 </table>
+
+<script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>

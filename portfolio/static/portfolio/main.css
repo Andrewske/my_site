@@ -601,6 +601,9 @@ html {
 }
 
 
+/*-------------------------------*/
+/*        Track Key Colors       */
+/*-------------------------------*/
 .key-1A {
   color : #56F1DA;
 }
@@ -695,4 +698,29 @@ html {
 
 .key-12B {
   color : #00EBEB;
+}
+
+
+/*-------------------------------*/
+/*          Track Cards          */
+/*-------------------------------*/
+
+.spotify-track-card {
+  background:None;
+  border: 1px solid;
+  border-color: #1db954;
+  margin: 1rem auto;
+  border-radius:5px;
+  box-shadow: 0 4px 6px -1px rgb(198, 207, 234);
+  margin-bottom: 1.6%;
+  overflow: hidden;
+}
+
+.track-card-img {
+  position: absolute;
+  top:0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width:50px !important;
 }

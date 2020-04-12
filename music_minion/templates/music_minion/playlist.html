@@ -1,9 +1,10 @@
 {% extends "portfolio/base.html" %}
 {% load crispy_forms_tags %}
 
+
+
+
 {% block content %}
-
-
 <div id="main-content" class="container">
     {% if message %}
       <div class='alert alert-danger message'>
@@ -50,7 +51,7 @@
     };
 </script>
 
-<script type="text/javascript"> 
+<script>
     $(document).ready(function(event){
         $(document).on('click', '#get_playlist_tracks', function(event){
             event.preventDefault();
@@ -60,12 +61,16 @@
             $.ajax({
                 type:'POST',
                 url: '{% url "get_playlist_tracks" %}',
-                data: {'user_id':user_id, 'playlist_id':playlist_id, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                data: {'user_id':user_id, 'playlist_id':playlist_id, 'csrfmiddlewaretoken': '{{ csrf_token }}', 'use':'table'},
                 dataType:'json',
                 success: function(response){
-                    $('#playlist-table').html(response['form']),
-                    console.log($('#playlist-table').html(response['form']));
-                },
+                    if(response['form']){
+                        $('#playlist-table').html(response['form']);
+                        console.log($('#playlist-table').html(response['form']));
+
+                    } else {
+                        console.log('No form');
+                    }},
                 error: function(rs, e){
                     console.log(rs.responseText);
                 }
@@ -73,6 +78,7 @@
         })
     });
 </script>
+
 {% endblock js %}
 
 

@@ -367,6 +367,7 @@ class SpotifyTrackData():
             new_dict = {
                 'id': track['id'],
                 'name': track['name'],
+                'img_url' : [img['url'] for img in track['album']['images'] if img['width'] < 500][0],
                 'artists': ', '.join(artist['name'] for artist in track['artists']),
                 'href': track['href'],
                 'popularity': track['popularity'],

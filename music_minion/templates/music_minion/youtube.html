@@ -1,0 +1,16 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+{% if message %}
+<div class='alert alert-danger message'>
+  <p style="margin-bottom: 0px;">{{ message }}</p>
+</div>
+{% endif %}
+
+<div class="container">
+    <img class='img-fluid' src='{{ minion_gif }}'>
+    <h2>Welcome to Music Minon's Youtube Page</h2>
+
+</div> 
+
+{% endblock content %}
