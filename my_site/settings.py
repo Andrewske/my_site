@@ -222,7 +222,7 @@ SOCIALACCOUNT_PROVIDERS = {
             'https://www.googleapis.com/auth/youtube',
         ],
         'AUTH_PARAMS': {
-            'access_type': 'online',
+            'access_type': 'offline',
         }
     },
 }

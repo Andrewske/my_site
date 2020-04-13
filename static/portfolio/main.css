@@ -746,12 +746,14 @@ html {
   display:flex;
   justify-content: center;
   width:100%;
+  background-color: None;
 }
 
 .previous {
   display:flex;
   justify-content: center;
   width:100%;
+  background-color: None;
 }
 
 .previous-button {
@@ -762,4 +764,18 @@ html {
   display:flex;
   justify-content: center;
   width:10%;
+}
+
+button {
+  background-color: #1a1a1a;
+  border:0;
+  color:white;
+}
+
+
+.thumb-buttons {
+  display:flex;
+  flex-wrap: wrap;
+  margin:auto;
+  vertical-align: center;
 }
