@@ -140,7 +140,6 @@ def profile(request):
         dw_monthly_updated_at = None
         dw_yearly_updated_at = None
 
-    from apscheduler.schedulers.background import BackgroundScheduler
     message = SpotifyUser.objects.filter(dw_monthly=True, dw_yearly=True)
 
     context = {

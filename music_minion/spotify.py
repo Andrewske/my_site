@@ -17,6 +17,8 @@ try:
 except ImportError:
     from urllib import urlencode
 
+import time
+
 
 
 class SpotifyAuth:
@@ -278,12 +280,15 @@ class SpotifyUserData():
             return response_data
         else:
             return response_data
-
+    
+    #Old Version of Get Playlist Songs
+    '''
     def get_playlist_songs(self, playlist_id, access_token, fields=None, limit=100):
+        t0 = time.perf_counter()
         url = 'https://api.spotify.com/v1/playlists/' + playlist_id + '/tracks'
-
         size = self.get_playlist_size(playlist_id, access_token)
         print("There are " + str(size) + "tracks in this playlist")
+        t1 = time.perf_counter()
         offset = 0
 
         data = {
@@ -301,18 +306,39 @@ class SpotifyUserData():
                 data['offset'] = offset
                 response = requests.get(url, params=data, headers={"Authorization": header_value})
                 response_data = json.loads(response.text)
-
+                
                 if response.status_code == 200:
+                    tc_1
                     dirty_tracks = [track['track'] for track in response_data['items']]
                     tracks += SpotifyTrackData().clean_track_response(dirty_tracks, access_token)[1]
                     offset += len(dirty_tracks)
                     size -= len(dirty_tracks)
+                    t3 = time.perf_counter()
                 else:
                     return response
             return tracks
         else:
             return "Can't get size of playlist"
+    '''
+    #New Version
+    def get_playlist_songs(self, playlist_id, access_token, fields=None, limit=100, offset=None):
+        url = 'https://api.spotify.com/v1/playlists/' + playlist_id + '/tracks'
 
+        data = {
+            'limit':limit,
+            'offset':offset,
+            'fields':fields,
+            'market':'from_token'
+        }
+
+        header_value = "Bearer " + access_token
+        response = requests.get(url, params=data, headers={"Authorization": header_value})
+        response_data = json.loads(response.text)
+                
+        if response.status_code == 200:
+            return response_data['items']
+        else:
+            return response
 
     def create_playlist(self, access_token,  user_id, playlist_name):
         url = 'https://api.spotify.com/v1/users/' + user_id + '/playlists'

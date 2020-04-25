@@ -701,21 +701,36 @@ html {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
 .track-card {
   max-width:400px;
   background:None;
   border: 1px solid;
-  margin: 1rem auto;
   border-radius:5px;
   box-shadow: 0 1px 4px -1px #ffffff8c;
-  margin-bottom: 1.6%;
   overflow: hidden;
 
 }
 
+.result-tracks {
+  padding: 0px;
+}
+
+.show-button {
+  font-size:12px;
+  padding: 3px, 6px, 3px, 6px;
+  ;
+}
+
+.active {
+  background-color:#ffffff;
+  color:#1a1a1a;
+  font-weight: bold;
+}
+
 .spotify {
   border-color: #1db954;
-}
+} 
 
 .youtube {
   border-color: #c4302b;
@@ -766,6 +781,16 @@ html {
   width:10%;
 }
 
+#card-text h1 {
+  margin-block-end: 0;
+  font-size: 2rem;
+}
+
+#card-text p {
+  margin-block-end: 0;
+  font-size:1rem;
+}
+
 button {
   background-color: #1a1a1a;
   border:0;
@@ -776,6 +801,125 @@ button {
 .thumb-buttons {
   display:flex;
   flex-wrap: wrap;
-  margin:auto;
-  vertical-align: center;
+  justify-content: center;
+  padding:20px;
 }
+
+#loading-container {
+  display:flex;
+  flex-direction: column;
+  margin:auto;
+}
+
+#loading-text {
+  text-align: center;
+  font-size: 4vw;
+}
+
+.hidden {
+  display:none !important;
+}
+
+
+
+.dropdown-container {
+  position:fixed;
+  z-index:2;
+  display:flex;
+  justify-content: center;
+  top:15px;
+  width: 100%;
+  font-family: "Ek Mukta";
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+
+form {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+.chosen-value, .value-list {
+  top: 0;
+  left: 0;
+  max-width: 400px;
+}
+.chosen-value {
+  font-family: "Ek Mukta";
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 4px;
+  height: 3rem;
+  font-size: 1.1rem;
+  padding: 1rem;
+  background-color: #fafcfd;
+  color:#1a1a1a;
+  border: 3px solid transparent;
+  transition: 0.3s ease-in-out;
+  border-bottom: solid 1px;
+}
+.chosen-value::-webkit-input-placeholder {
+  color: #333;
+}
+.chosen-value:hover {
+  background-color: #1db954;
+  cursor: pointer;
+}
+.chosen-value:hover::-webkit-input-placeholder {
+  color: #333;
+}
+.chosen-value:focus, .chosen-value.open {
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  outline: 0;
+  background-color: #1db954;
+  color: #000;
+}
+.chosen-value:focus::-webkit-input-placeholder, .chosen-value.open::-webkit-input-placeholder {
+  color: #000;
+}
+.value-list {
+  list-style: none;
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.3s ease-in-out;
+  padding-inline-start: 0px;
+  color:#1a1a1a;
+  
+}
+.value-list.open {
+  max-height: 320px;
+  overflow: auto;
+}
+.value-list li {
+  position: relative;
+  height: 4rem;
+  background-color: #fafcfd;
+  padding: 1rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  opacity: 1;
+}
+.value-list :hover {
+  background-color: #1db954;
+}
+.value-list .closed {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  opacity: 0;
+}
+
+@media (max-width: 480px) { 
+  .spotify-card-form {
+    margin-left:40px !important;
+  }
+ }

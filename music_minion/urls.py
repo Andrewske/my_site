@@ -10,4 +10,5 @@ urlpatterns = [
     path('make_youtube_playlist/', views.make_youtube_playlist, name='make_youtube_playlist'),
     path('youtube/', views.youtubeView, name='youtube'),
     path('spotify_to_youtube/', views.spotifyToYoutube, name='spotify-to-youtube'),
+    path('check_auth/', views.check_auth, name='check_auth'),
 ]

@@ -1,0 +1,2102 @@
+[
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/21G47hV4QnaaU4e72YUbIn"
+      },
+      "href": "https://api.spotify.com/v1/playlists/21G47hV4QnaaU4e72YUbIn",
+      "id": "21G47hV4QnaaU4e72YUbIn",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b2735e25d83362d98523fb82fc0d",
+          "width": 640
+        }
+      ],
+      "name": "test",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MiwwN2M1OWNmNzU0ZWIyMmM2ZjIyYWYzZjI5MTQ1NmVkNTBiZjFhMjI5",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/21G47hV4QnaaU4e72YUbIn/tracks",
+        "total": 1
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:21G47hV4QnaaU4e72YUbIn"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/01TbnrkMWRZIofTjkg3GOT"
+      },
+      "href": "https://api.spotify.com/v1/playlists/01TbnrkMWRZIofTjkg3GOT",
+      "id": "01TbnrkMWRZIofTjkg3GOT",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2731c69ab0fc64d2ad8708e423bab67616d0000b273245d40a7a9be1358c0a4d3c0ab67616d0000b2737610c3ddbb75cdff580ab29fab67616d0000b273fc9b6b98bd568908b9a18540",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2731c69ab0fc64d2ad8708e423bab67616d0000b273245d40a7a9be1358c0a4d3c0ab67616d0000b2737610c3ddbb75cdff580ab29fab67616d0000b273fc9b6b98bd568908b9a18540",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2731c69ab0fc64d2ad8708e423bab67616d0000b273245d40a7a9be1358c0a4d3c0ab67616d0000b2737610c3ddbb75cdff580ab29fab67616d0000b273fc9b6b98bd568908b9a18540",
+          "width": 60
+        }
+      ],
+      "name": "Apr 20 - Discover Weekly",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "Myw3ZDIwMjI3OWFkNzI3ZjY3MWIxNWZlOGY2ZmZjNGZjOGM2YTQwYTE5",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/01TbnrkMWRZIofTjkg3GOT/tracks",
+        "total": 60
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:01TbnrkMWRZIofTjkg3GOT"
+    },
+    {
+      "collaborative": false,
+      "description": "Favorite picks from your friends at Brownies &amp; Lemonade",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/03de8Phg9jBojkrhxQX9LE"
+      },
+      "href": "https://api.spotify.com/v1/playlists/03de8Phg9jBojkrhxQX9LE",
+      "id": "03de8Phg9jBojkrhxQX9LE",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706c0000da841e528d6860eccf75356dfd97",
+          "width": null
+        }
+      ],
+      "name": "B&L Fresh Batch",
+      "owner": {
+        "display_name": "browniesandlemonade",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/browniesandlemonade"
+        },
+        "href": "https://api.spotify.com/v1/users/browniesandlemonade",
+        "id": "browniesandlemonade",
+        "type": "user",
+        "uri": "spotify:user:browniesandlemonade"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MTE3MCxjY2M3OWRhYjA4YzA5Y2NlMWM2YTg0NGEzZmZiMTcwNDAzZjNiMmE2",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/03de8Phg9jBojkrhxQX9LE/tracks",
+        "total": 106
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:03de8Phg9jBojkrhxQX9LE"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/1GnVN4xmXAXCBCVleH9Jng"
+      },
+      "href": "https://api.spotify.com/v1/playlists/1GnVN4xmXAXCBCVleH9Jng",
+      "id": "1GnVN4xmXAXCBCVleH9Jng",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2730770fe27caff8948d0cea4ecab67616d0000b273346a5742374ab4cf9ed32deeab67616d0000b273911ef35f75422d0482cec8bfab67616d0000b273e08b1250db5f75643f1508c9",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2730770fe27caff8948d0cea4ecab67616d0000b273346a5742374ab4cf9ed32deeab67616d0000b273911ef35f75422d0482cec8bfab67616d0000b273e08b1250db5f75643f1508c9",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2730770fe27caff8948d0cea4ecab67616d0000b273346a5742374ab4cf9ed32deeab67616d0000b273911ef35f75422d0482cec8bfab67616d0000b273e08b1250db5f75643f1508c9",
+          "width": 60
+        }
+      ],
+      "name": "Omnia",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "NixhMzYxODkxNzFkNDE1NDg4MmJlMWM5NjdhZTIwZDI5MmQ0NGM1ZTZi",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/1GnVN4xmXAXCBCVleH9Jng/tracks",
+        "total": 5
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:1GnVN4xmXAXCBCVleH9Jng"
+    },
+    {
+      "collaborative": false,
+      "description": "Created with PLYLST.app! Genres include &#x27;bass music&#x27;. Uses the full Spotify catalog. Sorted randomly. ",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/044Bj87xMYSbP6T8msCHzK"
+      },
+      "href": "https://api.spotify.com/v1/playlists/044Bj87xMYSbP6T8msCHzK",
+      "id": "044Bj87xMYSbP6T8msCHzK",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2731c85dae604c6fc82acb37709ab67616d0000b27350897858ddb4da102e719e19ab67616d0000b2737e661b5b3ec6be195155fee1ab67616d0000b27393e565a82c63afeb850ad00c",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2731c85dae604c6fc82acb37709ab67616d0000b27350897858ddb4da102e719e19ab67616d0000b2737e661b5b3ec6be195155fee1ab67616d0000b27393e565a82c63afeb850ad00c",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2731c85dae604c6fc82acb37709ab67616d0000b27350897858ddb4da102e719e19ab67616d0000b2737e661b5b3ec6be195155fee1ab67616d0000b27393e565a82c63afeb850ad00c",
+          "width": 60
+        }
+      ],
+      "name": "PLYLST: Popular Bass Music",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "NjkyLDIwNjc5YjEyOWJiOTZiMzZkMDdjM2FjYTJjZWRiZjk4ZDYyYTgxYzA=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/044Bj87xMYSbP6T8msCHzK/tracks",
+        "total": 1000
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:044Bj87xMYSbP6T8msCHzK"
+    },
+    {
+      "collaborative": false,
+      "description": "Created with PLYLST.app! BPM is greater than 145, Genres include &#x27;drum and bass, dubstep, edm, electronic trap&#x27;, Popularity is greater than 50. Uses the full Spotify catalog. Sorted randomly. ",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/2vfYDPqeADDdBcIK89phoJ"
+      },
+      "href": "https://api.spotify.com/v1/playlists/2vfYDPqeADDdBcIK89phoJ",
+      "id": "2vfYDPqeADDdBcIK89phoJ",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27305b2d41a14d76d6eb8f59b9aab67616d0000b2733739660524149aef20ddd20cab67616d0000b273a204c802c9addf4e497e4a03ab67616d0000b273b5b8ed354193cab97d0bbaf5",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27305b2d41a14d76d6eb8f59b9aab67616d0000b2733739660524149aef20ddd20cab67616d0000b273a204c802c9addf4e497e4a03ab67616d0000b273b5b8ed354193cab97d0bbaf5",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27305b2d41a14d76d6eb8f59b9aab67616d0000b2733739660524149aef20ddd20cab67616d0000b273a204c802c9addf4e497e4a03ab67616d0000b273b5b8ed354193cab97d0bbaf5",
+          "width": 60
+        }
+      ],
+      "name": "PLYLST: EDM > 145 in 2019",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "Nzk4LDYyMzgzZDhjYjViOTBjY2M5NWZjMWZhMjk5YmFmOTU3Nzk3M2MwOTE=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/2vfYDPqeADDdBcIK89phoJ/tracks",
+        "total": 522
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:2vfYDPqeADDdBcIK89phoJ"
+    },
+    {
+      "collaborative": false,
+      "description": "Created with PLYLST.app! Genres include &#x27;dubstep&#x27;, Release Date is between Jan 1, 2019 and Jan 1, 2020. Uses the full Spotify catalog. Sorted randomly. Limited to 100 songs.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/69NWnUl5Pt7qaHEwhvdi5j"
+      },
+      "href": "https://api.spotify.com/v1/playlists/69NWnUl5Pt7qaHEwhvdi5j",
+      "id": "69NWnUl5Pt7qaHEwhvdi5j",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b273c41fa363e9089a9535ce4f16ab67616d0000b273c92bc314fd63685459c91d3dab67616d0000b273cdd35861883355e4730c1a38ab67616d0000b273d658b05d30906efbe1bfdea1",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b273c41fa363e9089a9535ce4f16ab67616d0000b273c92bc314fd63685459c91d3dab67616d0000b273cdd35861883355e4730c1a38ab67616d0000b273d658b05d30906efbe1bfdea1",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b273c41fa363e9089a9535ce4f16ab67616d0000b273c92bc314fd63685459c91d3dab67616d0000b273cdd35861883355e4730c1a38ab67616d0000b273d658b05d30906efbe1bfdea1",
+          "width": 60
+        }
+      ],
+      "name": "PLYLST: Dubstep-Jan-20",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MzkyLDg4OTYwYWY5ZDBhNzhiOWE3NDMzM2U2N2UxYWM5ZmM2MTUwMjI2OGU=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/69NWnUl5Pt7qaHEwhvdi5j/tracks",
+        "total": 100
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:69NWnUl5Pt7qaHEwhvdi5j"
+    },
+    {
+      "collaborative": false,
+      "description": "Created with PLYLST.app! Genres include &#x27;bass house, drum and bass, dubstep&#x27;, Release Date is between Jan 1, 2020 and Feb 29, 2020, Danceability is Very. Uses the full Spotify catalog. Sorted randomly. Limited to 100 songs.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/5y4dzOctryRM9RpWVxRR7T"
+      },
+      "href": "https://api.spotify.com/v1/playlists/5y4dzOctryRM9RpWVxRR7T",
+      "id": "5y4dzOctryRM9RpWVxRR7T",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27309986a2ec14581cd2d35a900ab67616d0000b2736286b311e95c634141f74680ab67616d0000b2737bf9efa4810d249a01e3abd9ab67616d0000b2738111dbf78a93c374066e2140",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27309986a2ec14581cd2d35a900ab67616d0000b2736286b311e95c634141f74680ab67616d0000b2737bf9efa4810d249a01e3abd9ab67616d0000b2738111dbf78a93c374066e2140",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27309986a2ec14581cd2d35a900ab67616d0000b2736286b311e95c634141f74680ab67616d0000b2737bf9efa4810d249a01e3abd9ab67616d0000b2738111dbf78a93c374066e2140",
+          "width": 60
+        }
+      ],
+      "name": "PLYLST: EDM-Bass 2020",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "NTYzLGIyMjM2YjBjZTEwMDA3MTZjNjY5Y2VjYjRmOTYzNGVlYjRkNDdmZWE=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/5y4dzOctryRM9RpWVxRR7T/tracks",
+        "total": 100
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:5y4dzOctryRM9RpWVxRR7T"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/66esoX3teBQdi0Z44Q12Qj"
+      },
+      "href": "https://api.spotify.com/v1/playlists/66esoX3teBQdi0Z44Q12Qj",
+      "id": "66esoX3teBQdi0Z44Q12Qj",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2733c38ce1ea0d0caa039380ef3ab67616d0000b2738ff12c12b764292873f3f1e0ab67616d0000b2739351ecedb38e7a48611e36a0ab67616d0000b273c5ffd69f794e380b2b84bf35",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2733c38ce1ea0d0caa039380ef3ab67616d0000b2738ff12c12b764292873f3f1e0ab67616d0000b2739351ecedb38e7a48611e36a0ab67616d0000b273c5ffd69f794e380b2b84bf35",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2733c38ce1ea0d0caa039380ef3ab67616d0000b2738ff12c12b764292873f3f1e0ab67616d0000b2739351ecedb38e7a48611e36a0ab67616d0000b273c5ffd69f794e380b2b84bf35",
+          "width": 60
+        }
+      ],
+      "name": "2020 Discover Weekly",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTYsMDAyOTg1MmI5YjE1NDIzOTk5OWZhNTZlNWE5YTgzMDEyYjAyZmFmYg==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/66esoX3teBQdi0Z44Q12Qj/tracks",
+        "total": 210
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:66esoX3teBQdi0Z44Q12Qj"
+    },
+    {
+      "collaborative": false,
+      "description": "100 SONG MASHUP OF POP SONGS FROM 2010 - 2019",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4GKQGAEPqkNsdxbRMzjIYU"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4GKQGAEPqkNsdxbRMzjIYU",
+      "id": "4GKQGAEPqkNsdxbRMzjIYU",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706c0000da846a191962c554d69f6f2db028",
+          "width": null
+        }
+      ],
+      "name": "DECADE OF POP 100 SONG MASHUP - DJ EARWORM",
+      "owner": {
+        "display_name": "DJ Earworm",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/9fsm1cin961ws21ibpe81pjsa"
+        },
+        "href": "https://api.spotify.com/v1/users/9fsm1cin961ws21ibpe81pjsa",
+        "id": "9fsm1cin961ws21ibpe81pjsa",
+        "type": "user",
+        "uri": "spotify:user:9fsm1cin961ws21ibpe81pjsa"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MTcsZjZiZjkxMDEzMmNkN2JmOGFjYzk3YmNhYjA2NDhlNDc2Y2I4OWJhOQ==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4GKQGAEPqkNsdxbRMzjIYU/tracks",
+        "total": 100
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4GKQGAEPqkNsdxbRMzjIYU"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4VlkWcywLYsd2d6DpRhT0t"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4VlkWcywLYsd2d6DpRhT0t",
+      "id": "4VlkWcywLYsd2d6DpRhT0t",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2732aebf42d8901fbcd14c9eca8ab67616d0000b273792ef1f665d52fed1ed6bd55ab67616d0000b273c6f7af36ecdc3ed6e0a1f169ab67616d0000b273e137c91ae29cfced1f9af3d2",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2732aebf42d8901fbcd14c9eca8ab67616d0000b273792ef1f665d52fed1ed6bd55ab67616d0000b273c6f7af36ecdc3ed6e0a1f169ab67616d0000b273e137c91ae29cfced1f9af3d2",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2732aebf42d8901fbcd14c9eca8ab67616d0000b273792ef1f665d52fed1ed6bd55ab67616d0000b273c6f7af36ecdc3ed6e0a1f169ab67616d0000b273e137c91ae29cfced1f9af3d2",
+          "width": 60
+        }
+      ],
+      "name": "2020",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTA4LDYxNDAwYzYyNTA5NTczN2ZmNjlkMzhiNDg2ZDVmNDZjMjI3NTcyY2Q=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4VlkWcywLYsd2d6DpRhT0t/tracks",
+        "total": 107
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4VlkWcywLYsd2d6DpRhT0t"
+    },
+    {
+      "collaborative": false,
+      "description": "Emo and screamo with <a href=\"spotify:genre:edm_dance\">an electronic twist</a>.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWTfrr8pte1rT"
+      },
+      "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWTfrr8pte1rT",
+      "id": "37i9dQZF1DWTfrr8pte1rT",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706f00000002d17c97c3c7f86d62320595e9",
+          "width": null
+        }
+      ],
+      "name": "Emotron",
+      "owner": {
+        "display_name": "Spotify",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/spotify"
+        },
+        "href": "https://api.spotify.com/v1/users/spotify",
+        "id": "spotify",
+        "type": "user",
+        "uri": "spotify:user:spotify"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MTU4NzQ3OTM3OSwwMDAwMDAwMGQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0Mjdl",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWTfrr8pte1rT/tracks",
+        "total": 70
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:37i9dQZF1DWTfrr8pte1rT"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/55c5qeajmTYQMXRxfe8AQF"
+      },
+      "href": "https://api.spotify.com/v1/playlists/55c5qeajmTYQMXRxfe8AQF",
+      "id": "55c5qeajmTYQMXRxfe8AQF",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b273092b9b5c112f5d4113e063d8ab67616d0000b273345536847e60f622ee0eae96ab67616d0000b27381b6285a16a514257830d9f8ab67616d0000b273f2d671c22b70e01b78a618a8",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b273092b9b5c112f5d4113e063d8ab67616d0000b273345536847e60f622ee0eae96ab67616d0000b27381b6285a16a514257830d9f8ab67616d0000b273f2d671c22b70e01b78a618a8",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b273092b9b5c112f5d4113e063d8ab67616d0000b273345536847e60f622ee0eae96ab67616d0000b27381b6285a16a514257830d9f8ab67616d0000b273f2d671c22b70e01b78a618a8",
+          "width": 60
+        }
+      ],
+      "name": "Karaoke",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTAsNjJlNWFlYWY5MmQ1NmNiODM3OGM4M2NlNDBiZjAxYzgyYzZmOTNmMg==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/55c5qeajmTYQMXRxfe8AQF/tracks",
+        "total": 9
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:55c5qeajmTYQMXRxfe8AQF"
+    },
+    {
+      "collaborative": false,
+      "description": "A track from each album",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/7BvrTkTr9rp2ajO399lfXr"
+      },
+      "href": "https://api.spotify.com/v1/playlists/7BvrTkTr9rp2ajO399lfXr",
+      "id": "7BvrTkTr9rp2ajO399lfXr",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27302d737d7e3de847e6e23b61eab67616d0000b27309079027a2030cb60af627ceab67616d0000b27320b0267cf08849fa4cec844bab67616d0000b273a609a875f29bbc5d342ea84f",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27302d737d7e3de847e6e23b61eab67616d0000b27309079027a2030cb60af627ceab67616d0000b27320b0267cf08849fa4cec844bab67616d0000b273a609a875f29bbc5d342ea84f",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27302d737d7e3de847e6e23b61eab67616d0000b27309079027a2030cb60af627ceab67616d0000b27320b0267cf08849fa4cec844bab67616d0000b273a609a875f29bbc5d342ea84f",
+          "width": 60
+        }
+      ],
+      "name": "Good Stand-Up Comedy Albums",
+      "owner": {
+        "display_name": "Rafael Fyen",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/cdammen"
+        },
+        "href": "https://api.spotify.com/v1/users/cdammen",
+        "id": "cdammen",
+        "type": "user",
+        "uri": "spotify:user:cdammen"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "NTMsZmVmMTFmNWMyZDI1YzgwZGVmNDZiYzM4YWI3ZmUxOWYxMzAyMTZhYg==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/7BvrTkTr9rp2ajO399lfXr/tracks",
+        "total": 26
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:7BvrTkTr9rp2ajO399lfXr"
+    },
+    {
+      "collaborative": false,
+      "description": "Alternative soul, hip-hop and all that jazz. Cover: Tom Misch, Yussef Dayes",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWVzZlRWgqAGH"
+      },
+      "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWVzZlRWgqAGH",
+      "id": "37i9dQZF1DWVzZlRWgqAGH",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706f000000024d61718df6d118fe7cf8590f",
+          "width": null
+        }
+      ],
+      "name": "Butter",
+      "owner": {
+        "display_name": "Spotify",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/spotify"
+        },
+        "href": "https://api.spotify.com/v1/users/spotify",
+        "id": "spotify",
+        "type": "user",
+        "uri": "spotify:user:spotify"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MTU4NzEyNzA3NCwwMDAwMDEwODAwMDAwMTcxODgyNTNkODYwMDAwMDE3MTgyNGY1NDY5",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWVzZlRWgqAGH/tracks",
+        "total": 70
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:37i9dQZF1DWVzZlRWgqAGH"
+    },
+    {
+      "collaborative": false,
+      "description": "Your weekly mixtape of fresh music. Enjoy new discoveries and deep cuts chosen just for you. Updated every Monday, so save your favorites!",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/37i9dQZEVXcHrmEBmsaPA5"
+      },
+      "href": "https://api.spotify.com/v1/playlists/37i9dQZEVXcHrmEBmsaPA5",
+      "id": "37i9dQZEVXcHrmEBmsaPA5",
+      "images": [
+        {
+          "height": null,
+          "url": "https://newjams-images.scdn.co/v2/discover-weekly/j6TRdD5fwLvZdOumEU2t1Pd-XlbM1mEmHoR7YwTecomO88Q8_WZ8lt5lTI5VYvWYTVAeRAQUtS4OgCwWuIuUVJegvQwlBNuRpB6ZgwuJKuBAWB4_D89xJUeqjlwMxUUXt78LByAoTx8F19Ma_otR_HpYHuy5Nm3rqL1qWr-5ruBj-wZd-WNKYp53x183_amUQO1BUoFFwFthoQFP5CWJ4xKCEwTtlVBr5vthFXrTIMHFiBM8v5wr-JCSxZBBlbUUWhcdIxzot6I8lZpzhz9m9mTwVC7bEZb_v_uHxh19zdyE3ueNRnnFLmFS7IXjoDhLwZMBmUucHFMsQT02IJMLKT6rHWWK0y9sW_FCUjU7RXU=/MjM6ODM6MjFUNzAtNTAtMA==/default",
+          "width": null
+        }
+      ],
+      "name": "Discover Weekly",
+      "owner": {
+        "display_name": "Spotify",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/spotify"
+        },
+        "href": "https://api.spotify.com/v1/users/spotify",
+        "id": "spotify",
+        "type": "user",
+        "uri": "spotify:user:spotify"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MjY0NTU2ODAsMDAwMDAwMDAzNWJjZTBiZjg4MDNlZjhhODY1MjNlZDIwMDMwZmExNg==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZEVXcHrmEBmsaPA5/tracks",
+        "total": 30
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:37i9dQZEVXcHrmEBmsaPA5"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/67ztPmXGb4Qz1yvYaUqxKF"
+      },
+      "href": "https://api.spotify.com/v1/playlists/67ztPmXGb4Qz1yvYaUqxKF",
+      "id": "67ztPmXGb4Qz1yvYaUqxKF",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b273f2d671c22b70e01b78a618a8",
+          "width": 640
+        }
+      ],
+      "name": "Wedding First Dance Songs",
+      "owner": {
+        "display_name": "Jay Klicker",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/megarhyssa"
+        },
+        "href": "https://api.spotify.com/v1/users/megarhyssa",
+        "id": "megarhyssa",
+        "type": "user",
+        "uri": "spotify:user:megarhyssa"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "OCxmN2JmNWJjZjEyZjVkOTA1ZjA1NjFlYmEyYWMzNTA2MmFiYjM3OGE3",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/67ztPmXGb4Qz1yvYaUqxKF/tracks",
+        "total": 3
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:67ztPmXGb4Qz1yvYaUqxKF"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/17VoQmImIkdPbByA5tGBAY"
+      },
+      "href": "https://api.spotify.com/v1/playlists/17VoQmImIkdPbByA5tGBAY",
+      "id": "17VoQmImIkdPbByA5tGBAY",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b273013a8b3d2a0a8028622ffd5c",
+          "width": 640
+        }
+      ],
+      "name": "EDM 10's",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MywyYzhlMjllMDdjY2ZjOTFlZWFlY2I0ZTk2YTA5NmVmYjVkMDMxZjRh",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/17VoQmImIkdPbByA5tGBAY/tracks",
+        "total": 2
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:17VoQmImIkdPbByA5tGBAY"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/1ek2BaefIuO9uLnWeiegRQ"
+      },
+      "href": "https://api.spotify.com/v1/playlists/1ek2BaefIuO9uLnWeiegRQ",
+      "id": "1ek2BaefIuO9uLnWeiegRQ",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27308088d24452196ad58b85052ab67616d0000b27312b16cbb525e11bcbfd50d82ab67616d0000b27355de9995695e8aac0beb13cdab67616d0000b273d03ab2da904d8251a87bbc31",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27308088d24452196ad58b85052ab67616d0000b27312b16cbb525e11bcbfd50d82ab67616d0000b27355de9995695e8aac0beb13cdab67616d0000b273d03ab2da904d8251a87bbc31",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27308088d24452196ad58b85052ab67616d0000b27312b16cbb525e11bcbfd50d82ab67616d0000b27355de9995695e8aac0beb13cdab67616d0000b273d03ab2da904d8251a87bbc31",
+          "width": 60
+        }
+      ],
+      "name": "70's Throwback",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MzQsZWZiNmZjYmYyZGM1Njg1ZmYzNzUwNDI4ODgyNjEyOGFmNTgzNjVmOQ==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/1ek2BaefIuO9uLnWeiegRQ/tracks",
+        "total": 29
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:1ek2BaefIuO9uLnWeiegRQ"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/39LNGbJ8INityhyM6ckdeV"
+      },
+      "href": "https://api.spotify.com/v1/playlists/39LNGbJ8INityhyM6ckdeV",
+      "id": "39LNGbJ8INityhyM6ckdeV",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27357b9caec6f92ab2e42816a68ab67616d0000b273bae25edb5f8cb039ca639933ab67616d0000b273c813101657895c26f990b719ab67616d0000b273f96cefb0197694ad440c3314",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27357b9caec6f92ab2e42816a68ab67616d0000b273bae25edb5f8cb039ca639933ab67616d0000b273c813101657895c26f990b719ab67616d0000b273f96cefb0197694ad440c3314",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27357b9caec6f92ab2e42816a68ab67616d0000b273bae25edb5f8cb039ca639933ab67616d0000b273c813101657895c26f990b719ab67616d0000b273f96cefb0197694ad440c3314",
+          "width": 60
+        }
+      ],
+      "name": "60's Throwback",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "Niw4MjA2MWNlOWQ3MDczMjA3ZThkZWMzYzdlYzg5NjViZDM5ZmViNzA1",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/39LNGbJ8INityhyM6ckdeV/tracks",
+        "total": 5
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:39LNGbJ8INityhyM6ckdeV"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/3Khiafbu86hVqO0HLk3lrr"
+      },
+      "href": "https://api.spotify.com/v1/playlists/3Khiafbu86hVqO0HLk3lrr",
+      "id": "3Khiafbu86hVqO0HLk3lrr",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27308b19a033829c0bec97be61aab67616d0000b273aaf8c068ffe217db825a1945ab67616d0000b273eb59d8c00eb852e07b1c4b83ab67616d0000b273f9bd7a6c772ac496015be3f8",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27308b19a033829c0bec97be61aab67616d0000b273aaf8c068ffe217db825a1945ab67616d0000b273eb59d8c00eb852e07b1c4b83ab67616d0000b273f9bd7a6c772ac496015be3f8",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27308b19a033829c0bec97be61aab67616d0000b273aaf8c068ffe217db825a1945ab67616d0000b273eb59d8c00eb852e07b1c4b83ab67616d0000b273f9bd7a6c772ac496015be3f8",
+          "width": 60
+        }
+      ],
+      "name": "00's Throwback",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "NDQsZGFjODhlODYxYjJjODcwMjA3MjRkZTUyODk2N2NmYTJlM2ZlMWRkOQ==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/3Khiafbu86hVqO0HLk3lrr/tracks",
+        "total": 43
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:3Khiafbu86hVqO0HLk3lrr"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/3dqTaxQJ8BQyFM6T1z7hpQ"
+      },
+      "href": "https://api.spotify.com/v1/playlists/3dqTaxQJ8BQyFM6T1z7hpQ",
+      "id": "3dqTaxQJ8BQyFM6T1z7hpQ",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2733469ef94acfa666fde83dec5ab67616d0000b2734117e531f63855d072059d6eab67616d0000b2734c614878cb234061701cac6cab67616d0000b273cc57e9b00b87dd0f6e868347",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2733469ef94acfa666fde83dec5ab67616d0000b2734117e531f63855d072059d6eab67616d0000b2734c614878cb234061701cac6cab67616d0000b273cc57e9b00b87dd0f6e868347",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2733469ef94acfa666fde83dec5ab67616d0000b2734117e531f63855d072059d6eab67616d0000b2734c614878cb234061701cac6cab67616d0000b273cc57e9b00b87dd0f6e868347",
+          "width": 60
+        }
+      ],
+      "name": "80's throwback",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MzgsYThjODQ5YWU5ZWNlNGZlZjBjN2IwNzkzMDQ1ZWMzMTQ5NDA0ZThhMw==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/3dqTaxQJ8BQyFM6T1z7hpQ/tracks",
+        "total": 35
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:3dqTaxQJ8BQyFM6T1z7hpQ"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/5J66ios83opDDyooIlP6YJ"
+      },
+      "href": "https://api.spotify.com/v1/playlists/5J66ios83opDDyooIlP6YJ",
+      "id": "5J66ios83opDDyooIlP6YJ",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b2738c4e95986c803791125e8991",
+          "width": 640
+        }
+      ],
+      "name": "Wake up",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MiwyYTA5MDczYTdmMjdiYWE4MjQ5NmE5NjQ3YmI1MTkzNmNjNDA2Mjg1",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/5J66ios83opDDyooIlP6YJ/tracks",
+        "total": 1
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:5J66ios83opDDyooIlP6YJ"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4a8iLjAhGND2xvzSKmqTo9"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4a8iLjAhGND2xvzSKmqTo9",
+      "id": "4a8iLjAhGND2xvzSKmqTo9",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27350cb0dcd257aea8ae4e44c85ab67616d0000b27352542119fc097b363d074792ab67616d0000b273a4b31216d4fb46324fd9c100ab67616d0000b273cc292deefc398ffc1aeb8581",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27350cb0dcd257aea8ae4e44c85ab67616d0000b27352542119fc097b363d074792ab67616d0000b273a4b31216d4fb46324fd9c100ab67616d0000b273cc292deefc398ffc1aeb8581",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27350cb0dcd257aea8ae4e44c85ab67616d0000b27352542119fc097b363d074792ab67616d0000b273a4b31216d4fb46324fd9c100ab67616d0000b273cc292deefc398ffc1aeb8581",
+          "width": 60
+        }
+      ],
+      "name": "90's throwback",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MTE3LDE4NWM0OTNlMGFhMTc0ZTdmMzllZWJiZjEzNWJlN2E5YzFmOTJkZDM=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4a8iLjAhGND2xvzSKmqTo9/tracks",
+        "total": 111
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4a8iLjAhGND2xvzSKmqTo9"
+    },
+    {
+      "collaborative": false,
+      "description": "Lyrical, lo-fi, and lowlife raps. Cover: Big Baby Scumbag.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWSTeI2WWFaia"
+      },
+      "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWSTeI2WWFaia",
+      "id": "37i9dQZF1DWSTeI2WWFaia",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706f00000002ef5ad2c508a9a90a6cbefff5",
+          "width": null
+        }
+      ],
+      "name": "Spilled Ink",
+      "owner": {
+        "display_name": "Spotify",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/spotify"
+        },
+        "href": "https://api.spotify.com/v1/users/spotify",
+        "id": "spotify",
+        "type": "user",
+        "uri": "spotify:user:spotify"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MTU4NzQ3OTM3OSwwMDAwMDAwMGQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0Mjdl",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWSTeI2WWFaia/tracks",
+        "total": 50
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:37i9dQZF1DWSTeI2WWFaia"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/3D1hsZ8B1JDa53hzpkxj26"
+      },
+      "href": "https://api.spotify.com/v1/playlists/3D1hsZ8B1JDa53hzpkxj26",
+      "id": "3D1hsZ8B1JDa53hzpkxj26",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27342bf3f893586a144871b35a8ab67616d0000b2739968770f3f0e45aa99b2ac29ab67616d0000b273da41f4450c8f3bf47840e22dab67616d0000b273e08b1250db5f75643f1508c9",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27342bf3f893586a144871b35a8ab67616d0000b2739968770f3f0e45aa99b2ac29ab67616d0000b273da41f4450c8f3bf47840e22dab67616d0000b273e08b1250db5f75643f1508c9",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27342bf3f893586a144871b35a8ab67616d0000b2739968770f3f0e45aa99b2ac29ab67616d0000b273da41f4450c8f3bf47840e22dab67616d0000b273e08b1250db5f75643f1508c9",
+          "width": 60
+        }
+      ],
+      "name": "2019",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MjQsYTQxNDVhZWVhY2MzMDIyNmM0MzlhMmNlZjY4NjgzNmVjNGFiNDk0Yg==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/3D1hsZ8B1JDa53hzpkxj26/tracks",
+        "total": 23
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:3D1hsZ8B1JDa53hzpkxj26"
+    },
+    {
+      "collaborative": false,
+      "description": "Laid back cratedigger hip-hop from around the world.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX8Kgdykz6OKj"
+      },
+      "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX8Kgdykz6OKj",
+      "id": "37i9dQZF1DX8Kgdykz6OKj",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706f000000025115b9702d26cd841fda7827",
+          "width": null
+        }
+      ],
+      "name": "Jazz Rap",
+      "owner": {
+        "display_name": "Spotify",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/spotify"
+        },
+        "href": "https://api.spotify.com/v1/users/spotify",
+        "id": "spotify",
+        "type": "user",
+        "uri": "spotify:user:spotify"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MTU4NzQ3OTM3OSwwMDAwMDAwMGQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0Mjdl",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX8Kgdykz6OKj/tracks",
+        "total": 80
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:37i9dQZF1DX8Kgdykz6OKj"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4V2hVE3R8TJQDNFK4MZa9V"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4V2hVE3R8TJQDNFK4MZa9V",
+      "id": "4V2hVE3R8TJQDNFK4MZa9V",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27391ae12a2b9f6c51ae672582dab67616d0000b273967220e8bc9250c2cae842e9ab67616d0000b273b4329d3d10b89975d308a06fab67616d0000b273e8ac25ee06b6449c188e156b",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27391ae12a2b9f6c51ae672582dab67616d0000b273967220e8bc9250c2cae842e9ab67616d0000b273b4329d3d10b89975d308a06fab67616d0000b273e8ac25ee06b6449c188e156b",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27391ae12a2b9f6c51ae672582dab67616d0000b273967220e8bc9250c2cae842e9ab67616d0000b273b4329d3d10b89975d308a06fab67616d0000b273e8ac25ee06b6449c188e156b",
+          "width": 60
+        }
+      ],
+      "name": "EDM 2019",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MzgsMjZhM2QxZjM3YjNhODI0NTVmZWIxNjBmMjA2ZmQ4NTM1NjM1Y2RhZA==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4V2hVE3R8TJQDNFK4MZa9V/tracks",
+        "total": 33
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4V2hVE3R8TJQDNFK4MZa9V"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/0Xq2b1JmQlkB5k67qM6fiH"
+      },
+      "href": "https://api.spotify.com/v1/playlists/0Xq2b1JmQlkB5k67qM6fiH",
+      "id": "0Xq2b1JmQlkB5k67qM6fiH",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b273237d7d9e53cbc31637b197eaab67616d0000b27324973a8bd81d1fed1b5ae65eab67616d0000b2736c922aad70f88db219560358ab67616d0000b273bd322b18e672fb5bfe022b6f",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b273237d7d9e53cbc31637b197eaab67616d0000b27324973a8bd81d1fed1b5ae65eab67616d0000b2736c922aad70f88db219560358ab67616d0000b273bd322b18e672fb5bfe022b6f",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b273237d7d9e53cbc31637b197eaab67616d0000b27324973a8bd81d1fed1b5ae65eab67616d0000b2736c922aad70f88db219560358ab67616d0000b273bd322b18e672fb5bfe022b6f",
+          "width": 60
+        }
+      ],
+      "name": "Chillzee",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MjEsZDhlOTUxNTllNDk3MTQ3NTRlNTRhZWI2YmM5ZDdlYWJjNTVlZDg5Ng==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/0Xq2b1JmQlkB5k67qM6fiH/tracks",
+        "total": 20
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:0Xq2b1JmQlkB5k67qM6fiH"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/5zaqtQk3NGJwstUuyAR8SW"
+      },
+      "href": "https://api.spotify.com/v1/playlists/5zaqtQk3NGJwstUuyAR8SW",
+      "id": "5zaqtQk3NGJwstUuyAR8SW",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b273654d8395e18312ca72e9b881ab67616d0000b273915ad1fb1ef73c412bb13f7fab67616d0000b27393700f816cc5835c9d34471fab67616d0000b273e2f6f571dedcf45d8961a60f",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b273654d8395e18312ca72e9b881ab67616d0000b273915ad1fb1ef73c412bb13f7fab67616d0000b27393700f816cc5835c9d34471fab67616d0000b273e2f6f571dedcf45d8961a60f",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b273654d8395e18312ca72e9b881ab67616d0000b273915ad1fb1ef73c412bb13f7fab67616d0000b27393700f816cc5835c9d34471fab67616d0000b273e2f6f571dedcf45d8961a60f",
+          "width": 60
+        }
+      ],
+      "name": "DnB",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTEsNWY2NGZhNDc4M2E5ZGE4NWYxNTNmZmRiMzIyNTQ3MzFhMDQ1YzZiZA==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/5zaqtQk3NGJwstUuyAR8SW/tracks",
+        "total": 10
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:5zaqtQk3NGJwstUuyAR8SW"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/3Lvu5HX1Rt5O5opz25H2I5"
+      },
+      "href": "https://api.spotify.com/v1/playlists/3Lvu5HX1Rt5O5opz25H2I5",
+      "id": "3Lvu5HX1Rt5O5opz25H2I5",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27355611b16348fcf509db6d17eab67616d0000b273654d8395e18312ca72e9b881ab67616d0000b273aae9357faefb1261ffe08fc0ab67616d0000b273e343471086c0601ee2b4dfae",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27355611b16348fcf509db6d17eab67616d0000b273654d8395e18312ca72e9b881ab67616d0000b273aae9357faefb1261ffe08fc0ab67616d0000b273e343471086c0601ee2b4dfae",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27355611b16348fcf509db6d17eab67616d0000b273654d8395e18312ca72e9b881ab67616d0000b273aae9357faefb1261ffe08fc0ab67616d0000b273e343471086c0601ee2b4dfae",
+          "width": 60
+        }
+      ],
+      "name": "UKBass",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "Niw1ZDkwOTNkZjA4OWNjZmQ1OWQ0Yzk1NjM3YTg0ZmJlYTkyMjg1NjA4",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/3Lvu5HX1Rt5O5opz25H2I5/tracks",
+        "total": 5
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:3Lvu5HX1Rt5O5opz25H2I5"
+    },
+    {
+      "collaborative": false,
+      "description": "What's up Sharksquad?! Check out this playlist I made for us all to jam to!!! I'm getting pumped up with tunes from myself &amp; Skrillex, Ghastly, Valentino Khan, and many more! Hope to catch up with all of you on the road, check out the tour dates <a href=\"https://jauzofficial.com/landing\">here</a>! - (^^^)",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4uHVVHPQoc5ar5sB3Ya5ss"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4uHVVHPQoc5ar5sB3Ya5ss",
+      "id": "4uHVVHPQoc5ar5sB3Ya5ss",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706c0000da84534b4a2299ddc7adedd1e948",
+          "width": null
+        }
+      ],
+      "name": "Jauz Jams",
+      "owner": {
+        "display_name": "Jauz",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/jauzofficial"
+        },
+        "href": "https://api.spotify.com/v1/users/jauzofficial",
+        "id": "jauzofficial",
+        "type": "user",
+        "uri": "spotify:user:jauzofficial"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "Mjk0OSw0ZmVkZDFiYjU0ZGI2OTU4YzYyYzIwN2NlZDBhM2JlODE4ZjAyYjNm",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4uHVVHPQoc5ar5sB3Ya5ss/tracks",
+        "total": 55
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4uHVVHPQoc5ar5sB3Ya5ss"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4vkC69C2INQ0PvPC5qyclW"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4vkC69C2INQ0PvPC5qyclW",
+      "id": "4vkC69C2INQ0PvPC5qyclW",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2736d49055f7bfb8268df9265b7ab67616d0000b2738a6f5b202132094605e86038ab67616d0000b2738bd8adbdc4727d9080240905ab67616d0000b273dc676a8b0a1ad6284b6996f9",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2736d49055f7bfb8268df9265b7ab67616d0000b2738a6f5b202132094605e86038ab67616d0000b2738bd8adbdc4727d9080240905ab67616d0000b273dc676a8b0a1ad6284b6996f9",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2736d49055f7bfb8268df9265b7ab67616d0000b2738a6f5b202132094605e86038ab67616d0000b2738bd8adbdc4727d9080240905ab67616d0000b273dc676a8b0a1ad6284b6996f9",
+          "width": 60
+        }
+      ],
+      "name": "September",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MjAsYTA2MTA0YjY4ZGY1MTk1YzU1MWE3YzQ1ZDQ5M2NlMzM5MjJlYzgxYw==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4vkC69C2INQ0PvPC5qyclW/tracks",
+        "total": 19
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4vkC69C2INQ0PvPC5qyclW"
+    },
+    {
+      "collaborative": false,
+      "description": "This is a playlist created by reddit users, inspired by the way &quot;September&quot; from Earth, Wind &amp; Fire makes us all feel.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/5nceQ0CwegZBiQKJPIe6XK"
+      },
+      "href": "https://api.spotify.com/v1/playlists/5nceQ0CwegZBiQKJPIe6XK",
+      "id": "5nceQ0CwegZBiQKJPIe6XK",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706c0000da84fe080c5707a30a16db06b55a",
+          "width": null
+        }
+      ],
+      "name": "September-esque",
+      "owner": {
+        "display_name": "who-knows-who-cares",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/oeykty9y3euojgq26mztarpib"
+        },
+        "href": "https://api.spotify.com/v1/users/oeykty9y3euojgq26mztarpib",
+        "id": "oeykty9y3euojgq26mztarpib",
+        "type": "user",
+        "uri": "spotify:user:oeykty9y3euojgq26mztarpib"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MzM2OSw1ZGUwNmMyNGE2ZjhhMGRhYTJjZmNkMWY4MTViNDdjNDhmZjVhYzcy",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/5nceQ0CwegZBiQKJPIe6XK/tracks",
+        "total": 1040
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:5nceQ0CwegZBiQKJPIe6XK"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/3Byoo0Ywmuc74XvngrE4xW"
+      },
+      "href": "https://api.spotify.com/v1/playlists/3Byoo0Ywmuc74XvngrE4xW",
+      "id": "3Byoo0Ywmuc74XvngrE4xW",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27340202cf0d9369e036600d141ab67616d0000b2734091910d8618af8711ae8c2cab67616d0000b2734ebed0e19b9bb52411e7f585ab67616d0000b273b0ff550677258f864eb71045",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27340202cf0d9369e036600d141ab67616d0000b2734091910d8618af8711ae8c2cab67616d0000b2734ebed0e19b9bb52411e7f585ab67616d0000b273b0ff550677258f864eb71045",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27340202cf0d9369e036600d141ab67616d0000b2734091910d8618af8711ae8c2cab67616d0000b2734ebed0e19b9bb52411e7f585ab67616d0000b273b0ff550677258f864eb71045",
+          "width": 60
+        }
+      ],
+      "name": "Disco/Funk",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MzgsNjUwOTMxZmIzYzk0MjU3MTM3MmM4MWUzNjA2MDE4YjNmZGE5YzEwNw==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/3Byoo0Ywmuc74XvngrE4xW/tracks",
+        "total": 35
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:3Byoo0Ywmuc74XvngrE4xW"
+    },
+    {
+      "collaborative": false,
+      "description": "Jazz music to start your day right.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX71VcjjnyaBQ"
+      },
+      "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX71VcjjnyaBQ",
+      "id": "37i9dQZF1DX71VcjjnyaBQ",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706f00000002e160aee603e912a5ced9ec27",
+          "width": null
+        }
+      ],
+      "name": "Good Morning Jazz",
+      "owner": {
+        "display_name": "Spotify",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/spotify"
+        },
+        "href": "https://api.spotify.com/v1/users/spotify",
+        "id": "spotify",
+        "type": "user",
+        "uri": "spotify:user:spotify"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MTU4NzQ3OTM3OSwwMDAwMDAwMGQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0Mjdl",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX71VcjjnyaBQ/tracks",
+        "total": 50
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:37i9dQZF1DX71VcjjnyaBQ"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/5GNqS2VU5PWdLhsATZr0Ip"
+      },
+      "href": "https://api.spotify.com/v1/playlists/5GNqS2VU5PWdLhsATZr0Ip",
+      "id": "5GNqS2VU5PWdLhsATZr0Ip",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2731201b6be575017b144bb5079ab67616d0000b2733f9e18e4a25c4c7427bbf3a1ab67616d0000b273450ac06256b656b1c595df37ab67616d0000b273ed22e98cc6f0b965ebeee6aa",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2731201b6be575017b144bb5079ab67616d0000b2733f9e18e4a25c4c7427bbf3a1ab67616d0000b273450ac06256b656b1c595df37ab67616d0000b273ed22e98cc6f0b965ebeee6aa",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2731201b6be575017b144bb5079ab67616d0000b2733f9e18e4a25c4c7427bbf3a1ab67616d0000b273450ac06256b656b1c595df37ab67616d0000b273ed22e98cc6f0b965ebeee6aa",
+          "width": 60
+        }
+      ],
+      "name": "All are welcome here",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MzIsZDllM2IyMTMwMjEwZWVhNGFlNGI2NDdmMTFjODMwMzIwM2E1ZTE0MA==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/5GNqS2VU5PWdLhsATZr0Ip/tracks",
+        "total": 28
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:5GNqS2VU5PWdLhsATZr0Ip"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4JBP0aVJPiL5wVcfdpXKaG"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4JBP0aVJPiL5wVcfdpXKaG",
+      "id": "4JBP0aVJPiL5wVcfdpXKaG",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27395cd2f55f0d5f63a39920bdfab67616d0000b2739ad024f0b249f6e561d34e33ab67616d0000b273b425be37e337b8e905875377ab67616d0000b273e36f57ee03d483fcf4e4f953",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27395cd2f55f0d5f63a39920bdfab67616d0000b2739ad024f0b249f6e561d34e33ab67616d0000b273b425be37e337b8e905875377ab67616d0000b273e36f57ee03d483fcf4e4f953",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27395cd2f55f0d5f63a39920bdfab67616d0000b2739ad024f0b249f6e561d34e33ab67616d0000b273b425be37e337b8e905875377ab67616d0000b273e36f57ee03d483fcf4e4f953",
+          "width": 60
+        }
+      ],
+      "name": "Moving Forward",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "ODUsOTY2NGQ3MTI2Yjg3NWUzZjIyYWJmN2JmZTliMWEzZjgzMTBmYjExZA==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4JBP0aVJPiL5wVcfdpXKaG/tracks",
+        "total": 79
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4JBP0aVJPiL5wVcfdpXKaG"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/6uYt5DwcyaOxxPUundboC2"
+      },
+      "href": "https://api.spotify.com/v1/playlists/6uYt5DwcyaOxxPUundboC2",
+      "id": "6uYt5DwcyaOxxPUundboC2",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2736a760642a56847027428cb61ab67616d0000b27390ef9760e57fafd8f966d17aab67616d0000b273c3c0ca7a4929d96f2f1c5774ab67616d0000b273e8dd4db47e7177c63b0b7d53",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2736a760642a56847027428cb61ab67616d0000b27390ef9760e57fafd8f966d17aab67616d0000b273c3c0ca7a4929d96f2f1c5774ab67616d0000b273e8dd4db47e7177c63b0b7d53",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2736a760642a56847027428cb61ab67616d0000b27390ef9760e57fafd8f966d17aab67616d0000b273c3c0ca7a4929d96f2f1c5774ab67616d0000b273e8dd4db47e7177c63b0b7d53",
+          "width": 60
+        }
+      ],
+      "name": "Reddit's Greatest Hits ",
+      "owner": {
+        "display_name": "haeltotoe",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/haeltotoe"
+        },
+        "href": "https://api.spotify.com/v1/users/haeltotoe",
+        "id": "haeltotoe",
+        "type": "user",
+        "uri": "spotify:user:haeltotoe"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MjU5LGQwN2QzNDVlM2FmZjVhZTU1ZjkwNjE4YmZjOWE4YzMwZTg1MGUyODQ=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/6uYt5DwcyaOxxPUundboC2/tracks",
+        "total": 111
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:6uYt5DwcyaOxxPUundboC2"
+    },
+    {
+      "collaborative": true,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/62SJFBkvpmR0Z6MIa9v13I"
+      },
+      "href": "https://api.spotify.com/v1/playlists/62SJFBkvpmR0Z6MIa9v13I",
+      "id": "62SJFBkvpmR0Z6MIa9v13I",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b273df492f9ecc79b4766aa9ac94",
+          "width": 640
+        }
+      ],
+      "name": "Reddit Picks",
+      "owner": {
+        "display_name": "haeltotoe",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/haeltotoe"
+        },
+        "href": "https://api.spotify.com/v1/users/haeltotoe",
+        "id": "haeltotoe",
+        "type": "user",
+        "uri": "spotify:user:haeltotoe"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MzI5NCwxNGMwNDQ2NjNlODg1YWZjZDMyZjBmNWJjMDFkNTdkOGY1MzI2NWVi",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/62SJFBkvpmR0Z6MIa9v13I/tracks",
+        "total": 0
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:62SJFBkvpmR0Z6MIa9v13I"
+    },
+    {
+      "collaborative": false,
+      "description": "Listen to this playlist featuring Christian McBride&#x27;s 7 best old school Funk bass players, and more old school Funk music. Follow and hear more Funk songs featuring funky bass lines. Like https:&#x2F;&#x2F;www.facebook.com&#x2F;funky.music.playlist for more funky music from around the world.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4wVlBYAIogVLLzRp4eLM1f"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4wVlBYAIogVLLzRp4eLM1f",
+      "id": "4wVlBYAIogVLLzRp4eLM1f",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b273010dea48a46423933f51e888ab67616d0000b2730510d234ae870fdcff1e3f84ab67616d0000b2734791f090163c91fbb0a82b0cab67616d0000b273d58852e49908da22a68f1913",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b273010dea48a46423933f51e888ab67616d0000b2730510d234ae870fdcff1e3f84ab67616d0000b2734791f090163c91fbb0a82b0cab67616d0000b273d58852e49908da22a68f1913",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b273010dea48a46423933f51e888ab67616d0000b2730510d234ae870fdcff1e3f84ab67616d0000b2734791f090163c91fbb0a82b0cab67616d0000b273d58852e49908da22a68f1913",
+          "width": 60
+        }
+      ],
+      "name": "The Best Funk Songs with the Funkiest Bass Lines — Everybody Wanna Get Funky One More Time!",
+      "owner": {
+        "display_name": "Joe Gatto",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/1249158184"
+        },
+        "href": "https://api.spotify.com/v1/users/1249158184",
+        "id": "1249158184",
+        "type": "user",
+        "uri": "spotify:user:1249158184"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "NjEsMzEzYzhkMjA5NGE3Mjg0MjcxNmE5YjE0MjM5ZjE2NzZiMDZlODUwZA==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4wVlBYAIogVLLzRp4eLM1f/tracks",
+        "total": 23
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4wVlBYAIogVLLzRp4eLM1f"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/4uhGVJ29P4rWpTnpR0QR9X"
+      },
+      "href": "https://api.spotify.com/v1/playlists/4uhGVJ29P4rWpTnpR0QR9X",
+      "id": "4uhGVJ29P4rWpTnpR0QR9X",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/60d43b0fb39b361578eb08f8ba4db263c2df5747ab67616d0000b27346c0e6131539bbb40830e6c0ab67616d0000b273a72e5b0cb7acb497cb8906c1ab67616d0000b273b4296bc4a9c5b73e4c72055f",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/60d43b0fb39b361578eb08f8ba4db263c2df5747ab67616d0000b27346c0e6131539bbb40830e6c0ab67616d0000b273a72e5b0cb7acb497cb8906c1ab67616d0000b273b4296bc4a9c5b73e4c72055f",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/60d43b0fb39b361578eb08f8ba4db263c2df5747ab67616d0000b27346c0e6131539bbb40830e6c0ab67616d0000b273a72e5b0cb7acb497cb8906c1ab67616d0000b273b4296bc4a9c5b73e4c72055f",
+          "width": 60
+        }
+      ],
+      "name": "DW18",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "OCxhY2YxNmI1NzMwMGU2MDE3NmViODkyMDFmM2VlM2Q1YzdlZTc2NjNj",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/4uhGVJ29P4rWpTnpR0QR9X/tracks",
+        "total": 151
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:4uhGVJ29P4rWpTnpR0QR9X"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/2wHdzh092psaDep0D64vKF"
+      },
+      "href": "https://api.spotify.com/v1/playlists/2wHdzh092psaDep0D64vKF",
+      "id": "2wHdzh092psaDep0D64vKF",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27335eac2c5607d296714af0863ab67616d0000b2739346bfc1da346c8a9409120bab67616d0000b27394aa07e00b0fd6c22cb6d338ab67616d0000b273cb8f618ddf116f00f0c31eb8",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27335eac2c5607d296714af0863ab67616d0000b2739346bfc1da346c8a9409120bab67616d0000b27394aa07e00b0fd6c22cb6d338ab67616d0000b273cb8f618ddf116f00f0c31eb8",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27335eac2c5607d296714af0863ab67616d0000b2739346bfc1da346c8a9409120bab67616d0000b27394aa07e00b0fd6c22cb6d338ab67616d0000b273cb8f618ddf116f00f0c31eb8",
+          "width": 60
+        }
+      ],
+      "name": "EDM 2018",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "NDIsZDA4YzBkMDIzMTM2NjgxZDI4NjQ3ZjJhM2YyNDYwZTE3ZDNjMzlhZA==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/2wHdzh092psaDep0D64vKF/tracks",
+        "total": 40
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:2wHdzh092psaDep0D64vKF"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/0aSkrlAqNJcFOPTKA462w4"
+      },
+      "href": "https://api.spotify.com/v1/playlists/0aSkrlAqNJcFOPTKA462w4",
+      "id": "0aSkrlAqNJcFOPTKA462w4",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b2730fca4043753e602ef2113236ab67616d0000b2735ad0760f879e66cea2fb78b4ab67616d0000b273a5c79f122ec932b50998ecd9ab67616d0000b273f434a6c2d11f5027fa996d71",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b2730fca4043753e602ef2113236ab67616d0000b2735ad0760f879e66cea2fb78b4ab67616d0000b273a5c79f122ec932b50998ecd9ab67616d0000b273f434a6c2d11f5027fa996d71",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b2730fca4043753e602ef2113236ab67616d0000b2735ad0760f879e66cea2fb78b4ab67616d0000b273a5c79f122ec932b50998ecd9ab67616d0000b273f434a6c2d11f5027fa996d71",
+          "width": 60
+        }
+      ],
+      "name": "myhousewerk",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "NDYsZGZjNjM1NTU0NmUxN2FlOTM2NGYwMGQ1ZDU4ZWY5NDE1ZjVlNTU2OQ==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/0aSkrlAqNJcFOPTKA462w4/tracks",
+        "total": 43
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:0aSkrlAqNJcFOPTKA462w4"
+    },
+    {
+      "collaborative": false,
+      "description": "coco chanel",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/3HTvMpqDo59DUgbTiDJFBk"
+      },
+      "href": "https://api.spotify.com/v1/playlists/3HTvMpqDo59DUgbTiDJFBk",
+      "id": "3HTvMpqDo59DUgbTiDJFBk",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706c0000da844a38391dc29ce4ca6c6a6f39",
+          "width": null
+        }
+      ],
+      "name": "ᔕᑌᑭEᖇᔕE᙭420",
+      "owner": {
+        "display_name": "Leigh Payne",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/12170075968"
+        },
+        "href": "https://api.spotify.com/v1/users/12170075968",
+        "id": "12170075968",
+        "type": "user",
+        "uri": "spotify:user:12170075968"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MTAzLDhiZmZiOWJmOTFiMmRlM2FkYzNlY2VkMWU3YTBkMDhmYWRjMTBmMmI=",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/3HTvMpqDo59DUgbTiDJFBk/tracks",
+        "total": 239
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:3HTvMpqDo59DUgbTiDJFBk"
+    },
+    {
+      "collaborative": false,
+      "description": "",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/6gdXtKfYkTgJVBkzlueeO9"
+      },
+      "href": "https://api.spotify.com/v1/playlists/6gdXtKfYkTgJVBkzlueeO9",
+      "id": "6gdXtKfYkTgJVBkzlueeO9",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://mosaic.scdn.co/640/ab67616d0000b27390ad98194cb0f6b528822893ab67616d0000b273c2b53aa8bec6444151d20e09ab67616d0000b273cf11199c34c010aa86a17b56ab67616d0000b273e88516a6a7716016aa6fd931",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://mosaic.scdn.co/300/ab67616d0000b27390ad98194cb0f6b528822893ab67616d0000b273c2b53aa8bec6444151d20e09ab67616d0000b273cf11199c34c010aa86a17b56ab67616d0000b273e88516a6a7716016aa6fd931",
+          "width": 300
+        },
+        {
+          "height": 60,
+          "url": "https://mosaic.scdn.co/60/ab67616d0000b27390ad98194cb0f6b528822893ab67616d0000b273c2b53aa8bec6444151d20e09ab67616d0000b273cf11199c34c010aa86a17b56ab67616d0000b273e88516a6a7716016aa6fd931",
+          "width": 60
+        }
+      ],
+      "name": "HardStyleBaby",
+      "owner": {
+        "display_name": "Kevin Andrews",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/kevinbigfoot"
+        },
+        "href": "https://api.spotify.com/v1/users/kevinbigfoot",
+        "id": "kevinbigfoot",
+        "type": "user",
+        "uri": "spotify:user:kevinbigfoot"
+      },
+      "primary_color": null,
+      "public": true,
+      "snapshot_id": "MTAsNmZhZGE3OGZkY2UwZjNmNjA3ZWZjY2Y1M2NlYjFlYzA1NTZkMDExMg==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/6gdXtKfYkTgJVBkzlueeO9/tracks",
+        "total": 8
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:6gdXtKfYkTgJVBkzlueeO9"
+    },
+    {
+      "collaborative": false,
+      "description": "Uptempto instrumental hip-hop beats.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWZZbwlv3Vmtr"
+      },
+      "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWZZbwlv3Vmtr",
+      "id": "37i9dQZF1DWZZbwlv3Vmtr",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706f0000000217cb4ad5c7a15a159a06f0a7",
+          "width": null
+        }
+      ],
+      "name": "Focus Flow",
+      "owner": {
+        "display_name": "Spotify",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/spotify"
+        },
+        "href": "https://api.spotify.com/v1/users/spotify",
+        "id": "spotify",
+        "type": "user",
+        "uri": "spotify:user:spotify"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MTU4NTc2ODEzNiwwMDAwMDAyMDAwMDAwMTcxMzcyNTdmMmQwMDAwMDE3MGFmNDM4MjE0",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWZZbwlv3Vmtr/tracks",
+        "total": 108
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:37i9dQZF1DWZZbwlv3Vmtr"
+    },
+    {
+      "collaborative": false,
+      "description": "The songs you loved most this year, all wrapped up.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/37i9dQZF1E9NXzWb6sALM3"
+      },
+      "href": "https://api.spotify.com/v1/playlists/37i9dQZF1E9NXzWb6sALM3",
+      "id": "37i9dQZF1E9NXzWb6sALM3",
+      "images": [
+        {
+          "height": null,
+          "url": "https://lineup-images.scdn.co/your-top-songs-2017_DEFAULT-en.jpg",
+          "width": null
+        }
+      ],
+      "name": "Your Top Songs 2017",
+      "owner": {
+        "display_name": "Spotify",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/spotify"
+        },
+        "href": "https://api.spotify.com/v1/users/spotify",
+        "id": "spotify",
+        "type": "user",
+        "uri": "spotify:user:spotify"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MjUxODI3OTUsMDAwMDAwMDBkODRlMzhiYWYyNDY2MDBjNjM4ZDgwYWQwZjMzODczYQ==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1E9NXzWb6sALM3/tracks",
+        "total": 100
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:37i9dQZF1E9NXzWb6sALM3"
+    },
+    {
+      "collaborative": false,
+      "description": "Here's a collection of songs you’ll wish you’d discovered earlier in the year.",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/37i9dQZF1EagmDkQmhTVWY"
+      },
+      "href": "https://api.spotify.com/v1/playlists/37i9dQZF1EagmDkQmhTVWY",
+      "id": "37i9dQZF1EagmDkQmhTVWY",
+      "images": [
+        {
+          "height": null,
+          "url": "https://lineup-images.scdn.co/the-ones-that-got-away_DEFAULT-en.jpg",
+          "width": null
+        }
+      ],
+      "name": "The Ones That Got Away",
+      "owner": {
+        "display_name": "Spotify",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/spotify"
+        },
+        "href": "https://api.spotify.com/v1/users/spotify",
+        "id": "spotify",
+        "type": "user",
+        "uri": "spotify:user:spotify"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MjUxODI1MzYsMDAwMDAwMDBkNzIzNWIyOGRhNTEwMjAxNTg4MDVkZDc2MTRhYTEyZQ==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1EagmDkQmhTVWY/tracks",
+        "total": 30
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:37i9dQZF1EagmDkQmhTVWY"
+    },
+    {
+      "collaborative": false,
+      "description": "212 movin <a href=\"spotify:genre:edm_dance\">house tunes</a>, Hallelujah for Will Clarke!",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXa8NOEUWPn9W"
+      },
+      "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXa8NOEUWPn9W",
+      "id": "37i9dQZF1DXa8NOEUWPn9W",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706f000000025ee104642faab3e0d6a0d477",
+          "width": null
+        }
+      ],
+      "name": "Housewerk",
+      "owner": {
+        "display_name": "Spotify",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/spotify"
+        },
+        "href": "https://api.spotify.com/v1/users/spotify",
+        "id": "spotify",
+        "type": "user",
+        "uri": "spotify:user:spotify"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MTU4NzQ3OTM3OSwwMDAwMDAwMGQ0MWQ4Y2Q5OGYwMGIyMDRlOTgwMDk5OGVjZjg0Mjdl",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXa8NOEUWPn9W/tracks",
+        "total": 212
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:37i9dQZF1DXa8NOEUWPn9W"
+    }
+  ]

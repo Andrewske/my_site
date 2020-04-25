@@ -1,0 +1,33 @@
+{
+    "kind": "youtube#playlist",
+    "etag": "tnVOtk4NeGU6nDncDTE5m9SmuHc/3FGxD-al1zXWxRVgWmAe-Adr7Y0",
+    "id": "PLvWMWXQ-y4l87xy9KigzcaUe1Bhn0ynSo",
+    "snippet": {
+        "publishedAt": "2020-04-14T03: 52: 13.000Z",
+        "channelId": "UC9r-MHP2oykhBiEkJ1bANCw",
+        "title": "Test Playlist",
+        "description": "",
+        "thumbnails": {
+            "default": {
+                "url": "http: //s.ytimg.com/yts/img/no_thumbnail-vfl4t3-4R.jpg",
+                "width": 120,
+                "height": 90
+            },
+            "medium": {
+                "url": "http://s.ytimg.com/yts/img/no_thumbnail-vfl4t3-4R.jpg",
+                "width": 320,
+                "height": 180
+            },
+            "high": {
+                "url": "http://s.ytimg.com/yts/img/no_thumbnail-vfl4t3-4R.jpg",
+                "width": 480,
+                "height": 360
+            }
+        },
+        "channelTitle": "Kevin Andrews",
+        "localized": {
+            "title": "Test Playlist",
+            "description": ""
+        }
+    }
+}
