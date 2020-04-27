@@ -215,17 +215,15 @@ def youtubeView(request):
     s_user = user.spotifyuser
     playlists = spotify_user_data.get_user_playlists(s_user.username, s_user.access_token)
     
-    youtube_user = SocialToken.objects.get(account__user=request.user)
-    # expires_in = (youtube_user.expires_at - timezone.now()).total_seconds()
-    # if expires_in < 1:
-    #     print("Youtube Access Expired, acquiring new token...")
-    #     youtube.get_oauth2_session(request)
-    #     return redirect('youtube')
+    youtube_user = SocialToken.objects.get(account__user=user)
+    expires_in = (youtube_user.expires_at - timezone.now()).total_seconds()
+    if expires_in < 1:
+        print("Youtube Access Expired, acquiring new token...")
+        youtube.get_oauth2_session(request)
+        return redirect('youtube')
     
-    
-    #message = youtube.search_youtube('skrillex', access_token)
+    #message = youtube.get_playlists(youtube_user.token)
     return render(request,'music_minion/youtube.html', {'message': message, 'minion_gif':minion_gif, 'youtube_token':youtube_user.token, 'data':playlists})
-
 
 def spotifyToYoutube(request):
     user = request.user

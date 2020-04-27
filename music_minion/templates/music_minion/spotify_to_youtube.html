@@ -141,6 +141,8 @@
 <script type="module" src="{% static 'music_minion/script.js' %}"></script>
 
 <script src="{% static 'music_minion/spotify_to_youtube.js' %}"></script>
+
+
 <script>
     
     //var spotifyTracks = [{"id": "2RqZFOLOnzVmHUX7ZMcaES","name": "Let It Go","img_url": "https: //i.scdn.co/image/ab67616d00001e02911ef35f75422d0482cec8bf","artists": "Keyshia Cole, Missy Elliott, Lil Kim","href": "https://api.spotify.com/v1/tracks/2RqZFOLOnzVmHUX7ZMcaES",},{"id": "7EwPR8nTPQpWl9qSXzkHpq","name": "21 Questions","img_url": "https://i.scdn.co/image/ab67616d00001e020770fe27caff8948d0cea4ec","artists": "Unwrapped","href": "https://api.spotify.com/v1/tracks/7EwPR8nTPQpWl9qSXzkHpq",},{"id": "0aj2QKJvz6CePykmlTApiD","name": "Señorita","img_url": "https://i.scdn.co/image/ab67616d00001e02346a5742374ab4cf9ed32dee","artists": "Justin Timberlake","href": "https://api.spotify.com/v1/tracks/0aj2QKJvz6CePykmlTApiD",},{"id": "0uEp9E98JB5awlA084uaIg","name": "Doo Wop (That Thing)","img_url": "https://i.scdn.co/image/ab67616d00001e02e08b1250db5f75643f1508c9","artists": "Ms. Lauryn Hill","href": "https://api.spotify.com/v1/tracks/0uEp9E98JB5awlA084uaIg",},{"id": "3TjE3A8tLih7KBwKJ03Htl","name": "New Vibe Who Dis (feat. Little League)","img_url": "https://i.scdn.co/image/ab67616d00001e02ebd63c63c3435d89535888a1","artists": "Madison Mars, Little League","href": "https://api.spotify.com/v1/tracks/3TjE3A8tLih7KBwKJ03Htl",}];
@@ -159,6 +161,7 @@
     var playlist_id = '5zaqtQk3NGJwstUuyAR8SW'
     let spotifyGroup = []
     var container = null;
+    var youtube = null
     var playlistDropdown = null;
 
     $(document).ready(function(event){
@@ -326,7 +329,7 @@
         };
 
         async createYoutubeCards() {
-            //let youtubeTracks = await searchYoutube(this.track, cleanTracks);
+            youtubeTracks = await searchYoutube(this.track, cleanTracks);
             this.youtubeTrackCards = youtubeTracks.map((track) => new trackCard(track,'youtube'));
             this.lengthYoutube = youtubeTracks.length;
         };
@@ -335,10 +338,10 @@
 
     class cardContainer {
 
-        constructor(playlistId, tracks) {
+        constructor(playlistId, playlistName, tracks) {
             this.playlistId = playlistId;
-            this.playlistName = 
-            this.spotifyTrackObjs = []
+            this.playlistName = playlistName;
+            this.spotifyTrackObjs = [];
             this.currentSpotify = 0;
             this.lengthSpotify = 0;
             this.spotifyTracks = tracks;
@@ -512,19 +515,77 @@
             this.tracksTable(false)
         }
 
-        savePlaylist() {
+        async savePlaylist() {
             let tracks = Object.values(this.confirmed)
+            //Create the Youtube Class
+            youtube = new youtubePlaylist(tracks)
+            console.log(youtube)
+            //Get the users Youtube Playlists
+            await youtube.getPlaylists()
+            console.log(youtube.userPlaylistsNames)
 
+            //Check if the playlist already exists
+            if(youtube.userPlaylistsNames.includes(this.playlistName)) {
+                console.log(`The Playlist ${this.playlistName} Exists`)
+                youtube.playlistId = youtube.userPlaylists.filter(playlist => playlist.snippet.title == this.playlistName)[0]['id']
 
-        }
+                //Get the current tracks in that playlist
+                await youtube.getPlaylistTracks()
+                console.log("Playlist Items")
+                console.log(youtube.playlistItems)
+
+                //Remove any tracks that are already in the playlist
+
+                let playlistIds = youtube.playlistItems.map(item => item.snippet.resourceId.videoId)
+                var i;
+                for(i=0; i<tracks.length; i++){
+                    let trackId = tracks[i].id
+                    console.log(`Track Id: ${trackId}`)
+                    if(playlistIds.includes(trackId)){
+                        console.log(`Youtube Track Exists`)
+                        let trackIndex = youtube.tracks.indexOf(youtube.tracks.filter(track=>track.id ==trackId)[0])
+                        youtube.tracks.splice(trackIndex,1)
+                    }
+                }
+            } else {
+                //Create a new playlist
+                await youtube.createPlaylist(this.playlistName)
+            };
+            let link = "https://www.youtube.com/playlist?list=" + youtube.playlistId;
+            //If there are tracks that do not already exist add them to the playlist
+            if (youtube.tracks.length > 0 ) {
+                console.log("Adding Tracks")
+                console.log(youtube.tracks)
+                success("Posting", "Posting Tracks", link)
+                //First we load a posting message that includes a count of how many have been posted, this updates each time a new post is successful
+                //This would be much easier with React, but I will first implement in JS.
+                let finish = document.getElementById('message')
+
+                for(var i=0; i<youtube.tracks.length;i++) {
+                    let count = i + 1;
+                    finish.innerText = `Posting Track #${count}`;
+                    let track = youtube.tracks[i];
+                    const added = await youtube.addToPlaylist(track.id)
+                    console.log(`Added Track: ${count}`)
+                } 
+                
+                let message = `We have added ${youtube.tracks.length} tracks to the <strong>${this.playlistName} </strong> playlist`
+                success('Success!', message, link);
+            } else {
+                let message = `All these videos currently exist in your <strong> ${this.playlistName} </strong> playlist`;
+                success('Success!', message, link);  
+            }    
+            
+                  
+        };
     };
 
 
-    async function getTracks(playlistId) {
+    async function getTracks(playlistId, playlistName) {
         try {
             console.log(`Getting Tracks for playlist ${playlistId}`)
             let spotifyTracks = await spotifyGetPlaylistTracks(playlistId, cleanTracks)
-            container = new cardContainer(playlistId, spotifyTracks)
+            container = new cardContainer(playlistId, playlistName, spotifyTracks)
             container.createSpotifyCards()
             container.loadCards('spotify')
             $('#finish').fadeOut(1000).addClass('hidden');
@@ -642,35 +703,144 @@
     };
 
 
-    async function savePlaylist() {
-        let userId = '{{ user.id }}';
-        let playlistName = "Omnia";
-        //console.log(youtubePlaylist)
-        let response = await $.ajax({
-            type:"POST",
-            url:'{% url "make_youtube_playlist" %}',
-            data: {'user_id':userId, 'track_ids':JSON.stringify(youtubePlaylist), 'playlist_name':playlistName, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
-            dataType:'json',
-            success: function(data) {
-                return data
-            },
-            error: function(rs, e){
-                console.log(rs.responseText)
-                return "Nada"
-            }
-        });
-        success(response)
-    };
 
-    function success(data) {
+    class youtubePlaylist {
+        constructor(tracks) {
+            this.tracks = tracks;
+            this.token = youtubeToken;
+            this.userPlaylists = [];
+            this.playlistId = null;
+            this.playlistItems = [];
+            this.userPlaylistsNames = [];
+        }
+
+        async addTracks() {
+            console.log(typeof this.tracks)
+            this.tracks.forEach(track => {this.addToPlaylist(track.id)})
+        }
+
+        async getPlaylists() {
+            let data = await $.ajax({
+                type:'get',
+                url:'https://www.googleapis.com/youtube/v3/playlists',
+                data : {
+                        'part':'snippet',
+                        'mine': true,
+                    },
+                dataType:'json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + youtubeToken);
+                    xhr.setRequestHeader("Content-Type", "application/json")
+                },
+                success: function(data) {
+                    return data
+                },
+                error: function(rs, e){
+                    console.log(rs.responseText)
+
+                }
+            });
+            this.userPlaylists = data['items'];
+            this.userPlaylistsNames = data['items'].map(item => item['snippet']['title']);
+        };
+
+        async getPlaylistTracks() {
+            let data = await $.ajax({
+                type:'get',
+                url:'https://www.googleapis.com/youtube/v3/playlistItems',
+                data : {
+                        'part':'snippet',
+                        'playlistId':this.playlistId,
+                    },
+                dataType:'json',
+                contentType: 'application/json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + youtubeToken);
+                },
+                success: function(data) {
+                    return data
+                },
+                error: function(rs, e){
+                    console.log(rs.responseText)
+
+                }
+            });
+            this.playlistItems = data['items'];
+        };
+
+
+        async createPlaylist(title) {
+            console.log(title)
+            let data = await $.ajax({
+                type:'POST',
+                url:'https://www.googleapis.com/youtube/v3/playlists?'+$.param({'part':'snippet'}),
+                data : JSON.stringify({
+                    "snippet" : {
+                        "title": title,
+                    },
+                }),
+                dataType:'json',
+                contentType: 'application/json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader ("Authorization", "Bearer " + youtubeToken);
+                    xhr.setRequestHeader ("Accept", "application/json");
+                },
+                success: function(data) {
+                    console.log("New Playlist Created")
+                    return data
+                },
+                error: function(rs, e){
+                    console.log(rs.responseText)
+
+                }
+            });
+            this.playlistId = data
+        };
+
+        async addToPlaylist(trackId) {
+            let data = await $.ajax({
+                type:'POST',
+                url:'https://www.googleapis.com/youtube/v3/playlistItems?'+ $.param({'part':'snippet'}),
+                data : JSON.stringify({
+                        'kind': 'youtube#playlistItem',
+                        'snippet': {
+                            'playlistId': this.playlistId,
+                            'resourceId':{
+                                'kind': 'youtube#video',
+                                'videoId': trackId,
+                            }
+                        },
+                }),
+                dataType:'json',
+                contentType: 'application/json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader ("Authorization", "Bearer " + youtubeToken);
+                    xhr.setRequestHeader ("Accept", "application/json");
+                },
+                success: function(data) {
+                    return data
+                },
+                error: function(rs, e){
+                    console.log(rs.responseText)
+
+                }
+            });
+            this.playlistItems += data;
+            return true
+        };
+    }
+
+    function success(status, message, link) {
         let success = `
-        <div>
-            <h1>Sucess!</h1>
-            <p>You have created a new Youtube playlist</p>
+        <div class="pt-5 d-flex flex-column">
+            <h1 id="status" class="d-flex justify-content-center">${status}</h1>
+            <p id="message" class="d-flex justify-content-center">${message}</p>
+            <div class="d-flex justify-content-center">
+                <button id="visit-playlist" class="btn contact-button" onclick=" window.open('${link}','_blank')">Visit PLaylist</button>
+            </div>
         </div>
         `
-        console.log(data);
-        document.getElementById("tracks").innerHTML = success;
+        document.getElementById("finish").innerHTML = success;
     }
 
 
@@ -731,9 +901,8 @@
                 item.addEventListener('click', (evt) => {
                     this.inputField.value = item.textContent;
                     let playlistId = this.valueArray[this.textArray.indexOf(item.textContent)]
-                    let playlistName = lodash.startCase(item.innerText);
-                    console.log(playlistName)
-                    getTracks(playlistId)
+                    let playlistName = (item.innerText).replace(/\w+/g, _.capitalize);
+                    getTracks(playlistId, playlistName)
                     this.dropdownArray.forEach(dropdown => {
                         dropdown.classList.add('closed');
                     });
@@ -760,12 +929,6 @@
                     this.dropdown.classList.remove('open');
                 }
             });
-        }
-    }
-
-    class youtubePlaylist {
-        constructor(tracks) {
-            this.tracks = tracks
         }
     }
 

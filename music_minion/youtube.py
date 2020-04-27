@@ -139,3 +139,20 @@ def add_to_playlist(track_id, playlist_id, access_token):
         return ["Success", track_id]
     except Exception as x:
         return ["Failure", str(x), track_id]
+
+def get_playlists(access_token):
+    url = 'https://www.googleapis.com/youtube/v3/playlists'
+    
+
+    data = {
+        'part':'snippet',
+        'mine':True,
+    }
+
+    header_value = "Bearer " + str(access_token)
+    response = requests.get(url, params=data, headers= {"Authorization": header_value, "Content-Type":'application/json'})
+    response_data = json.loads(response.text)
+    try:
+        return ["Success", response_data]
+    except Exception as x:
+        return ["Failure", str(x), response_data]

@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'background_task',
     'rest_framework',
     'include_by_ajax',
+    'webpack_loader',
 
     #All Auth
     'allauth',
@@ -225,4 +226,16 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'offline',
         }
     },
+}
+
+#Webpack-Loader
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': not DEBUG,
+        'BUNDLE_DIR_NAME': 'webpack_bundles/', # must end with slash
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+        'POLL_INTERVAL': 0.1,
+        'TIMEOUT': None,
+        'IGNORE': ['.+\.hot-update.js', '.+\.map']
+    }
 }
