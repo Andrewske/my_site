@@ -14,7 +14,7 @@ certifi==2019.11.28
 chardet==3.0.4
 colorama==0.4.3
 defusedxml==0.6.0
-Django==3.0.1
+Django==3.0.5
 django-allauth==0.41.0
 django-appconf==1.0.4
 django-apscheduler==0.3.0
@@ -22,7 +22,9 @@ django-background-tasks==1.2.5
 django-compat==1.0.15
 django-crispy-forms==1.8.1
 django-include-by-ajax==2.0.0
+django-node==4.0.0
 django-ses==0.8.13
+django-webpack==3.1.1
 django-webpack-loader==0.7.0
 djangorestframework==3.11.0
 future==0.18.2
@@ -36,8 +38,9 @@ multidict==4.7.2
 mutagen==1.43.0
 numpy==1.18.1
 oauthlib==3.1.0
+optional-django==0.1.0
 packaging==20.3
-Pillow==6.2.1
+Pillow==7.1.2
 pluggy==0.13.1
 py==1.8.1
 pycurl==7.43.0.5
