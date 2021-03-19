@@ -26,7 +26,7 @@ django-node==4.0.0
 django-ses==0.8.13
 django-webpack==3.1.1
 django-webpack-loader==0.7.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 future==0.18.2
 idna==2.8
 isort==4.3.21
